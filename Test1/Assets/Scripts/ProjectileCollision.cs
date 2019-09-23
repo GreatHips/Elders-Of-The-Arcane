@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class ProjectileCollision : MonoBehaviour
 {
-
+    public GameObject enemyHpBar;
     void OnCollisionEnter2D(Collision2D coll)
 
     {
 
         if (coll.gameObject.tag == "Enemy")
         {
-            Damage();
+            Damage(20);
             Destroy(GameObject.Find("Light(Clone)"), 0.01f);
             Destroy(gameObject);
+            enemyHpBar.SetActive(true);
         }
         if (coll.gameObject.tag == "Bullets")
         {
@@ -28,9 +29,9 @@ public class ProjectileCollision : MonoBehaviour
     }
 
 
-    void Damage()
+    void Damage(int damage)
     {
-        EnemyAI.enemyHealth -= 50;
+        EnemyAI.enemyHealth -= damage;
         Debug.Log("Enemy hp: " + EnemyAI.enemyHealth);
         
     }

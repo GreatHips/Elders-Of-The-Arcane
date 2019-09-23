@@ -21,19 +21,13 @@ public class Player : MonoBehaviour
     public GameObject healthBar1;
     public GameObject healthBar2;
     public GameObject healthBar3;
-    public GameObject ui;
+    public GameObject blackOverView;
     public GameObject actualDeath;
     public GameObject deathText;
     
 
-    public Vector2 wallJumpClimb;
-    public Vector2 wallJumpOff;
-    public Vector2 wallLeap;
-
     public float moveX;
-    public float wallSlideSpeedMax = 3;
-    public float wallStickTime = .25f;
-    float timeToWallUnstick;
+
     float formerPosition = 0;
 
     float gravity;
@@ -98,7 +92,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            ui.SetActive(true);
+            blackOverView.SetActive(true);
             actualDeath.SetActive(true);
             deathText.SetActive(true);
             deathText.SetActive(true);
@@ -107,7 +101,7 @@ public class Player : MonoBehaviour
             healthBar1.SetActive(false);
         }
         CalculateVelocity();
-        HandleWallSliding();
+        
 
         controller.Move(velocity * Time.deltaTime, directionalInput);
 
@@ -133,24 +127,7 @@ public class Player : MonoBehaviour
 
     public void OnJumpInputDown()
     {
-        if (wallSliding)
-        {
-            if (wallDirX == directionalInput.x)
-            {
-                velocity.x = -wallDirX * wallJumpClimb.x;
-                velocity.y = wallJumpClimb.y;
-            }
-            else if (directionalInput.x == 0)
-            {
-                velocity.x = -wallDirX * wallJumpOff.x;
-                velocity.y = wallJumpOff.y;
-            }
-            else
-            {
-                velocity.x = -wallDirX * wallLeap.x;
-                velocity.y = wallLeap.y;
-            }
-        }
+        
         if (controller.collisions.below)
         {
             if (controller.collisions.slidingDownMaxSlope)
@@ -213,39 +190,6 @@ public class Player : MonoBehaviour
     public void OnShiftUp()
     {
         moveSpeed = 6;
-    }
-    void HandleWallSliding()
-    {
-        wallDirX = (controller.collisions.left) ? -1 : 1;
-        wallSliding = false;
-        if ((controller.collisions.left || controller.collisions.right) && !controller.collisions.below && velocity.y < 0)
-        {
-            wallSliding = true;
-
-            if (velocity.y < -wallSlideSpeedMax)
-            {
-                velocity.y = -wallSlideSpeedMax;
-            }
-
-            if (timeToWallUnstick > 0)
-            {
-                velocityXSmoothing = 0;
-                velocity.x = 0;
-
-                if (directionalInput.x != wallDirX && directionalInput.x != 0)
-                {
-                    timeToWallUnstick -= Time.deltaTime;
-                }
-                else
-                {
-                    timeToWallUnstick = wallStickTime;
-                }
-            }
-            else
-            {
-                timeToWallUnstick = wallStickTime;
-            }
-        }
     }
 
     void PlayerMoves()

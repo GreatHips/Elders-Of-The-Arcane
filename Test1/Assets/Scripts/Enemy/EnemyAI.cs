@@ -5,12 +5,11 @@ using UnityEngine;
 [RequireComponent(typeof(EnemyController))]
 public class EnemyAI : MonoBehaviour
 {
-    public static bool movement = true;
-
     private Transform target;
-    public static float speed = 1;
+    public static bool movement = true;
+    public float movementSpeed = 2.0f;
     public float stoppingDistance = 2;
-    public static int enemyHealth = 100;
+    EnemyCollision enemyColl;
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -20,12 +19,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (Vector2.Distance(transform.position, target.position) < stoppingDistance && movement)
         {
-            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-        }
-        if (enemyHealth <= 0)
-        {
-            Destroy(GameObject.Find("Enemy"));
+            transform.position = Vector2.MoveTowards(transform.position, target.position, movementSpeed * Time.deltaTime);
         }
     }
-   
 }

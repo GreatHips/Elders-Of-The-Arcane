@@ -6,7 +6,6 @@ public class EnemyHealthBar : MonoBehaviour
 {
     Vector3 localscale;
     public GameObject health;
-    public bool activated = false;
     void Start()
     {
         localscale = transform.localScale;
@@ -15,7 +14,7 @@ public class EnemyHealthBar : MonoBehaviour
 
     void Update()
     {
-        localscale.x = EnemyAI.enemyHealth / 20;
+        localscale.x =  EnemyHealthManager.InternalHealth / 20;
         transform.localScale = localscale;
     }
 }

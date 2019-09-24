@@ -39,9 +39,6 @@ public class Player : MonoBehaviour
     Controller2D controller;
 
     Vector2 directionalInput;
-    bool wallSliding;
-    int wallDirX;
-
 
     void Start()
     {
@@ -57,7 +54,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Enemy" && !invinc)
         {
             damage();
-            StartCoroutine(Wait(.75f));
+            StartCoroutine(WaitEnemy(.75f));
         }
     }
     void Update()
@@ -167,7 +164,7 @@ public class Player : MonoBehaviour
         moveSpeed = 80;
     }
 
-    IEnumerator Wait(float seconds)
+    IEnumerator WaitEnemy(float seconds)
     {
         yield return new WaitForSeconds(seconds);
         invinc = false;

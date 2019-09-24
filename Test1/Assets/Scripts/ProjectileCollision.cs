@@ -12,18 +12,18 @@ public class ProjectileCollision : MonoBehaviour
         if (coll.gameObject.tag == "Enemy")
         {
             Damage(20);
-            Destroy(GameObject.Find("Light(Clone)"), 0.01f);
+            Destroy(GameObject.Find("Fireball(Clone)"), 0.01f);
             Destroy(gameObject);
             enemyHpBar.SetActive(true);
         }
         if (coll.gameObject.tag == "Bullets")
         {
             Debug.Log("touching clone");
-            Destroy(GameObject.Find("Light(Clone)"));
+            Destroy(GameObject.Find("Fireball(Clone)"));
         }
         if (coll.gameObject.tag == "Obstacle")
         {
-            Destroy(GameObject.Find("Light(Clone)"));
+            Destroy(GameObject.Find("Fireball(Clone)"));
         }
 
     }

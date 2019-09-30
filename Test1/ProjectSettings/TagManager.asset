@@ -41,7 +41,7 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Background
+  - name: Background decoration
     uniqueID: 767309603
     locked: 0
   - name: Obstacles
@@ -50,6 +50,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: New Layer
-    uniqueID: 3543966159
+  - name: foreground decoration
+    uniqueID: 2398652775
     locked: 0

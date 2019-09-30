@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
 using System.Collections;
 // to close game Application.Quit();
 // UnityEditor.EditorApplication.isPlaying = false;
@@ -42,6 +43,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        Physics2D.IgnoreLayerCollision(8, 9);
         controller = GetComponent<Controller2D>();
 
         gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);

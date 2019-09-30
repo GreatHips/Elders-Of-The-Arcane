@@ -17,14 +17,10 @@ public class EnemyHealthManager : MonoBehaviour
 
     void Update()
     {
-        if(InternalHealth <= 0)
+        if (InternalHealth <= 0)
         {
             Destroy(gameObject);
         }
     }
-
-    public void HurtEnemy(int damageToGive)
-    {
-        InternalHealth -= damageToGive;
-    }
 }
+

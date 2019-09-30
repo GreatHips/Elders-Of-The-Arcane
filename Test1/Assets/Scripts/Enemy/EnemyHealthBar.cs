@@ -14,7 +14,7 @@ public class EnemyHealthBar : MonoBehaviour
 
     void Update()
     {
-        localscale.x =  EnemyHealthManager.InternalHealth / 20;
+        localscale.x =  EnemyHealthManager.InternalHealth / 25;
         transform.localScale = localscale;
     }
 }

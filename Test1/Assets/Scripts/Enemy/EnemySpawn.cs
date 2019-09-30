@@ -8,6 +8,7 @@ public class EnemySpawn : MonoBehaviour
     public GameObject enemy;
     float randX;
     Vector2 whereToSpawn;
+    public Transform overallEnemies;
     public float spawnRate = 2f;
 
     void Start()
@@ -22,7 +23,8 @@ public class EnemySpawn : MonoBehaviour
             TheNumber = Time.time + spawnRate;
             randX = Random.Range(-8.4f, 8.4f);
             whereToSpawn = new Vector2(randX, transform.position.y);
-            Instantiate(enemy, whereToSpawn, Quaternion.identity);
+            var clone = Instantiate(enemy, whereToSpawn, Quaternion.identity);
+            clone.transform.parent = overallEnemies;
         }   
     }
 }

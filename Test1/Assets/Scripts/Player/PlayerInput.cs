@@ -31,5 +31,9 @@ public class PlayerInput : MonoBehaviour {
         {
             Mail.SendMail();
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 }

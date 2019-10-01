@@ -352,7 +352,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6.0641823
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -35884,6 +35884,106 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7274459378465968817, guid: f50e0528805777643b803be7abbbe5d7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 214.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7274459378465968817, guid: f50e0528805777643b803be7abbbe5d7,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -234
+      objectReference: {fileID: 0}
+    - target: {fileID: 7274459377929402158, guid: f50e0528805777643b803be7abbbe5d7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7274459377929402153, guid: f50e0528805777643b803be7abbbe5d7,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -283
+      objectReference: {fileID: 0}
+    - target: {fileID: 7274459377929402153, guid: f50e0528805777643b803be7abbbe5d7,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 190.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7274459377929402153, guid: f50e0528805777643b803be7abbbe5d7,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 133
+      objectReference: {fileID: 0}
+    - target: {fileID: 7274459377929402153, guid: f50e0528805777643b803be7abbbe5d7,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 99.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7274459377929402152, guid: f50e0528805777643b803be7abbbe5d7,
+        type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7274459379023274973, guid: f50e0528805777643b803be7abbbe5d7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7274459379023274972, guid: f50e0528805777643b803be7abbbe5d7,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -183.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7274459379023274972, guid: f50e0528805777643b803be7abbbe5d7,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 190.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7274459379023274972, guid: f50e0528805777643b803be7abbbe5d7,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 133
+      objectReference: {fileID: 0}
+    - target: {fileID: 7274459379023274972, guid: f50e0528805777643b803be7abbbe5d7,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 99.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7274459379023274975, guid: f50e0528805777643b803be7abbbe5d7,
+        type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7274459377777137565, guid: f50e0528805777643b803be7abbbe5d7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7274459377777137564, guid: f50e0528805777643b803be7abbbe5d7,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -373
+      objectReference: {fileID: 0}
+    - target: {fileID: 7274459377777137564, guid: f50e0528805777643b803be7abbbe5d7,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 193
+      objectReference: {fileID: 0}
+    - target: {fileID: 7274459377777137564, guid: f50e0528805777643b803be7abbbe5d7,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 133
+      objectReference: {fileID: 0}
+    - target: {fileID: 7274459377777137564, guid: f50e0528805777643b803be7abbbe5d7,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 99.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7274459377777137567, guid: f50e0528805777643b803be7abbbe5d7,
+        type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f50e0528805777643b803be7abbbe5d7, type: 3}

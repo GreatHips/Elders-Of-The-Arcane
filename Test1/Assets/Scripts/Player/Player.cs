@@ -98,6 +98,8 @@ public class Player : MonoBehaviour
             healthBar3.SetActive(false);
             healthBar2.SetActive(false);
             healthBar1.SetActive(false);
+            StartCoroutine(Wait(4f));
+            
         }
         CalculateVelocity();
         
@@ -165,7 +167,11 @@ public class Player : MonoBehaviour
     {
         moveSpeed = 20;
     }
-
+    IEnumerator Wait (float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        Application.Quit();
+    }
     IEnumerator WaitEnemy(float seconds)
     {
         yield return new WaitForSeconds(seconds);

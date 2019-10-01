@@ -163,7 +163,7 @@ public class Player : MonoBehaviour
     }
     public void OnShiftDown()
     {
-        moveSpeed = 80;
+        moveSpeed = 20;
     }
 
     IEnumerator WaitEnemy(float seconds)

@@ -1,5 +1,6 @@
 ﻿
 using UnityEngine;
+
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,6 +9,17 @@ using UnityEditor;
 using System.IO;
 // to close game Application.Quit();
 // UnityEditor.EditorApplication.isPlaying = false;
+
+
+using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.SceneManagement;
+using UnityEditor;
+using System.IO;
+// to close game Application.Quit();
+// UnityEditor.EditorApplication.isPlaying = false;
+
 
 [RequireComponent(typeof(Controller2D))]
 public class Player : MonoBehaviour
@@ -237,6 +249,26 @@ public class Player : MonoBehaviour
         Debug.Log(reader.ReadToEnd());
         reader.Close();
     }
+
+    }
+    public void Save()
+    {
+        string path = "SaveFile/Output.txt";
+
+        //Write some text to the test.txt file
+        StreamWriter writer = new StreamWriter(path, true);
+        writer.WriteLine("TEST");
+        writer.Close();
+    }
+public void Load()
+{
+    string path = "SaveFile/Output.txt";
+
+    //Read the text from directly from the test.txt file
+    StreamReader reader = new StreamReader(path);
+    Debug.Log(reader.ReadToEnd());
+    reader.Close();
+}
     void PlayerMoves()
     {
         //Player Direction
@@ -265,4 +297,4 @@ public class Player : MonoBehaviour
         }
         
     }
-}
+

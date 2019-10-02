@@ -16,7 +16,7 @@ public class EnemyCollision : MonoBehaviour
     {
         if(collision.gameObject.tag == "Bullets")
         {
-            EnemyHealthManager.InternalHealth -= 20;
+            EnemyHealthManager.InternalHealth -= 25;
         }
     }
 }

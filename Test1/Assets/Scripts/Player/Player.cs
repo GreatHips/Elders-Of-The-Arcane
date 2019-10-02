@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
 using System.Collections;
 // to close game Application.Quit();
 // UnityEditor.EditorApplication.isPlaying = false;
@@ -42,6 +43,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        Physics2D.IgnoreLayerCollision(8, 9);
         controller = GetComponent<Controller2D>();
 
         gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);
@@ -96,6 +98,8 @@ public class Player : MonoBehaviour
             healthBar3.SetActive(false);
             healthBar2.SetActive(false);
             healthBar1.SetActive(false);
+            StartCoroutine(Wait(4f));
+            
         }
         CalculateVelocity();
         
@@ -161,9 +165,13 @@ public class Player : MonoBehaviour
     }
     public void OnShiftDown()
     {
-        moveSpeed = 80;
+        moveSpeed = 20;
     }
-
+    IEnumerator Wait (float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        Application.Quit();
+    }
     IEnumerator WaitEnemy(float seconds)
     {
         yield return new WaitForSeconds(seconds);

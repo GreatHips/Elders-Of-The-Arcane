@@ -18,14 +18,24 @@ public class ProjectileAttack : MonoBehaviour
             
             if (player.facingRight == false) {
             varFacingRight = -1;
+            
         }      
             if (Input.GetButtonDown("Fire1"))
 
             {
 
                 GameObject b = (GameObject)(Instantiate(bullet, transform.position + transform.right * varFacingRight* -1.5f, Quaternion.identity));
-
+                
                 b.GetComponent<Rigidbody2D>().AddForce(transform.right *varFacingRight * -1000);
+
+            if (player.facingRight)
+            {
+                b.transform.Rotate(0, 0, -90f, Space.Self);
+            } else if (player.facingRight == false)
+            {
+                b.transform.Rotate(0, 0, 90f, Space.Self);
+                
+            }
 
             Destroy(b, 2f);
             }

@@ -2,30 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
-{
-    public float enemyHealth;
-    public float enemyAttack;
-    public float enemySpeed;
-    public bool enemyFlight;
-    public bool enemyInvincible;
-    public float enemyJumpHeight;
-    public bool facingRight;
-    public float formerPosition;
-    public float playerHealth;
-    Player player;
-
-    public Animator anim;
-
-    public GameObject realPlayer;
-    void Update()
+public class Enemy : BaseEnemy
+{ 
+    public new void Update()
     {
-         
-    }
- 
-    public void EnemyAttack1()
-    {
-
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            EnemySpawner(Random.Range(100, 200), 200);
+            EnemySpawner(100, 100);
+        }  
     }
 }
-

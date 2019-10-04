@@ -5,16 +5,18 @@ using UnityEngine;
 public class EnemyHealthBar : MonoBehaviour
 {
     Vector3 localscale;
-    public GameObject health;
-    void Start()
+    BaseEnemy baseEnemy;
+
+    public void Start()
     {
         localscale = transform.localScale;
         
     }
 
-    void Update()
+    public void Update()
     {
-        localscale.x =  EnemyHealthManager.InternalHealth / 25;
+        localscale.x = baseEnemy._currentHealth;
+        
         transform.localScale = localscale;
     }
 }

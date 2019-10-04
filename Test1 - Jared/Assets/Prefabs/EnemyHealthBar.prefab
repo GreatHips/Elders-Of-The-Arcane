@@ -57,6 +57,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -92,5 +93,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 066ba08e8d52709499b71666613b9e7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyPrefab: {fileID: 3798522903863316787, guid: 14585b34d0536604984ccc2dea5ac3f6,
+    type: 3}
+  MaxHealth: 200
+  EnemyDamage: 0
+  SpawnPos: {x: 0, y: 0, z: 0}
+  facingRight: 0
+  formerPosition: 0
+  playerHealth: 0
+  updatedHealth: 0
+  randX: 0
+  spawnRate: 2
+  TheNumber: 0
+  enemySpawnerParent: {fileID: 1081255214885606609, guid: 68e846a94fdac0b43bd913075b6c5b79,
+    type: 3}
+  _currentHealth: 0
   health: {fileID: 6002451628323997338}
-  activated: 0

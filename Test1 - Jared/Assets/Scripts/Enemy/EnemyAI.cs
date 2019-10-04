@@ -8,7 +8,7 @@ public class EnemyAI : MonoBehaviour
     private Transform target;
     public static bool movement = true;
     public float movementSpeed = 2.0f;
-    public float stoppingDistance = 2;
+    public float stoppingDistance = 250;
     EnemyCollision enemyColl;
     
     void Start()
@@ -18,7 +18,7 @@ public class EnemyAI : MonoBehaviour
 
     void Update()
     {
-        if (Vector2.Distance(transform.position, target.position) < stoppingDistance && movement)
+        if (movement)
         {
             transform.position = Vector2.MoveTowards(transform.position, target.position, movementSpeed * Time.deltaTime);
         }

@@ -10,14 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 117328723766772968}
   - component: {fileID: 5379841051452023873}
-  - component: {fileID: 4924043964168359235}
-  - component: {fileID: 8528290882155202556}
+  - component: {fileID: 5991527109469063751}
   - component: {fileID: 920363800922528117}
   - component: {fileID: 6590502327055629562}
   - component: {fileID: 4836559562588383033}
+  - component: {fileID: 2207332561913625921}
   - component: {fileID: 8391819255817499988}
-  - component: {fileID: 1012507121433451197}
-  - component: {fileID: 1792051562112514886}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: Enemy
@@ -89,7 +87,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4924043964168359235
+--- !u!114 &5991527109469063751
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,25 +96,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 3798522903863316787}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aca57e601a342884386f1da87ec45318, type: 3}
+  m_Script: {fileID: 11500000, guid: c9a393d93e0e6824295369c4bab1b858, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 2
-  stoppingDistance: 20
---- !u!114 &8528290882155202556
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3798522903863316787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c335b49058b67b049b7bdb38151bb6d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxHealth: 100
-  CurrentHealth: 0
+  EnemyPrefab: {fileID: 3798522903863316787}
+  MaxHealth: 0
+  EnemyDamage: 0
+  updatedHealth: 0
+  enemySpawnerParent: {fileID: 1081255214885606609, guid: 68e846a94fdac0b43bd913075b6c5b79,
+    type: 3}
+  _currentHealth: 0
+  newHealthValue: 0
 --- !u!61 &920363800922528117
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -174,6 +164,28 @@ MonoBehaviour:
     m_Bits: 0
   horizontalRayCount: 4
   verticalRayCount: 4
+--- !u!114 &2207332561913625921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3798522903863316787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a9417bab79f3d4d88bdeb35cfdf9ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyPrefab: {fileID: 3798522903863316787}
+  MaxHealth: 0
+  EnemyDamage: 0
+  updatedHealth: 0
+  enemySpawnerParent: {fileID: 1081255214885606609, guid: 68e846a94fdac0b43bd913075b6c5b79,
+    type: 3}
+  _currentHealth: 0
+  newHealthValue: 0
+  enemyHpBar: {fileID: 7081572026415840346}
+  ActualEnemy: {fileID: 3798522903863316787}
 --- !u!50 &8391819255817499988
 Rigidbody2D:
   serializedVersion: 4
@@ -195,43 +207,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1012507121433451197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3798522903863316787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c41497ab8ad8bd34db9a7ad51a1d6206, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyHealth: 0
-  enemyAttack: 0
-  enemySpeed: 0
-  enemyFlight: 0
-  enemyInvincible: 0
-  enemyJumpHeight: 0
-  facingRight: 0
-  formerPosition: 0
-  playerHealth: 0
-  anim: {fileID: 0}
-  realPlayer: {fileID: 0}
---- !u!114 &1792051562112514886
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3798522903863316787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81a9417bab79f3d4d88bdeb35cfdf9ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyHpBar: {fileID: 7081572026415840346}
-  ActualEnemy: {fileID: 3798522903863316787}
 --- !u!1001 &3533691596487555776
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -314,6 +289,11 @@ PrefabInstance:
       propertyPath: activated
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1057171107381398035, guid: 4582fa7a145152f4b9ed07506c4b075b,
+        type: 3}
+      propertyPath: EnemyPrefab
+      value: 
+      objectReference: {fileID: 3798522903863316787}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4582fa7a145152f4b9ed07506c4b075b, type: 3}
 --- !u!1 &7081572026415840346 stripped

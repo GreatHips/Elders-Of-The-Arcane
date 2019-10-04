@@ -6,17 +6,22 @@ public class EnemyCollision : MonoBehaviour
 {
     public GameObject enemyHpBar;
     public GameObject ActualEnemy;
-    EnemyHealthManager enemyHealth;
-    void Update()
+    BaseEnemy baseEnemy;
+
+    new void Update()
     {
-        
+        if (baseEnemy._currentHealth <= 0)
+        {
+            Destroy(this);
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Bullets")
+        if (collision.gameObject.tag == "Bullets")
         {
-            EnemyHealthManager.InternalHealth -= 25;
+            baseEnemy._currentHealth -= 20;
+            
         }
     }
 }

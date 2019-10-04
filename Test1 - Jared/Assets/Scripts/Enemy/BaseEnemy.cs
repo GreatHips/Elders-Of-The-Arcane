@@ -1,34 +1,54 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
 public class BaseEnemy : MonoBehaviour
 {
-    public GameObject EnemyType;
+
     public GameObject EnemyPrefab;
-    public string EnemyTag;
-    public int MaxHealth;
+    public float MaxHealth;
     public int EnemyDamage;
-    public Vector3 SpawnPos;
 
-    private int _currentHealth;
+    public float updatedHealth;
+    private float randX;
+    private float spawnRate = 2f;
+    private float TheNumber;
+    Player player;
+    Vector2 whereToSpawn;
 
-    public void Init()
-    {
-        _currentHealth = MaxHealth;
-    }
+    public GameObject enemySpawnerParent;
+    public float _currentHealth;
+    public float newHealthValue;
 
-
-    public void UpdateHealth(int newHealthValue)
+    public void UpdateHealth(float newHealthValue)
     {
         _currentHealth = newHealthValue;
     }
+    public void StartEnemyHealthValue(float enemyHealth)
+    {
+        MaxHealth = enemyHealth;
+        _currentHealth = MaxHealth;
 
+    }
     public void ReceiveDamage(int damage)
     {
-        var updatedHealth = _currentHealth - damage;
-        UpdateHealth(updatedHealth > 0 ? updatedHealth : 0);
+        updatedHealth = _currentHealth - damage;
+
+    }
+
+    public void EnemySpawner(float enemyHealth, float maxEnemyHealth)
+    {
+
+        
+        TheNumber = Time.time + spawnRate;
+        randX = UnityEngine.Random.Range(-8.4f, 8.4f);
+        whereToSpawn = new Vector2(randX, transform.position.y);
+
+        var clone = Instantiate(EnemyPrefab, whereToSpawn, Quaternion.identity);
+        clone.transform.parent = transform;
+        
     }
 }
 

@@ -39,13 +39,13 @@ public class ProjectileAttack : MonoBehaviour
             if (Input.GetButtonDown("Fire1"))
             {
 
-                
-                StartCoroutine(AttackWait(.25f));
-                 
-                
                 chargeAmounts -= 1;
 
                 StartCoroutine(Recharge());
+
+
+                StartCoroutine(AttackWait(.25f));
+
                 GameObject b = (GameObject)(Instantiate(bullet, transform.position + transform.right * varFacingRight * -2f, Quaternion.identity));
                 b.GetComponent<Rigidbody2D>().AddForce(transform.right * varFacingRight * -1000);
                 if (varFacingRight == 1)
@@ -104,25 +104,30 @@ public class ProjectileAttack : MonoBehaviour
 
     IEnumerator Recharge ()
     {
+
         while (chargeAmounts == 0)
         {
             yield return new WaitForSeconds(2f);
             chargeAmounts += 1;
-            break;
+           
         }
         while (chargeAmounts == 1)
         {
             yield return new WaitForSeconds(2f);
             
             chargeAmounts += 1;
-            break;
+            
         } 
         while (chargeAmounts == 2)
         {
             yield return new WaitForSeconds(2f);
             chargeAmounts += 1;
-            break;
+            
         }
-    }
+        if (chargeAmounts >= 4)
+        {
+            chargeAmounts = 3;
+        }
+     }
     
 }

@@ -9,7 +9,6 @@ public class EnemyAI : MonoBehaviour
     public static bool movement = true;
     public float movementSpeed = 2.0f;
     public float stoppingDistance = 250;
-    EnemyCollision enemyColl;
     
     void Start()
     {

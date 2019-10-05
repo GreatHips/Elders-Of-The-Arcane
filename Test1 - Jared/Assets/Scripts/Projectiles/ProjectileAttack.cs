@@ -88,9 +88,13 @@ public class ProjectileAttack : MonoBehaviour
             fire2.SetActive(true);
             fire3.SetActive(true);
             canAttack = true;
-        } 
-        
-        
+        }
+        if (chargeAmounts >= 4)
+        {
+            chargeAmounts = 3;
+        }
+
+
     }
 
     IEnumerator AttackWait(float seconds)
@@ -105,29 +109,26 @@ public class ProjectileAttack : MonoBehaviour
     IEnumerator Recharge ()
     {
 
-        while (chargeAmounts == 0)
+        if (chargeAmounts == 0)
         {
             yield return new WaitForSeconds(2f);
             chargeAmounts += 1;
            
         }
-        while (chargeAmounts == 1)
+        if (chargeAmounts == 1)
         {
             yield return new WaitForSeconds(2f);
             
             chargeAmounts += 1;
             
         } 
-        while (chargeAmounts == 2)
+        if (chargeAmounts == 2)
         {
             yield return new WaitForSeconds(2f);
             chargeAmounts += 1;
             
         }
-        if (chargeAmounts >= 4)
-        {
-            chargeAmounts = 3;
-        }
+        
      }
     
 }

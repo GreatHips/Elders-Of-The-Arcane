@@ -49,6 +49,10 @@ public class Player : MonoBehaviour
     public GameObject fire1;
     public GameObject fire2;
     public GameObject fire3;
+    public GameObject ice1;
+    public GameObject ice2;
+    public GameObject ice3;
+    public GameObject iceText;
     public GameObject fireballText;
 
     public float moveX;
@@ -67,6 +71,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        fireBookHeld = true;
         Physics2D.IgnoreLayerCollision(8, 9);
         controller = GetComponent<Controller2D>();
 
@@ -88,13 +93,34 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.T))
         {
+            //whenever the ice book is held it hides all of the fireball related ui and brings the ice ui to the front
+            iceBookHeld = true;
+            fireBookHeld = false;
             fireBook.SetActive(false);
             iceBook.SetActive(true);
+            ice1.SetActive(true);
+            ice2.SetActive(true);
+            ice3.SetActive(true);
+            iceText.SetActive(true);
+            fire1.SetActive(false);
+            fire2.SetActive(false);
+            fire3.SetActive(false);
+            fireballText.SetActive(false);
         }
         if (Input.GetKeyDown(KeyCode.Y))
         {
+            iceBookHeld = false;
+            fireBookHeld = true;
             fireBook.SetActive(true);
             iceBook.SetActive(false);
+            ice1.SetActive(false);
+            ice2.SetActive(false);
+            ice3.SetActive(false);
+            iceText.SetActive(false);
+            fire1.SetActive(true);
+            fire2.SetActive(true);
+            fire3.SetActive(true);
+            fireballText.SetActive(true);
         }
 
         player = GameObject.Find("Player");

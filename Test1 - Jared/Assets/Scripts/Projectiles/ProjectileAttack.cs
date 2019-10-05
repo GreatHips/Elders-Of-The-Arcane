@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ProjectileAttack : MonoBehaviour
 {
-    public GameObject bullet;
+    public GameObject fireball;
+    public GameObject ice;
     public Player player;
     GameObject b;
     public bool canAttack = true;
@@ -14,7 +15,9 @@ public class ProjectileAttack : MonoBehaviour
     public GameObject fire3;
 
     public AudioClip fireballSound;
+    public AudioClip iceSound;
 
+    public AudioSource iceSource;
     public AudioSource fireballSource;
 
 
@@ -42,47 +45,64 @@ public class ProjectileAttack : MonoBehaviour
                 chargeAmounts -= 1;
 
                 StartCoroutine(Recharge());
-
-                
-                StartCoroutine(AttackWait(.75f));
-
-                GameObject b = (GameObject)(Instantiate(bullet, transform.position + transform.right * varFacingRight * -2f, Quaternion.identity));
-                b.GetComponent<Rigidbody2D>().AddForce(transform.right * varFacingRight * -1000);
-                if (varFacingRight == 1)
+                if (player.fireBookHeld == true)
                 {
-                    b.transform.Rotate(0, 0, -90f);
+                    GameObject bfire = (GameObject)(Instantiate(fireball, transform.position + transform.right * varFacingRight * -2f, Quaternion.identity));
+                    bfire.GetComponent<Rigidbody2D>().AddForce(transform.right * varFacingRight * -1000);
+
+                    StartCoroutine(AttackWaitFireball(.75f));
+                    if (varFacingRight == 1)
+                    {
+                        bfire.transform.Rotate(0, 0, -90f);
+                    }
+                    else if (varFacingRight == -1)
+                    {
+                        bfire.transform.Rotate(0, 0, 90f);
+                    }
+                    Destroy(bfire, 2f);
                 }
-                else if (varFacingRight == -1)
+                else if (player.iceBookHeld == true)
                 {
-                    b.transform.Rotate(0, 0, 90f);
+                    GameObject bice = (GameObject)(Instantiate(ice, transform.position + transform.right * varFacingRight * -2f, Quaternion.identity));
+                    bice.GetComponent<Rigidbody2D>().AddForce(transform.right * varFacingRight * -1000);
+
+                    StartCoroutine(AttackWaitIce(.75f));
+                    if (varFacingRight == 1)
+                    {
+                        bice.transform.Rotate(0, 0, -90f);
+                    }
+                    else if (varFacingRight == -1)
+                    {
+                        bice.transform.Rotate(0, 0, 90f);
+                    }
+                    Destroy(bice, 2f);
                 }
-                Destroy(b, 2f);
             }
         }
     }
 
     void CheckCharges()
     {
-        if (chargeAmounts == 0)
+        if (chargeAmounts == 0 && player.fireBookHeld)
         {
             fire1.SetActive(false);
             fire2.SetActive(false);
             fire3.SetActive(false);
             canAttack = false;
         }
-        else if(chargeAmounts == 1)
+        else if(chargeAmounts == 1 && player.fireBookHeld)
         {
             fire1.SetActive(true);
             fire2.SetActive(false);
             fire3.SetActive(false);
             canAttack = true;
-        } else if(chargeAmounts == 2)
+        } else if(chargeAmounts == 2 && player.fireBookHeld)
         {
             fire1.SetActive(true);
             fire2.SetActive(true);
             fire3.SetActive(false);
             canAttack = true;
-        } else if (chargeAmounts == 3)
+        } else if (chargeAmounts == 3 && player.fireBookHeld)
         {
             fire1.SetActive(true);
             fire2.SetActive(true);
@@ -93,14 +113,54 @@ public class ProjectileAttack : MonoBehaviour
         {
             chargeAmounts = 3;
         }
+        if (chargeAmounts == 0 && player.iceBookHeld)
+        {
+            player.ice1.SetActive(false);
+            player.ice2.SetActive(false);
+            player.ice3.SetActive(false);
+            canAttack = false;
+        }
+        else if (chargeAmounts == 1 && player.iceBookHeld)
+        {
 
+            player.ice1.SetActive(true);
+            player.ice2.SetActive(false);
+            player.ice3.SetActive(false);
+            canAttack = true;
+        }
+        else if (chargeAmounts == 2 && player.iceBookHeld)
+        {
+            player.ice1.SetActive(true);
+            player.ice2.SetActive(true);
+            player.ice3.SetActive(false);
+            canAttack = true;
+        }
+        else if (chargeAmounts == 3 && player.iceBookHeld)
+        {
+            player.ice1.SetActive(true);
+            player.ice2.SetActive(true);
+            player.ice3.SetActive(true);
+            canAttack = true;
+        }
+        if (chargeAmounts >= 4)
+        {
+            chargeAmounts = 3;
+        }
 
     }
 
-    IEnumerator AttackWait(float seconds)
+    IEnumerator AttackWaitFireball (float seconds)
     {
         canAttack = false;
         fireballSource.PlayOneShot(fireballSound);
+        yield return new WaitForSeconds(seconds);
+        canAttack = true;
+
+    }
+    IEnumerator AttackWaitIce(float seconds)
+    {
+        canAttack = false;
+        fireballSource.PlayOneShot(iceSound);
         yield return new WaitForSeconds(seconds);
         canAttack = true;
 

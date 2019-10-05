@@ -34,7 +34,7 @@ public class ProjectileAttack : MonoBehaviour
             varFacingRight = -1;
             
             }
-        if (canAttack && chargeAmounts >= 1)
+        if (canAttack = true && chargeAmounts >= 1)
         {
             if (Input.GetButtonDown("Fire1"))
             {
@@ -43,8 +43,8 @@ public class ProjectileAttack : MonoBehaviour
 
                 StartCoroutine(Recharge());
 
-
-                StartCoroutine(AttackWait(.25f));
+                
+                StartCoroutine(AttackWait(.75f));
 
                 GameObject b = (GameObject)(Instantiate(bullet, transform.position + transform.right * varFacingRight * -2f, Quaternion.identity));
                 b.GetComponent<Rigidbody2D>().AddForce(transform.right * varFacingRight * -1000);
@@ -102,8 +102,8 @@ public class ProjectileAttack : MonoBehaviour
         canAttack = false;
         fireballSource.PlayOneShot(fireballSound);
         yield return new WaitForSeconds(seconds);
-        
         canAttack = true;
+
     }
 
     IEnumerator Recharge ()

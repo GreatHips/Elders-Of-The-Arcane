@@ -18,7 +18,7 @@ public class BaseEnemy : MonoBehaviour
     Player player;
     Vector2 whereToSpawn;
 
-    public GameObject enemySpawnerParent;
+    
     public float _currentHealth;
     public float newHealthValue;
 

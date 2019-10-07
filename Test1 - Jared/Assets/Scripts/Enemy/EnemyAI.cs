@@ -29,7 +29,7 @@ public class EnemyAI : MonoBehaviour
         }
         
         if ((target.position.y > this.transform.position.y)&&myRigidBody.velocity.y==0&& (Math.Abs(target.position.x - this.transform.position.x)<20)){
-            myRigidBody.velocity = new Vector3(myRigidBody.velocity.x, 6, 0f); ;
+            myRigidBody.velocity = new Vector3(myRigidBody.velocity.x, 4.5f, 0); ;
             canJump = false;
         }
         if ((target.position.x < this.transform.position.x)&&facingRight==true)

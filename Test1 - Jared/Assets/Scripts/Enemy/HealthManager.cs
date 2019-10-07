@@ -49,9 +49,9 @@ public class HealthManager : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Bullets")
+        if (collision.gameObject.tag == "Bullets" && gameObject.tag == "Enemy")
         {
-            Damage(20);
+            Damage(50);
         }
     }
 }

@@ -252,7 +252,7 @@ public class Player : MonoBehaviour
     {
         
         EnemyAI.movement = false;
-        velocity.x *= -5f;
+        velocity.x *= -3f;
         globalHealth -= 1;
         invinc = true;
         if(velocity.x == 0 && facingRight)

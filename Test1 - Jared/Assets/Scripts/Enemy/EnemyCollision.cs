@@ -7,12 +7,13 @@ public class EnemyCollision : MonoBehaviour
     public GameObject enemyHpBar;
     public GameObject ActualEnemy;
     BaseEnemy baseEnemy;
+    HealthManager healthManager;
 
-    new void Update()
+    void Update()
     {
-        if (baseEnemy._currentHealth <= 0)
+        if (healthManager.health <= 0)
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
 
@@ -20,7 +21,7 @@ public class EnemyCollision : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bullets")
         {
-            baseEnemy._currentHealth -= 20;
+          
             
         }
     }

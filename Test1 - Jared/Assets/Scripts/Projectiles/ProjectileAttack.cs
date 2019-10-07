@@ -20,6 +20,7 @@ public class ProjectileAttack : MonoBehaviour
     public AudioSource iceSource;
     public AudioSource fireballSource;
 
+    public bool Charging = false;
 
     public void Start()
     {
@@ -49,7 +50,7 @@ public class ProjectileAttack : MonoBehaviour
                 {
                     GameObject bfire = (GameObject)(Instantiate(fireball, transform.position + transform.right * varFacingRight * -2f, Quaternion.identity));
                     bfire.GetComponent<Rigidbody2D>().AddForce(transform.right * varFacingRight * -1000);
-
+                    ChargingAmounts();
                     StartCoroutine(AttackWaitFireball(.75f));
                     if (varFacingRight == 1)
                     {
@@ -65,8 +66,9 @@ public class ProjectileAttack : MonoBehaviour
                 {
                     GameObject bice = (GameObject)(Instantiate(ice, transform.position + transform.right * varFacingRight * -2f, Quaternion.identity));
                     bice.GetComponent<Rigidbody2D>().AddForce(transform.right * varFacingRight * -1000);
-
+                    ChargingAmounts();
                     StartCoroutine(AttackWaitIce(.75f));
+
                     if (varFacingRight == 1)
                     {
                         bice.transform.Rotate(0, 0, -90f);
@@ -153,6 +155,7 @@ public class ProjectileAttack : MonoBehaviour
     {
         canAttack = false;
         fireballSource.PlayOneShot(fireballSound);
+        fireballSource.pitch = .5f;
         yield return new WaitForSeconds(seconds);
         canAttack = true;
 
@@ -160,7 +163,8 @@ public class ProjectileAttack : MonoBehaviour
     IEnumerator AttackWaitIce(float seconds)
     {
         canAttack = false;
-        fireballSource.PlayOneShot(iceSound);
+        iceSource.PlayOneShot(iceSound);
+        iceSource.pitch = 2f;
         yield return new WaitForSeconds(seconds);
         canAttack = true;
 
@@ -169,26 +173,39 @@ public class ProjectileAttack : MonoBehaviour
     IEnumerator Recharge ()
     {
 
-        if (chargeAmounts == 0)
+        while (chargeAmounts == 0 && !Charging)
         {
-            yield return new WaitForSeconds(2f);
+            Charging = true;
+            yield return new WaitForSeconds(1.5f);
             chargeAmounts += 1;
-           
+            Charging = false;
+
         }
-        if (chargeAmounts == 1)
+          while (chargeAmounts == 1 && !Charging)
         {
-            yield return new WaitForSeconds(2f);
-            
+            Charging = true;
+            yield return new WaitForSeconds(1.5f);
             chargeAmounts += 1;
-            
+            Charging = false;
+
         } 
-        if (chargeAmounts == 2)
+        while (chargeAmounts == 2 && !Charging)
         {
-            yield return new WaitForSeconds(2f);
+            Charging = true;
+            yield return new WaitForSeconds(1.5f);
             chargeAmounts += 1;
-            
+            Charging = false;
         }
         
      }
+
+    public void ChargingAmounts()
+    {
+        StartCoroutine(Recharge());
+        if (chargeAmounts > 4)
+        {
+            chargeAmounts = 3;
+        }
+    }
     
 }

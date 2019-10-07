@@ -12,10 +12,12 @@ GameObject:
   - component: {fileID: 5379841051452023873}
   - component: {fileID: 920363800922528117}
   - component: {fileID: 5523537329277770205}
+  - component: {fileID: 2549519725020857201}
   - component: {fileID: 6590502327055629562}
+  - component: {fileID: 8629914853358173987}
+  - component: {fileID: 8429427675915384262}
   - component: {fileID: 4836559562588383033}
   - component: {fileID: 8391819255817499988}
-  - component: {fileID: 1966227286971425343}
   - component: {fileID: 7724320228746223824}
   - component: {fileID: 7796798773127262145}
   m_Layer: 10
@@ -129,6 +131,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {x: 0, y: 0, z: 0}
   healthBars: {fileID: 5277023400390369658}
+--- !u!114 &2549519725020857201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3798522903863316787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1893d2666cba3314a8d3a91edcba28a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  healthMax: 100
 --- !u!114 &6590502327055629562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,6 +159,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 1
   stoppingDistance: 2
+--- !u!114 &8629914853358173987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3798522903863316787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a9417bab79f3d4d88bdeb35cfdf9ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHpBar: {fileID: 5276928113484373092}
+  ActualEnemy: {fileID: 3798522903863316787}
+--- !u!114 &8429427675915384262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3798522903863316787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9a393d93e0e6824295369c4bab1b858, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyPrefab: {fileID: 3798522903863316787}
+  MaxHealth: 0
+  EnemyDamage: 0
+  updatedHealth: 0
+  enemySpawnerParent: {fileID: 0}
+  _currentHealth: 0
+  newHealthValue: 0
 --- !u!114 &4836559562588383033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,20 +230,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1966227286971425343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3798522903863316787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1893d2666cba3314a8d3a91edcba28a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  healthMax: 100
 --- !u!111 &7724320228746223824
 Animation:
   m_ObjectHideFlags: 0
@@ -368,6 +403,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01a6b42a1d84b664c890d8dcb066becd, type: 3}
+--- !u!1 &5276928113484373092 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1473727354331688, guid: 01a6b42a1d84b664c890d8dcb066becd,
+    type: 3}
+  m_PrefabInstance: {fileID: 5277750860128026188}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5273959516898772314 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4090514546342678, guid: 01a6b42a1d84b664c890d8dcb066becd,

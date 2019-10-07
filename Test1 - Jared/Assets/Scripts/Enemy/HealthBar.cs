@@ -5,6 +5,7 @@ using UnityEngine;
 public class HealthBar : MonoBehaviour
 {
     public Vector3 healthBar;
+    public GameObject overallHealthBar;
     public GameObject healthBars;
 
     HealthManager healthManager;
@@ -12,13 +13,13 @@ public class HealthBar : MonoBehaviour
     void Start()
     {
         healthBar = transform.localScale;
-        healthBars.SetActive(false);
+        
     }
 
     public void Update()
     {
-        healthBar.x = healthManager.GetHealth(); 
-        transform.localScale = healthBar;
+        healthBar.x = healthManager.health; 
+        healthBars.transform.localScale = healthBar;
         
     }
 
@@ -26,9 +27,10 @@ public class HealthBar : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bullets")
         {
+            overallHealthBar.SetActive(true);
             healthBars.SetActive(true);
             StartCoroutine(WaitHealthBar(5f));
-            HealthManager.UpdateHealth();
+            healthManager.Damage(50);
         }
     }
 
@@ -37,5 +39,6 @@ public class HealthBar : MonoBehaviour
         
         yield return new WaitForSeconds(seconds);
         healthBars.SetActive(false);
+        overallHealthBar.SetActive(false);
     }
 }

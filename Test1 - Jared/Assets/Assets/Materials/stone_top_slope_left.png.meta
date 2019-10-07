@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3ea68d471f96bd74fb0fb536ebbb0dae
+guid: 7749cddd6de0b5e4ab9dacd262ecb605
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -50,7 +50,7 @@ TextureImporter:
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
-  spriteTessellationDetail: -1
+  spriteTessellationDetail: 0
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
@@ -82,23 +82,21 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites: []
     outline: []
-    physicsShape: []
+    physicsShape:
+    - - {x: -250, y: -250}
+      - {x: -250, y: 61}
+      - {x: -213, y: 93}
+      - {x: -109, y: 96}
+      - {x: -73, y: 96}
+      - {x: -31, y: 159}
+      - {x: 13, y: 195}
+      - {x: 117, y: 249}
+      - {x: 250, y: 250}
+      - {x: 250, y: -250}
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
     internalID: 0

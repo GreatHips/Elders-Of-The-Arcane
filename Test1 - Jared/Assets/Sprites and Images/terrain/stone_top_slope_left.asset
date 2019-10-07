@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: stone_top_slope_left
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 3ea68d471f96bd74fb0fb536ebbb0dae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7749cddd6de0b5e4ab9dacd262ecb605, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

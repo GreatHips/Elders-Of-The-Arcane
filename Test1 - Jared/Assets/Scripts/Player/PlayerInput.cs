@@ -5,8 +5,9 @@ using System.Collections;
 public class PlayerInput : MonoBehaviour {
 
 	Player player;
-
-	void Start () {
+    public GameObject inventory;
+    public GameObject hearts;
+    void Start () {
 		player = GetComponent<Player> ();
 	}
 
@@ -34,6 +35,18 @@ public class PlayerInput : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            inventory.SetActive(true);
+            hearts.SetActive(false);
+        }
+        if (Input.GetKeyUp(KeyCode.Tab))
+        {
+            inventory.SetActive(false);
+            hearts.SetActive(true);
+
         }
     }
 }

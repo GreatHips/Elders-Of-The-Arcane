@@ -17,6 +17,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEditor;
 using System.IO;
+using System;
 // to close game Application.Quit();
 // UnityEditor.EditorApplication.isPlaying = false;
 
@@ -26,6 +27,8 @@ public class Player : MonoBehaviour
 {
     public bool invinc = false;
     public bool facingRight = false;
+
+    Animator anime;
 
     public float maxJumpHeight = 4;
     public float minJumpHeight = 1;
@@ -49,6 +52,7 @@ public class Player : MonoBehaviour
     public GameObject ice3;
     public GameObject iceText;
     public GameObject fireballText;
+    public GameObject healthBar;
 
     public float moveX;
 
@@ -61,6 +65,8 @@ public class Player : MonoBehaviour
     float velocityXSmoothing;
 
     Controller2D controller;
+
+    public Rigidbody2D rb;
 
     Vector2 directionalInput;
 
@@ -119,10 +125,18 @@ public class Player : MonoBehaviour
             fireballText.SetActive(true);
         }
 
-        player = GameObject.Find("Player");
-        if (player.transform.position.y <= -100)
+        
+        if (gameObject.transform.position.y <= -100)
         {
-            healthManager.health = 0;
+            Destroy(gameObject);
+            actualDeath.SetActive(true);
+            deathText.SetActive(true);
+            blackOverView.SetActive(true);
+            fire1.SetActive(false);
+            fire2.SetActive(false);
+            fire3.SetActive(false);
+            fireballText.SetActive(false);
+            healthBar.SetActive(false);
         }
 
         PlayerMoves();
@@ -273,8 +287,6 @@ public class Player : MonoBehaviour
     void PlayerMoves()
     {
         //Player Direction
-
-
         player = GameObject.Find("Player");
         if (player.transform.position.x < formerPosition && !facingRight)
         {
@@ -298,7 +310,5 @@ public class Player : MonoBehaviour
         }
 
     }
-    
-        
-    }
+ }
 

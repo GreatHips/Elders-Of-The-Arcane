@@ -151,7 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a3e6835bcfc5f940be8619b1356ba4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heart: {fileID: 4746120}
+  health: 100
+  healthMax: 100
   player: {fileID: 1665680886}
 --- !u!61 &4746122
 BoxCollider2D:
@@ -591,7 +592,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a3e6835bcfc5f940be8619b1356ba4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heart: {fileID: 900424744}
+  health: 100
+  healthMax: 100
   player: {fileID: 1665680886}
 --- !u!61 &900424747
 BoxCollider2D:
@@ -1144,6 +1146,31 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4367491996877809283}
   m_PrefabAsset: {fileID: 0}
+--- !u!50 &1665680896 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 4367491996354028414, guid: c93dfb5bdb7c32b47833a5f3c8e00daf,
+    type: 3}
+  m_PrefabInstance: {fileID: 4367491996877809283}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1665680898
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665680886}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 99bada29ffbe14844b2d81a6ead79b97, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1674293439 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6710925037217390988, guid: bb20915affc0d814686656e03d5c14f3,
@@ -3191,6 +3218,16 @@ PrefabInstance:
       propertyPath: fireballText
       value: 
       objectReference: {fileID: 501289033}
+    - target: {fileID: 4367491996354028404, guid: c93dfb5bdb7c32b47833a5f3c8e00daf,
+        type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 1665680896}
+    - target: {fileID: 4367491996354028404, guid: c93dfb5bdb7c32b47833a5f3c8e00daf,
+        type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 316455160}
     - target: {fileID: 4804524012888796551, guid: c93dfb5bdb7c32b47833a5f3c8e00daf,
         type: 3}
       propertyPath: overallHealthBar

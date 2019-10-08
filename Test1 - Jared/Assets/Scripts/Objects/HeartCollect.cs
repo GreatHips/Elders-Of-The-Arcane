@@ -8,12 +8,13 @@ public class HeartCollect : MonoBehaviour
     public GameObject player;
     Player playerClass;
 
+    HealthManager healthManager;
     
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 8 && Player.globalHealth < 3)
+        if (collision.gameObject.layer == 8 && healthManager.health < healthManager.healthMax)
         {
-            Player.globalHealth += 1;
+            healthManager.Heal(50);
             Object.Destroy(heart);
         } else
         {

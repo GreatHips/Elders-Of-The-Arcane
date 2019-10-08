@@ -155,7 +155,7 @@ public class ProjectileAttack : MonoBehaviour
     {
         canAttack = false;
         fireballSource.PlayOneShot(fireballSound);
-        fireballSource.pitch = .5f;
+        fireballSource.pitch = 1f;
         yield return new WaitForSeconds(seconds);
         canAttack = true;
 
@@ -164,7 +164,7 @@ public class ProjectileAttack : MonoBehaviour
     {
         canAttack = false;
         iceSource.PlayOneShot(iceSound);
-        iceSource.pitch = 2f;
+        iceSource.pitch = 1f;
         yield return new WaitForSeconds(seconds);
         canAttack = true;
 

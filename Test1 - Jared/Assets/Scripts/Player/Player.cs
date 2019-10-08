@@ -33,12 +33,7 @@ public class Player : MonoBehaviour
     float accelerationTimeAirborne = .2f;
     float accelerationTimeGrounded = .1f;
     float moveSpeed = 6;
-    public int internalHealth = globalHealth;
-    public static int globalHealth = Mathf.Max(3);
     public static GameObject player;
-    public GameObject healthBar1;
-    public GameObject healthBar2;
-    public GameObject healthBar3;
     public GameObject blackOverView;
     public GameObject actualDeath;
     public GameObject deathText;
@@ -69,6 +64,7 @@ public class Player : MonoBehaviour
 
     Vector2 directionalInput;
 
+    HealthManager healthManager;
     void Start()
     {
         fireBookHeld = true;
@@ -126,43 +122,11 @@ public class Player : MonoBehaviour
         player = GameObject.Find("Player");
         if (player.transform.position.y <= -100)
         {
-            Player.globalHealth = 0;
+            healthManager.health = 0;
         }
 
         PlayerMoves();
-        if (globalHealth == 3)
-        {
-            healthBar3.SetActive(true);
-            healthBar2.SetActive(true);
-            healthBar1.SetActive(true);
-        }
-        else if (globalHealth == 2)
-        {
-            healthBar3.SetActive(false);
-            healthBar2.SetActive(true);
-            healthBar1.SetActive(true);
-        }
-        else if (globalHealth == 1)
-        {
-            healthBar3.SetActive(false);
-            healthBar2.SetActive(false);
-            healthBar1.SetActive(true);
-        }
-        else if (globalHealth == 0)
-        {
-            blackOverView.SetActive(true);
-            actualDeath.SetActive(true);
-            deathText.SetActive(true);
-            deathText.SetActive(true);
-            healthBar3.SetActive(false);
-            healthBar2.SetActive(false);
-            healthBar1.SetActive(false);
-            fire1.SetActive(false);
-            fire2.SetActive(false);
-            fire3.SetActive(false);
-            fireballText.SetActive(false);
-            Destroy(gameObject);
-        }
+        
         CalculateVelocity();
         
 
@@ -253,7 +217,7 @@ public class Player : MonoBehaviour
         
         EnemyAI.movement = false;
         velocity.x *= -3f;
-        globalHealth -= 1;
+        healthManager.Damage(20);
         invinc = true;
         if(velocity.x == 0 && facingRight)
         {

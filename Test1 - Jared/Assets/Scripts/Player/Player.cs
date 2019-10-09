@@ -229,14 +229,11 @@ public class Player : MonoBehaviour
     void damage()
     {
         
-        EnemyAI.movement = false;
+        
         velocity.x *= -3f;
         healthManager.Damage(20);
         invinc = true;
-        if(velocity.x == 0 && facingRight)
-        {
-            
-        }
+
 
     }
 

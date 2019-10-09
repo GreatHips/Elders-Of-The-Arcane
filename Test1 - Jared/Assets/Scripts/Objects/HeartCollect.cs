@@ -6,7 +6,8 @@ public class HeartCollect : MonoBehaviour
 {
     public GameObject player;
     HealthManager healthManager;
-   
+
+
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject == player && player.GetComponent<HealthManager>().health < player.GetComponent<HealthManager>().healthMax)

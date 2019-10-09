@@ -12,7 +12,7 @@ public class HeartCollect : MonoBehaviour
     {
         if (collision.gameObject == player && player.GetComponent<HealthManager>().health < player.GetComponent<HealthManager>().healthMax)
         {
-            gameObject.GetComponent<BoxCollider2D>().enabled = true;
+            
             player.GetComponent<HealthManager>().Heal(20);
             Destroy(gameObject);
         } else

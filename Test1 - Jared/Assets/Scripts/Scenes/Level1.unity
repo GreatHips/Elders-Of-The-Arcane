@@ -509,6 +509,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14585b34d0536604984ccc2dea5ac3f6, type: 3}
+--- !u!1 &515126923 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7651341946803459890, guid: bb20915affc0d814686656e03d5c14f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 7651341945766318477}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -24776,6 +24782,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 767968880}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &870556509 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7651341945667778006, guid: bb20915affc0d814686656e03d5c14f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 7651341945766318477}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &900424745 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3468404813382003285, guid: d0aa202bec688a14883841c5d6d1ec95,
@@ -24981,6 +24993,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1232412088 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7651341947523988327, guid: bb20915affc0d814686656e03d5c14f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 7651341945766318477}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1252326784 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 117328723766772968, guid: 14585b34d0536604984ccc2dea5ac3f6,
@@ -25663,6 +25681,21 @@ PrefabInstance:
       propertyPath: overallHealthBar
       value: 
       objectReference: {fileID: 703369465}
+    - target: {fileID: 4367491996354028413, guid: c93dfb5bdb7c32b47833a5f3c8e00daf,
+        type: 3}
+      propertyPath: fire1
+      value: 
+      objectReference: {fileID: 1232412088}
+    - target: {fileID: 4367491996354028413, guid: c93dfb5bdb7c32b47833a5f3c8e00daf,
+        type: 3}
+      propertyPath: fire2
+      value: 
+      objectReference: {fileID: 870556509}
+    - target: {fileID: 4367491996354028413, guid: c93dfb5bdb7c32b47833a5f3c8e00daf,
+        type: 3}
+      propertyPath: fire3
+      value: 
+      objectReference: {fileID: 515126923}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c93dfb5bdb7c32b47833a5f3c8e00daf, type: 3}
 --- !u!1 &1738653615 stripped

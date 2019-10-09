@@ -2,18 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeartCollect : HealthManager
+public class HeartCollect : MonoBehaviour
 {
     public GameObject player;
-    Player playerClass;
-
-    
+    HealthManager healthManager;
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player" && health < healthMax)
+        if (collision.gameObject == player && healthManager.health < healthManager.healthMax)
         {
-            Heal(50);
-            Destroy(this);
+            player.GetComponent<HealthManager>().Heal(20);
+            Destroy(gameObject);
         } else
         {
             this.GetComponent<BoxCollider2D>().enabled = false;

@@ -25008,7 +25008,7 @@ PrefabInstance:
         type: 3}
       propertyPath: iceSound
       value: 
-      objectReference: {fileID: 8300000, guid: 87cd0d834e9e21f4da968fb23461ce1e, type: 3}
+      objectReference: {fileID: 8300000, guid: 7493c530655156c47b5ed28b414675dc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c93dfb5bdb7c32b47833a5f3c8e00daf, type: 3}
 --- !u!1 &1738653615 stripped

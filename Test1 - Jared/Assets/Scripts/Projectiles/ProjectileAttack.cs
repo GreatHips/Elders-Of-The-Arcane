@@ -69,7 +69,7 @@ public class ProjectileAttack : MonoBehaviour
                 {
                     GameObject bice = (GameObject)(Instantiate(ice, transform.position + transform.up + transform.right * varFacingRight * -2f, Quaternion.identity));
 
-                    bice.transform.Translate(Vector3.forward * Time.deltaTime);
+                    bice.GetComponent<Rigidbody2D>().AddForce(-transform.up * 10000f);
 
                     StartCoroutine(Recharge());
 

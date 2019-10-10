@@ -24134,6 +24134,11 @@ PrefabInstance:
       propertyPath: stoppingDistance
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 7724320228746223824, guid: 14585b34d0536604984ccc2dea5ac3f6,
+        type: 3}
+      propertyPath: m_PlayAutomatically
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14585b34d0536604984ccc2dea5ac3f6, type: 3}
 --- !u!1001 &1518980317

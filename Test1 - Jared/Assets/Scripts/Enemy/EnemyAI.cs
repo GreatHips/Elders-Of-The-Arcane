@@ -29,15 +29,15 @@ public class EnemyAI : MonoBehaviour
 
         }
         
-        if ((target.position.y > this.transform.position.y)&&myRigidBody.velocity.y==0&& (Math.Abs(target.position.x - this.transform.position.x)<20)){
+        if ((target.position.y > this.transform.position.y)&&myRigidBody.velocity.y==0&& (Math.Abs(target.position.x - this.transform.position.x)<20) && dist < stoppingDistance){
             myRigidBody.velocity = new Vector3(myRigidBody.velocity.x, 4.5f, 0); ;
             canJump = false;
         }
-        if ((target.position.x < this.transform.position.x)&&facingRight==true)
+        if ((target.position.x < this.transform.position.x)&&facingRight==true && dist < stoppingDistance)
         {
             transform.Rotate(Vector3.up * 180);
             facingRight = false;
-        }else if((target.position.x > this.transform.position.x)&& facingRight == false)
+        }else if((target.position.x > this.transform.position.x)&& facingRight == false && dist < stoppingDistance)
         {
             transform.Rotate(Vector3.up * 180);
             facingRight = true;

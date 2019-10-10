@@ -68,7 +68,8 @@ public class ProjectileAttack : MonoBehaviour
                 else if (player.iceBookHeld == true)
                 {
                     GameObject bice = (GameObject)(Instantiate(ice, transform.position + transform.up + transform.right * varFacingRight * -2f, Quaternion.identity));
-                    bice.GetComponent<Rigidbody2D>().velocity = Vector3.down * 100;
+
+                    bice.transform.Translate(Vector3.forward * Time.deltaTime);
 
                     StartCoroutine(Recharge());
 

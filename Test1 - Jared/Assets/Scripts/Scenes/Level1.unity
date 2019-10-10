@@ -25008,7 +25008,7 @@ PrefabInstance:
         type: 3}
       propertyPath: iceSound
       value: 
-      objectReference: {fileID: 8300000, guid: 2941f7a4f5e27ab408ea51bde146e9de, type: 3}
+      objectReference: {fileID: 8300000, guid: 87cd0d834e9e21f4da968fb23461ce1e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c93dfb5bdb7c32b47833a5f3c8e00daf, type: 3}
 --- !u!1 &1738653615 stripped
@@ -26472,17 +26472,17 @@ PrefabInstance:
     - target: {fileID: 5272729900788835112, guid: 5571f6078415dca49a68889363963f38,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5272729900788835112, guid: 5571f6078415dca49a68889363963f38,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5272729900788835112, guid: 5571f6078415dca49a68889363963f38,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5272729900788835112, guid: 5571f6078415dca49a68889363963f38,
         type: 3}
@@ -26507,6 +26507,16 @@ PrefabInstance:
     - target: {fileID: 5272729900788835112, guid: 5571f6078415dca49a68889363963f38,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5770146080726757545, guid: 5571f6078415dca49a68889363963f38,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5770146080726757545, guid: 5571f6078415dca49a68889363963f38,
+        type: 3}
+      propertyPath: m_BodyType
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -31,7 +31,7 @@ public class EnemyAI : MonoBehaviour
 
         }
         
-        if ((target.position.y > this.transform.position.y)&&myRigidBody.velocity.y==0&& (Math.Abs(target.position.x - this.transform.position.x)<20) && dist < stoppingDistance && !isJumping){
+        if ((target.position.y >= this.transform.position.y)&&myRigidBody.velocity.y==0&& (Math.Abs(target.position.x - this.transform.position.x)<20) && dist < stoppingDistance && !isJumping){
             myRigidBody.velocity = new Vector3(myRigidBody.velocity.x, 7.25f, 0); ;
             StartCoroutine(WaitJump());
         }

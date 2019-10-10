@@ -67,8 +67,8 @@ public class ProjectileAttack : MonoBehaviour
                 }
                 else if (player.iceBookHeld == true)
                 {
-                    GameObject bice = (GameObject)(Instantiate(ice, transform.position + transform.right * varFacingRight * -2f, Quaternion.identity));
-                    bice.GetComponent<Rigidbody2D>().AddForce(transform.right * varFacingRight * -1000);
+                    GameObject bice = (GameObject)(Instantiate(ice, transform.position + transform.up + transform.right * varFacingRight * -2f, Quaternion.identity));
+                    bice.GetComponent<Rigidbody2D>().velocity = Vector3.down * 100;
 
                     StartCoroutine(Recharge());
 
@@ -76,11 +76,11 @@ public class ProjectileAttack : MonoBehaviour
 
                     if (varFacingRight == 1)
                     {
-                        bice.transform.Rotate(0, 0, -90f);
+                        bice.transform.Rotate(0, 0, 180f);
                     }
                     else if (varFacingRight == -1)
                     {
-                        bice.transform.Rotate(0, 0, 90f);
+                        bice.transform.Rotate(0, 0, 180f);
                     }
                     Destroy(bice, 2f);
                 }

@@ -23,6 +23,7 @@ public class EnemyAI : MonoBehaviour
 
     void Update()
     {
+       
         float dist = Math.Abs(Vector3.Distance(target.position, transform.position));
         if (movement && dist < stoppingDistance)
         {
@@ -30,18 +31,16 @@ public class EnemyAI : MonoBehaviour
 
         }
         
-        if ((target.position.y > this.transform.position.y)&&myRigidBody.velocity.y==0&& (Math.Abs(target.position.x - this.transform.position.x)<20) && dist < stoppingDistance){
-            myRigidBody.velocity = new Vector3(myRigidBody.velocity.x, 4.5f, 0); ;
-            canJump = false;
-        }
-        if ((target.position.x < this.transform.position.x)&&facingRight==true && dist < stoppingDistance && !isJumping)
-        {
+        if ((target.position.y > this.transform.position.y)&&myRigidBody.velocity.y==0&& (Math.Abs(target.position.x - this.transform.position.x)<20) && dist < stoppingDistance && !isJumping){
+            myRigidBody.velocity = new Vector3(myRigidBody.velocity.x, 7.25f, 0); ;
             StartCoroutine(WaitJump());
+        }
+        if ((target.position.x < this.transform.position.x)&&facingRight==true && dist < stoppingDistance)
+        {
             transform.Rotate(Vector3.up * 180);
             facingRight = false;
-        }else if((target.position.x > this.transform.position.x)&& facingRight == false && dist < stoppingDistance && !isJumping)
+        }else if((target.position.x > this.transform.position.x)&& facingRight == false && dist < stoppingDistance)
         {
-            StartCoroutine(WaitJump());
             transform.Rotate(Vector3.up * 180);
             facingRight = true;
         }
@@ -50,9 +49,16 @@ public class EnemyAI : MonoBehaviour
     IEnumerator WaitJump()
     {
         isJumping = true;
-
+        if (isJumping)
+        {
+            
+            this.GetComponent<Animation>().enabled = true;
+        } else if (!isJumping)
+        {
+            this.GetComponent<Animation>().enabled = false; 
+        }
         yield return new WaitForSeconds(2);
-
+        
         isJumping = false;
     }
 }

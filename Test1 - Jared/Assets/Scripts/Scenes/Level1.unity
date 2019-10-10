@@ -25004,6 +25004,11 @@ PrefabInstance:
       propertyPath: fire3
       value: 
       objectReference: {fileID: 515126923}
+    - target: {fileID: 4367491996354028413, guid: c93dfb5bdb7c32b47833a5f3c8e00daf,
+        type: 3}
+      propertyPath: iceSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 06cf2ad90c517724090ee414581389bf, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c93dfb5bdb7c32b47833a5f3c8e00daf, type: 3}
 --- !u!1 &1738653615 stripped

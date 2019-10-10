@@ -22,7 +22,8 @@ public class EnemyAI : MonoBehaviour
 
     void Update()
     {
-        if (movement)
+        float dist = Vector3.Distance(target.position, transform.position);
+        if (movement && dist < stoppingDistance)
         {
             transform.position = Vector2.MoveTowards(transform.position, target.position, movementSpeed * Time.deltaTime);
 

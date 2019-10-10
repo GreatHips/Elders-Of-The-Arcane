@@ -24129,6 +24129,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 920363800922528117, guid: 14585b34d0536604984ccc2dea5ac3f6,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.17663956
+      objectReference: {fileID: 0}
+    - target: {fileID: 920363800922528117, guid: 14585b34d0536604984ccc2dea5ac3f6,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 4.674156
+      objectReference: {fileID: 0}
+    - target: {fileID: 920363800922528117, guid: 14585b34d0536604984ccc2dea5ac3f6,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.9343989
+      objectReference: {fileID: 0}
+    - target: {fileID: 920363800922528117, guid: 14585b34d0536604984ccc2dea5ac3f6,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 3.0358071
+      objectReference: {fileID: 0}
     - target: {fileID: 6590502327055629562, guid: 14585b34d0536604984ccc2dea5ac3f6,
         type: 3}
       propertyPath: stoppingDistance

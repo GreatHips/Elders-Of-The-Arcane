@@ -13,6 +13,7 @@ public class EnemyAI : MonoBehaviour
     private bool facingRight = true;
     private bool canJump = true;
     private Rigidbody2D myRigidBody;
+    public bool isJumping = false;
 
     void Start()
     {
@@ -33,14 +34,25 @@ public class EnemyAI : MonoBehaviour
             myRigidBody.velocity = new Vector3(myRigidBody.velocity.x, 4.5f, 0); ;
             canJump = false;
         }
-        if ((target.position.x < this.transform.position.x)&&facingRight==true && dist < stoppingDistance)
+        if ((target.position.x < this.transform.position.x)&&facingRight==true && dist < stoppingDistance && !isJumping)
         {
+            StartCoroutine(WaitJump());
             transform.Rotate(Vector3.up * 180);
             facingRight = false;
-        }else if((target.position.x > this.transform.position.x)&& facingRight == false && dist < stoppingDistance)
+        }else if((target.position.x > this.transform.position.x)&& facingRight == false && dist < stoppingDistance && !isJumping)
         {
+            StartCoroutine(WaitJump());
             transform.Rotate(Vector3.up * 180);
             facingRight = true;
         }
+    }
+
+    IEnumerator WaitJump()
+    {
+        isJumping = true;
+
+        yield return new WaitForSeconds(2);
+
+        isJumping = false;
     }
 }

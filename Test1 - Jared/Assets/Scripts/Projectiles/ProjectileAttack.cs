@@ -45,13 +45,16 @@ public class ProjectileAttack : MonoBehaviour
 
                 chargeAmounts -= 1;
 
-                StartCoroutine(Recharge());
+                
                 if (player.fireBookHeld == true)
                 {
                     GameObject bfire = (GameObject)(Instantiate(fireball, transform.position + transform.right * varFacingRight * -2f, Quaternion.identity));
                     bfire.GetComponent<Rigidbody2D>().AddForce(transform.right * varFacingRight * -1000);
-                    ChargingAmounts();
-                    StartCoroutine(AttackWaitFireball(.75f));
+
+                    StartCoroutine(Recharge());
+
+                    StartCoroutine(AttackWaitFireball());
+
                     if (varFacingRight == 1)
                     {
                         bfire.transform.Rotate(0, 0, -90f);
@@ -66,8 +69,10 @@ public class ProjectileAttack : MonoBehaviour
                 {
                     GameObject bice = (GameObject)(Instantiate(ice, transform.position + transform.right * varFacingRight * -2f, Quaternion.identity));
                     bice.GetComponent<Rigidbody2D>().AddForce(transform.right * varFacingRight * -1000);
-                    ChargingAmounts();
-                    StartCoroutine(AttackWaitIce(.75f));
+
+                    StartCoroutine(Recharge());
+
+                    StartCoroutine(AttackWaitIce());
 
                     if (varFacingRight == 1)
                     {
@@ -151,21 +156,27 @@ public class ProjectileAttack : MonoBehaviour
 
     }
 
-    IEnumerator AttackWaitFireball (float seconds)
+    IEnumerator AttackWaitFireball ()
     {
         canAttack = false;
+
         fireballSource.PlayOneShot(fireballSound);
         fireballSource.pitch = 1f;
-        yield return new WaitForSeconds(seconds);
+
+        yield return new WaitForSeconds(.5f);
+
         canAttack = true;
 
     }
-    IEnumerator AttackWaitIce(float seconds)
+    IEnumerator AttackWaitIce()
     {
         canAttack = false;
+
         iceSource.PlayOneShot(iceSound);
         iceSource.pitch = 1f;
-        yield return new WaitForSeconds(seconds);
+
+        yield return new WaitForSeconds(.75f);
+
         canAttack = true;
 
     }
@@ -196,16 +207,26 @@ public class ProjectileAttack : MonoBehaviour
             chargeAmounts += 1;
             Charging = false;
         }
-        
-     }
 
-    public void ChargingAmounts()
-    {
-        StartCoroutine(Recharge());
+        if (chargeAmounts == 1 && !Charging)
+        {
+            Charging = true;
+            yield return new WaitForSeconds(1.5f);
+            chargeAmounts += 1;
+            Charging = false;
+        }
+        if (chargeAmounts == 2 && !Charging)
+        {
+            Charging = true;
+            yield return new WaitForSeconds(1.5f);
+            chargeAmounts += 1;
+            Charging = false;
+        }
+
         if (chargeAmounts > 4)
         {
             chargeAmounts = 3;
         }
+
     }
-    
 }

@@ -51,7 +51,6 @@ public class EnemyAI : MonoBehaviour
         isJumping = true;
         if (isJumping)
         {
-            
             this.GetComponent<Animation>().enabled = true;
         } else if (!isJumping)
         {

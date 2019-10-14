@@ -62,7 +62,7 @@ public class HealthBar : HealthManager
         {
             overallHealthBar.SetActive(true);
             healthBars.SetActive(true);
-            StartCoroutine(WaitHealthBar(5f));
+            
             Damage(25);
         }
 

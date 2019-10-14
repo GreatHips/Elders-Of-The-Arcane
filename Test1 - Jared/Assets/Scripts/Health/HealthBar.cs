@@ -81,6 +81,7 @@ public class HealthBar : HealthManager
             overallHealthBar.SetActive(true);
             healthBars.SetActive(true);
             healthBarsBackground.SetActive(true);
+            beenAttacked = false;
         }
        while (beenAttacked == false)
         {

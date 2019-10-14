@@ -62,13 +62,16 @@ public class HealthBar : HealthManager
         {
             overallHealthBar.SetActive(true);
             healthBars.SetActive(true);
-            
             Damage(25);
         }
 
         if (collision.gameObject.tag == "Enemy" && gameObject.tag == "Player")
         {
             Damage(20);
+        }
+        if (collision.gameObject.tag == "Boss" && gameObject.tag == "Player")
+        {
+            Damage(34);
         }
     }
 

@@ -19,17 +19,17 @@ public class HealthBar : HealthManager
     {
         if (gameObject.tag == "Enemy")
         {
-            healthBar.y = 10f;
+            healthBar.y = 20f;
             healthBarsBackgroundScale.y = 10f;
-            healthBar.x = health * 1.5f;
-            healthBarsBackgroundScale.x = healthMax * 1.5f;
+            healthBar.x = health * 3f;
+            healthBarsBackgroundScale.x = healthMax * 3f;
             healthBars.transform.localScale = healthBar;
             healthBarsBackground.transform.localScale = healthBarsBackgroundScale;
         }
         if (gameObject.tag == "Boss")
         {
-            healthBar.y = 10f;
-            healthBarsBackgroundScale.y = 10f;
+            healthBar.y = 20f;
+            healthBarsBackgroundScale.y = 20f;
             healthBar.x = health / 25f;
             healthBarsBackgroundScale.x = healthMax / 25;
             healthBars.transform.localScale = healthBar;
@@ -56,6 +56,14 @@ public class HealthBar : HealthManager
             healthBars.SetActive(true);
             StartCoroutine(WaitHealthBar(5f));
             Damage(50);
+        }
+
+        if (collision.gameObject.tag == "Bullets" && gameObject.tag == "Boss")
+        {
+            overallHealthBar.SetActive(true);
+            healthBars.SetActive(true);
+            StartCoroutine(WaitHealthBar(5f));
+            Damage(100);
         }
 
         if (collision.gameObject.tag == "Enemy" && gameObject.tag == "Player")

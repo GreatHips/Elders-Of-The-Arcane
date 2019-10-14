@@ -21,6 +21,10 @@ public class ProjectileCollision : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (coll.gameObject.tag == "Boss")
+        {
+            Destroy(gameObject);
+        }
     }
 
 

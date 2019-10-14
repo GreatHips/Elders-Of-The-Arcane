@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour
 {
     public int health = 100;
     public int healthMax = 100;
-
+   
     public static int staticNewHealth;
     public static int staticHealth;
+
 
     void Start()
     {
@@ -56,6 +58,10 @@ public class HealthManager : MonoBehaviour
         if (collision.gameObject.tag == "Bullets" && gameObject.tag == "Enemy")
         {
             Damage(50);
+        }
+        if (collision.gameObject.tag == "Bullets" && gameObject.tag == "Boss")
+        {
+            Damage(100);
         }
 
         if (collision.gameObject.tag == "Enemy" && gameObject.tag == "Player")

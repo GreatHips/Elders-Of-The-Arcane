@@ -30,8 +30,8 @@ public class HealthBar : HealthManager
         {
             healthBar.y = 20f;
             healthBarsBackgroundScale.y = 20f;
-            healthBar.x = health / 25f;
-            healthBarsBackgroundScale.x = healthMax / 25;
+            healthBar.x = health * .25f;
+            healthBarsBackgroundScale.x = healthMax * .25f;
             healthBars.transform.localScale = healthBar;
             healthBarsBackground.transform.localScale = healthBarsBackgroundScale;
         }
@@ -63,7 +63,7 @@ public class HealthBar : HealthManager
             overallHealthBar.SetActive(true);
             healthBars.SetActive(true);
             StartCoroutine(WaitHealthBar(5f));
-            Damage(100);
+            Damage(25);
         }
 
         if (collision.gameObject.tag == "Enemy" && gameObject.tag == "Player")

@@ -28202,7 +28202,7 @@ PrefabInstance:
     - target: {fileID: 70652056692631833, guid: e45f6a9bc625ee540904c0dc3471d88b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 11.310974
+      value: 11.311035
       objectReference: {fileID: 0}
     - target: {fileID: 70652056692631833, guid: e45f6a9bc625ee540904c0dc3471d88b,
         type: 3}
@@ -28625,7 +28625,7 @@ PrefabInstance:
     - target: {fileID: 935033344614451462, guid: 57034088f36eef545af35c1c237dc486,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 99.47
+      value: 102.58
       objectReference: {fileID: 0}
     - target: {fileID: 935033344614451462, guid: 57034088f36eef545af35c1c237dc486,
         type: 3}
@@ -28727,6 +28727,12 @@ PrefabInstance:
       propertyPath: m_SpriteSortPoint
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8221781883072912758, guid: 57034088f36eef545af35c1c237dc486,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e861f295179c5f64e8efaa3f09566ba6,
+        type: 3}
     - target: {fileID: 1353718303700950841, guid: 57034088f36eef545af35c1c237dc486,
         type: 3}
       propertyPath: health

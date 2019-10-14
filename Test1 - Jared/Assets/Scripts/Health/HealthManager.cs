@@ -61,7 +61,7 @@ public class HealthManager : MonoBehaviour
         }
         if (collision.gameObject.tag == "Bullets" && gameObject.tag == "Boss")
         {
-            Damage(100);
+            Damage(25);
         }
 
         if (collision.gameObject.tag == "Enemy" && gameObject.tag == "Player")

@@ -52,7 +52,7 @@ public class EnemyAI : MonoBehaviour
             }
         }
 
-        if (gameObject.tag == "Boss")
+        if (gameObject.tag == "Boss" && gameObject.GetComponent<HealthManager>().health < gameObject.GetComponent<HealthManager>().healthMax)
         {
             float dist = Math.Abs(Vector3.Distance(target.position, transform.position));
 

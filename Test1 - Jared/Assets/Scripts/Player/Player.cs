@@ -89,6 +89,11 @@ public class Player : MonoBehaviour
             damage();
             StartCoroutine(WaitEnemy(.75f));
         }
+        if (collision.gameObject.tag == "Boss" && !invinc)
+        {
+            damage();
+            StartCoroutine(WaitEnemy(.75f));
+        }
     }
     void Update()
     {
@@ -199,7 +204,12 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy" && !invinc)
         {
-            damage();
+            damageStay();
+            StartCoroutine(WaitEnemy(.75f));
+        }
+        if (collision.gameObject.tag == "Boss" && !invinc)
+        {
+            damageStay();
             StartCoroutine(WaitEnemy(.75f));
         }
     }
@@ -228,15 +238,15 @@ public class Player : MonoBehaviour
     }
     void damage()
     {
-
-
-        velocity.x *= -1.5f;
+        velocity.x *= -3f;
         healthManager.Damage(20);
         invinc = true;
-
-
     }
-
+    void damageStay()
+    {
+        healthManager.Damage(20);
+        invinc = true;
+    }
 
     public void OnShiftUp()
     {

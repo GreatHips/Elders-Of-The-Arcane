@@ -5,7 +5,6 @@ using UnityEngine;
 public class HealthBar : HealthManager
 {
     public Vector3 healthBar;
-    public bool beenAttacked = false;
     public GameObject overallHealthBar;
     public GameObject healthBars;
     public GameObject healthBarsBackground;
@@ -29,8 +28,8 @@ public class HealthBar : HealthManager
         }
         if (gameObject.tag == "Boss")
         {
-            healthBar.y = 50f;
-            healthBarsBackgroundScale.y = 50f;
+            healthBar.y = 20f;
+            healthBarsBackgroundScale.y = 20f;
             healthBar.x = health * .25f;
             healthBarsBackgroundScale.x = healthMax * .25f;
             healthBars.transform.localScale = healthBar;
@@ -47,7 +46,6 @@ public class HealthBar : HealthManager
             
             healthBarsBackground.transform.localScale = healthBarsBackgroundScale;
         }
-
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
@@ -62,7 +60,8 @@ public class HealthBar : HealthManager
 
         if (collision.gameObject.tag == "Bullets" && gameObject.tag == "Boss")
         {
-            beenAttacked = true;
+            overallHealthBar.SetActive(true);
+            healthBars.SetActive(true);
             StartCoroutine(WaitHealthBar(5f));
             Damage(25);
         }
@@ -75,19 +74,9 @@ public class HealthBar : HealthManager
 
     IEnumerator WaitHealthBar (float seconds)
     {
-        while (beenAttacked == true)
-        {
-            yield return new WaitForSeconds(seconds);
-            overallHealthBar.SetActive(true);
-            healthBars.SetActive(true);
-            healthBarsBackground.SetActive(true);
-            beenAttacked = false;
-        }
-       while (beenAttacked == false)
-        {
-            overallHealthBar.SetActive(false);
-            healthBars.SetActive(false);
-            healthBarsBackground.SetActive(false);
-        }
+        
+        yield return new WaitForSeconds(seconds);
+        healthBars.SetActive(false);
+        overallHealthBar.SetActive(false);
     }
 }

@@ -230,7 +230,7 @@ public class Player : MonoBehaviour
     {
 
 
-        velocity.x *= 1.5f;
+        velocity.x *= -1.5f;
         healthManager.Damage(20);
         invinc = true;
 

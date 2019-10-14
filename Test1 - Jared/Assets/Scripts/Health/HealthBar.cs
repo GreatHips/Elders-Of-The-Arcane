@@ -26,6 +26,15 @@ public class HealthBar : HealthManager
             healthBars.transform.localScale = healthBar;
             healthBarsBackground.transform.localScale = healthBarsBackgroundScale;
         }
+        if (gameObject.tag == "Boss")
+        {
+            healthBar.y = 10f;
+            healthBarsBackgroundScale.y = 10f;
+            healthBar.x = health / 25f;
+            healthBarsBackgroundScale.x = healthMax / 25;
+            healthBars.transform.localScale = healthBar;
+            healthBarsBackground.transform.localScale = healthBarsBackgroundScale;
+        }
         if (gameObject.tag == "Player")
         {
             healthBar.y = .5f;

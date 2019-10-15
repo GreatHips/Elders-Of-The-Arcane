@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2863369387865906106}
   - component: {fileID: 1935528358473234698}
   - component: {fileID: 4334382741299700352}
+  - component: {fileID: 4563103935807560491}
   m_Layer: 10
   m_Name: SlothBoss
   m_TagString: Boss
@@ -199,6 +200,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 6
+--- !u!114 &4563103935807560491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7200378736989450237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82b672f6e8d9a0842928be1459b0d046, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreObject: {fileID: 0}
+  newScore: 0
+  score: 0
 --- !u!1001 &9045595790603827023
 PrefabInstance:
   m_ObjectHideFlags: 0

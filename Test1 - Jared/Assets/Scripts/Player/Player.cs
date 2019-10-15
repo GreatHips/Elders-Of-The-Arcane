@@ -60,6 +60,7 @@ public class Player : MonoBehaviour
     Vector2 directionalInput;
 
     HealthManager healthManager;
+
     void Start()
     {
         fireBookHeld = true;
@@ -277,7 +278,6 @@ public class Player : MonoBehaviour
 
 
         //Physics
-
         void FlipPlayer()
         {
             facingRight = !facingRight;

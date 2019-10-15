@@ -224,7 +224,7 @@ SpriteRenderer:
   m_Size: {x: 2.28, y: 1.92}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &12891327
@@ -334,7 +334,17 @@ PrefabInstance:
         type: 3}
       propertyPath: Score
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1602485054}
+    - target: {fileID: 5523537329277770205, guid: 14585b34d0536604984ccc2dea5ac3f6,
+        type: 3}
+      propertyPath: Score
+      value: 
+      objectReference: {fileID: 1602485054}
+    - target: {fileID: 4167819291501149050, guid: 14585b34d0536604984ccc2dea5ac3f6,
+        type: 3}
+      propertyPath: scoreObject
+      value: 
+      objectReference: {fileID: 1602485054}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14585b34d0536604984ccc2dea5ac3f6, type: 3}
 --- !u!4 &260966358 stripped
@@ -25456,12 +25466,17 @@ PrefabInstance:
         type: 3}
       propertyPath: Score
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1602485054}
     - target: {fileID: 5523537329277770205, guid: 14585b34d0536604984ccc2dea5ac3f6,
         type: 3}
       propertyPath: Score
       value: 
-      objectReference: {fileID: 503437474}
+      objectReference: {fileID: 1602485054}
+    - target: {fileID: 4167819291501149050, guid: 14585b34d0536604984ccc2dea5ac3f6,
+        type: 3}
+      propertyPath: scoreObject
+      value: 
+      objectReference: {fileID: 1602485054}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14585b34d0536604984ccc2dea5ac3f6, type: 3}
 --- !u!4 &767968881 stripped
@@ -25628,7 +25643,17 @@ PrefabInstance:
         type: 3}
       propertyPath: Score
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1602485054}
+    - target: {fileID: 5523537329277770205, guid: 14585b34d0536604984ccc2dea5ac3f6,
+        type: 3}
+      propertyPath: Score
+      value: 
+      objectReference: {fileID: 1602485054}
+    - target: {fileID: 4167819291501149050, guid: 14585b34d0536604984ccc2dea5ac3f6,
+        type: 3}
+      propertyPath: scoreObject
+      value: 
+      objectReference: {fileID: 1602485054}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14585b34d0536604984ccc2dea5ac3f6, type: 3}
 --- !u!1 &1023658956
@@ -25890,7 +25915,17 @@ PrefabInstance:
         type: 3}
       propertyPath: Score
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1602485054}
+    - target: {fileID: 5523537329277770205, guid: 14585b34d0536604984ccc2dea5ac3f6,
+        type: 3}
+      propertyPath: Score
+      value: 
+      objectReference: {fileID: 1602485054}
+    - target: {fileID: 4167819291501149050, guid: 14585b34d0536604984ccc2dea5ac3f6,
+        type: 3}
+      propertyPath: scoreObject
+      value: 
+      objectReference: {fileID: 1602485054}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14585b34d0536604984ccc2dea5ac3f6, type: 3}
 --- !u!4 &1323763949 stripped
@@ -25986,6 +26021,16 @@ PrefabInstance:
       propertyPath: stoppingDistance
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 2549519725020857201, guid: 14585b34d0536604984ccc2dea5ac3f6,
+        type: 3}
+      propertyPath: Score
+      value: 
+      objectReference: {fileID: 1602485054}
+    - target: {fileID: 5523537329277770205, guid: 14585b34d0536604984ccc2dea5ac3f6,
+        type: 3}
+      propertyPath: Score
+      value: 
+      objectReference: {fileID: 1602485054}
     - target: {fileID: 920363800922528117, guid: 14585b34d0536604984ccc2dea5ac3f6,
         type: 3}
       propertyPath: m_Offset.x
@@ -26011,6 +26056,11 @@ PrefabInstance:
       propertyPath: m_PlayAutomatically
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4167819291501149050, guid: 14585b34d0536604984ccc2dea5ac3f6,
+        type: 3}
+      propertyPath: scoreObject
+      value: 
+      objectReference: {fileID: 1602485054}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14585b34d0536604984ccc2dea5ac3f6, type: 3}
 --- !u!1 &1488889739 stripped
@@ -26127,7 +26177,17 @@ PrefabInstance:
         type: 3}
       propertyPath: Score
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1602485054}
+    - target: {fileID: 5523537329277770205, guid: 14585b34d0536604984ccc2dea5ac3f6,
+        type: 3}
+      propertyPath: Score
+      value: 
+      objectReference: {fileID: 1602485054}
+    - target: {fileID: 4167819291501149050, guid: 14585b34d0536604984ccc2dea5ac3f6,
+        type: 3}
+      propertyPath: scoreObject
+      value: 
+      objectReference: {fileID: 1602485054}
     m_RemovedComponents:
     - {fileID: 2287441110343117397, guid: 14585b34d0536604984ccc2dea5ac3f6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 14585b34d0536604984ccc2dea5ac3f6, type: 3}
@@ -26636,9 +26696,25 @@ PrefabInstance:
         type: 3}
       propertyPath: Score
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1602485054}
+    - target: {fileID: 5523537329277770205, guid: 14585b34d0536604984ccc2dea5ac3f6,
+        type: 3}
+      propertyPath: Score
+      value: 
+      objectReference: {fileID: 1602485054}
+    - target: {fileID: 4167819291501149050, guid: 14585b34d0536604984ccc2dea5ac3f6,
+        type: 3}
+      propertyPath: scoreObject
+      value: 
+      objectReference: {fileID: 1602485054}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14585b34d0536604984ccc2dea5ac3f6, type: 3}
+--- !u!1 &1602485054 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 70652056692631838, guid: e45f6a9bc625ee540904c0dc3471d88b,
+    type: 3}
+  m_PrefabInstance: {fileID: 70652056905144997}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1633688192
 GameObject:
   m_ObjectHideFlags: 0
@@ -26805,6 +26881,11 @@ PrefabInstance:
       propertyPath: overallHealthBar
       value: 
       objectReference: {fileID: 3669911196083435396}
+    - target: {fileID: 4804524012888796551, guid: c93dfb5bdb7c32b47833a5f3c8e00daf,
+        type: 3}
+      propertyPath: Score
+      value: 
+      objectReference: {fileID: 1602485054}
     - target: {fileID: 4367491996354028412, guid: c93dfb5bdb7c32b47833a5f3c8e00daf,
         type: 3}
       propertyPath: hearts
@@ -27006,7 +27087,17 @@ PrefabInstance:
         type: 3}
       propertyPath: Score
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1602485054}
+    - target: {fileID: 5523537329277770205, guid: 14585b34d0536604984ccc2dea5ac3f6,
+        type: 3}
+      propertyPath: Score
+      value: 
+      objectReference: {fileID: 1602485054}
+    - target: {fileID: 4167819291501149050, guid: 14585b34d0536604984ccc2dea5ac3f6,
+        type: 3}
+      propertyPath: scoreObject
+      value: 
+      objectReference: {fileID: 1602485054}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14585b34d0536604984ccc2dea5ac3f6, type: 3}
 --- !u!1 &1989857125 stripped
@@ -28341,6 +28432,11 @@ PrefabInstance:
       propertyPath: m_FontData.m_FontStyle
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 70652056692631832, guid: e45f6a9bc625ee540904c0dc3471d88b,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Score:'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e45f6a9bc625ee540904c0dc3471d88b, type: 3}
 --- !u!1 &1702005753525359416 stripped
@@ -28865,6 +28961,11 @@ PrefabInstance:
       propertyPath: healthMax
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 1353718303700950841, guid: 57034088f36eef545af35c1c237dc486,
+        type: 3}
+      propertyPath: Score
+      value: 
+      objectReference: {fileID: 1602485054}
     - target: {fileID: 5022879920866416961, guid: 57034088f36eef545af35c1c237dc486,
         type: 3}
       propertyPath: health
@@ -28875,6 +28976,11 @@ PrefabInstance:
       propertyPath: healthMax
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 5022879920866416961, guid: 57034088f36eef545af35c1c237dc486,
+        type: 3}
+      propertyPath: Score
+      value: 
+      objectReference: {fileID: 1602485054}
     - target: {fileID: 5808051099292758586, guid: 57034088f36eef545af35c1c237dc486,
         type: 3}
       propertyPath: m_Offset.y
@@ -28905,6 +29011,11 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.newSize.y
       value: 19.231382
       objectReference: {fileID: 0}
+    - target: {fileID: 4563103935807560491, guid: 57034088f36eef545af35c1c237dc486,
+        type: 3}
+      propertyPath: scoreObject
+      value: 
+      objectReference: {fileID: 1602485054}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57034088f36eef545af35c1c237dc486, type: 3}
 --- !u!1 &8137970572543985998 stripped

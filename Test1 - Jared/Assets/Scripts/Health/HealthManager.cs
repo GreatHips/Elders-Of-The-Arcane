@@ -27,7 +27,6 @@ public class HealthManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        Debug.Log("Hp: " + GetHealth());
     }
 
     //returns the health value

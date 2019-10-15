@@ -9,16 +9,26 @@ public class HealthBar : HealthManager
     public GameObject healthBars;
     public GameObject healthBarsBackground;
     public Vector3 healthBarsBackgroundScale;
+
+    public float timeSinceAttacked = -6;
     void Start()
     {
+        // sets healthBar vector3 to the scale of the healthbar
         healthBar = healthBars.transform.localScale;
+
+        // sets the background vector3 to the scale of the background
         healthBarsBackgroundScale = healthBarsBackground.transform.localScale;
+
     }
 
     public void Update()
     {
+        
+        //timeSinceAttacked -= Time.deltaTime;
+
+        // if the tag is an enemy
         if (gameObject.tag == "Enemy")
-        {
+        { 
             healthBar.y = 20f;
             healthBarsBackgroundScale.y = 10f;
             healthBar.x = health * 3f;
@@ -26,7 +36,8 @@ public class HealthBar : HealthManager
             healthBars.transform.localScale = healthBar;
             healthBarsBackground.transform.localScale = healthBarsBackgroundScale;
         }
-        if (gameObject.tag == "Boss")
+        //if the tag is a boss
+        else if (gameObject.tag == "Boss")
         {
             healthBar.y = 20f;
             healthBarsBackgroundScale.y = 20f;
@@ -35,7 +46,8 @@ public class HealthBar : HealthManager
             healthBars.transform.localScale = healthBar;
             healthBarsBackground.transform.localScale = healthBarsBackgroundScale;
         }
-        if (gameObject.tag == "Player")
+        //if its the player
+        else if (gameObject.tag == "Player")
         {
             healthBar.y = .5f;
             healthBarsBackgroundScale.y = .25f;
@@ -46,14 +58,32 @@ public class HealthBar : HealthManager
             
             healthBarsBackground.transform.localScale = healthBarsBackgroundScale;
         }
+       // timeComponents();
     }
-
-
-    IEnumerator WaitHealthBar (float seconds)
+    /*
+    void timeComponents()
     {
-        
-        yield return new WaitForSeconds(seconds);
-        healthBars.SetActive(false);
-        overallHealthBar.SetActive(false);
+        if (timeSinceAttacked <= -5 && gameObject.tag == "Enemy" || gameObject.tag == "Boss")
+        {
+            overallHealthBar.SetActive(false);
+            healthBars.SetActive(false);
+            healthBarsBackground.SetActive(false);
+        }
+        else if (timeSinceAttacked > -10 && gameObject.tag == "Enemy" || gameObject.tag == "Boss")
+        {
+            overallHealthBar.SetActive(true);
+            healthBars.SetActive(true);
+            healthBarsBackground.SetActive(true);
+        }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Bullets" && gameObject.tag == "Boss" || gameObject.tag == "Enemy")
+        {
+            timeSinceAttacked = 0;
+        }
+    }
+    */
+
 }

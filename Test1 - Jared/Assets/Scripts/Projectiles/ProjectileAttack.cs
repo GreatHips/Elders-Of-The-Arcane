@@ -48,7 +48,7 @@ public class ProjectileAttack : MonoBehaviour
                 
                 if (player.fireBookHeld == true)
                 {
-                    GameObject bfire = (GameObject)(Instantiate(fireball, transform.position + transform.right * varFacingRight * -2f, Quaternion.identity));
+                    GameObject bfire = (GameObject)(Instantiate(fireball, transform.position + transform.up * .45f +  transform.right * varFacingRight * -2f, Quaternion.identity));
                     bfire.GetComponent<Rigidbody2D>().AddForce(transform.right * varFacingRight * -1000);
 
                     StartCoroutine(Recharge());

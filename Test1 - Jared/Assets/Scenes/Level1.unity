@@ -26873,6 +26873,11 @@ PrefabInstance:
       propertyPath: rb
       value: 
       objectReference: {fileID: 1738653624}
+    - target: {fileID: 4367491996354028404, guid: c93dfb5bdb7c32b47833a5f3c8e00daf,
+        type: 3}
+      propertyPath: bg
+      value: 
+      objectReference: {fileID: 2106836834}
     - target: {fileID: 4367491996354028413, guid: c93dfb5bdb7c32b47833a5f3c8e00daf,
         type: 3}
       propertyPath: fire1
@@ -28093,7 +28098,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2106836835}
   - component: {fileID: 2106836836}
-  - component: {fileID: 2106836837}
   m_Layer: 0
   m_Name: Bg
   m_TagString: Untagged
@@ -28152,7 +28156,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 767309603
   m_SortingLayer: -2
-  m_SortingOrder: -191
+  m_SortingOrder: -32768
   m_Sprite: {fileID: 21300000, guid: 78c2b3a44bc32ec4caab123949cce312, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -28163,19 +28167,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!114 &2106836837
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2106836834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2504e519b48e6a4db368f945933ae56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_SpriteSortPoint: 1
 --- !u!1001 &70652056905144997
 PrefabInstance:
   m_ObjectHideFlags: 0

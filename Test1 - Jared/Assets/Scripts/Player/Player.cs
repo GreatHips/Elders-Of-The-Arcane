@@ -260,26 +260,7 @@ public class Player : MonoBehaviour
         Debug.Log(reader.ReadToEnd());
         reader.Close();
     }
-    /*
-    public void Save()
-    {
-        string path = "SaveFile/Output.txt";
 
-        //Write some text to the test.txt file
-        StreamWriter writer = new StreamWriter(path, true);
-        writer.WriteLine("TEST");
-        writer.Close();
-    }
-    public void Load()
-    {
-        string path = "SaveFile/Output.txt";
-
-        //Read the text from directly from the test.txt file
-        StreamReader reader = new StreamReader(path);
-        Debug.Log(reader.ReadToEnd());
-        reader.Close();
-    }
-    */
     void PlayerMoves()
     {
         //Player Direction

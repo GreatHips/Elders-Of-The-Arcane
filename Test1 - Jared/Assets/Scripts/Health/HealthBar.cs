@@ -48,32 +48,6 @@ public class HealthBar : HealthManager
         }
     }
 
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Bullets" && gameObject.tag == "Enemy")
-        {
-            overallHealthBar.SetActive(true);
-            healthBars.SetActive(true);
-            StartCoroutine(WaitHealthBar(5f));
-            Damage(50);
-        }
-
-        if (collision.gameObject.tag == "Bullets" && gameObject.tag == "Boss")
-        {
-            overallHealthBar.SetActive(true);
-            healthBars.SetActive(true);
-            Damage(25);
-        }
-
-        if (collision.gameObject.tag == "Enemy" && gameObject.tag == "Player")
-        {
-            Damage(20);
-        }
-        if (collision.gameObject.tag == "Boss" && gameObject.tag == "Player")
-        {
-            Damage(34);
-        }
-    }
 
     IEnumerator WaitHealthBar (float seconds)
     {

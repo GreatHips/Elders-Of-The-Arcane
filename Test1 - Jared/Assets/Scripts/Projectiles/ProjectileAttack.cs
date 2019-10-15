@@ -75,14 +75,6 @@ public class ProjectileAttack : MonoBehaviour
 
                     StartCoroutine(AttackWaitIce());
 
-                    if (varFacingRight == 1)
-                    {
-                        bice.transform.Rotate(0, 0, 180f);
-                    }
-                    else if (varFacingRight == -1)
-                    {
-                        bice.transform.Rotate(0, 0, 180f);
-                    }
                     Destroy(bice, 2f);
                 }
             }

@@ -67,8 +67,8 @@ public class ProjectileAttack : MonoBehaviour
                 }
                 else if (player.iceBookHeld == true)
                 {
-                    GameObject bice = (GameObject)(Instantiate(ice, transform.position + transform.up + transform.right * varFacingRight * -2f, Quaternion.identity));
-                    bice.GetComponent<Rigidbody2D>().AddForce(-1 * Physics.gravity);
+                    GameObject bice = (GameObject)(Instantiate(ice, transform.position + transform.up * 2.5f + transform.right * varFacingRight * -2.5f, Quaternion.identity));
+                    bice.GetComponent<Rigidbody2D>().AddForce(transform.up * -1);
                     
 
                     StartCoroutine(Recharge());

@@ -56,7 +56,5 @@ public class HealthBar : HealthManager
 
             healthBarsBackground.transform.localScale = healthBarsBackgroundScale;
         }
-
-        timer.timeComponents();
     }
 }

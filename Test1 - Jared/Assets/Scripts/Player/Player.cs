@@ -11,17 +11,6 @@ using System.IO;
 // UnityEditor.EditorApplication.isPlaying = false;
 
 
-using UnityEngine.UI;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.SceneManagement;
-using UnityEditor;
-using System.IO;
-using System;
-// to close game Application.Quit();
-// UnityEditor.EditorApplication.isPlaying = false;
-
-
 [RequireComponent(typeof(Controller2D))]
 public class Player : MonoBehaviour
 {

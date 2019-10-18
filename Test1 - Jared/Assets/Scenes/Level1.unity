@@ -26044,6 +26044,11 @@ PrefabInstance:
       propertyPath: Score
       value: 
       objectReference: {fileID: 1602485054}
+    - target: {fileID: 4167819291501149050, guid: 14585b34d0536604984ccc2dea5ac3f6,
+        type: 3}
+      propertyPath: scoreObject
+      value: 
+      objectReference: {fileID: 1602485054}
     - target: {fileID: 920363800922528117, guid: 14585b34d0536604984ccc2dea5ac3f6,
         type: 3}
       propertyPath: m_Offset.x
@@ -26069,11 +26074,6 @@ PrefabInstance:
       propertyPath: m_PlayAutomatically
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4167819291501149050, guid: 14585b34d0536604984ccc2dea5ac3f6,
-        type: 3}
-      propertyPath: scoreObject
-      value: 
-      objectReference: {fileID: 1602485054}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14585b34d0536604984ccc2dea5ac3f6, type: 3}
 --- !u!1 &1488889739 stripped
@@ -26788,12 +26788,12 @@ PrefabInstance:
     - target: {fileID: 4367491996354028415, guid: c93dfb5bdb7c32b47833a5f3c8e00daf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 71.11
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4367491996354028415, guid: c93dfb5bdb7c32b47833a5f3c8e00daf,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.14
+      value: -3.03
       objectReference: {fileID: 0}
     - target: {fileID: 4367491996354028415, guid: c93dfb5bdb7c32b47833a5f3c8e00daf,
         type: 3}

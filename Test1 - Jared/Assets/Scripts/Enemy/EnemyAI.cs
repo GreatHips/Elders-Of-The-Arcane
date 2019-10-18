@@ -35,17 +35,17 @@ public class EnemyAI : MonoBehaviour
 
             }
 
-            if ((target.position.y >= this.transform.position.y) && myRigidBody.velocity.y == 0 && (Math.Abs(target.position.x - this.transform.position.x) < 20) && dist < stoppingDistance && !isJumping)
+            if ((target.position.y >= transform.position.y) && myRigidBody.velocity.y == 0 && (Math.Abs(target.position.x - this.transform.position.x) < 20) && dist < stoppingDistance && !isJumping)
             {
                 myRigidBody.velocity = new Vector3(myRigidBody.velocity.x, 7.25f, 0); ;
                 StartCoroutine(WaitJump());
             }
-            if ((target.position.x < this.transform.position.x) && facingRight == true && dist < stoppingDistance)
+            if ((target.position.x < transform.position.x) && facingRight == true && dist < stoppingDistance)
             {
                 transform.Rotate(Vector3.up * 180);
                 facingRight = false;
             }
-            else if ((target.position.x > this.transform.position.x) && facingRight == false && dist < stoppingDistance)
+            else if ((target.position.x > transform.position.x) && facingRight == false && dist < stoppingDistance)
             {
                 transform.Rotate(Vector3.up * 180);
                 facingRight = true;

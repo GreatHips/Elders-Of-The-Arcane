@@ -10,6 +10,7 @@ public class EnemyAI : MonoBehaviour
     public float movementSpeed = 2.0f;
     public float stoppingDistance = 2;
     EnemyCollision enemyColl;
+    
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();

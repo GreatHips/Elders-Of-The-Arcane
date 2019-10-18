@@ -1,8 +1,25 @@
 ﻿
 using UnityEngine;
+
+using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.SceneManagement;
+using UnityEditor;
+using System.IO;
 // to close game Application.Quit();
 // UnityEditor.EditorApplication.isPlaying = false;
+
+
+using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.SceneManagement;
+using UnityEditor;
+using System.IO;
+// to close game Application.Quit();
+// UnityEditor.EditorApplication.isPlaying = false;
+
 
 [RequireComponent(typeof(Controller2D))]
 public class Player : MonoBehaviour
@@ -25,6 +42,10 @@ public class Player : MonoBehaviour
     public GameObject blackOverView;
     public GameObject actualDeath;
     public GameObject deathText;
+    public GameObject iceBook;
+    public GameObject fireBook;
+    public bool fireBookHeld;
+    public bool iceBookHeld;
     
 
     public float moveX;
@@ -57,6 +78,19 @@ public class Player : MonoBehaviour
         {
             damage();
             StartCoroutine(WaitEnemy(.75f));
+        }
+    }
+
+    void SwitchBooks()
+    {
+        if (Input.GetKeyDown(KeyCode.T)){
+            fireBook.SetActive(false);
+            iceBook.SetActive(true);
+        }
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            fireBook.SetActive(true);
+            iceBook.SetActive(false);
         }
     }
     void Update()
@@ -98,6 +132,8 @@ public class Player : MonoBehaviour
             healthBar3.SetActive(false);
             healthBar2.SetActive(false);
             healthBar1.SetActive(false);
+            StartCoroutine(Wait(4f));
+            
         }
         CalculateVelocity();
         
@@ -163,9 +199,13 @@ public class Player : MonoBehaviour
     }
     public void OnShiftDown()
     {
-        moveSpeed = 80;
+        moveSpeed = 20;
     }
-
+    IEnumerator Wait (float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        Application.Quit();
+    }
     IEnumerator WaitEnemy(float seconds)
     {
         yield return new WaitForSeconds(seconds);
@@ -189,8 +229,46 @@ public class Player : MonoBehaviour
     public void OnShiftUp()
     {
         moveSpeed = 6;
+        Save();
+    }
+    public void Save()
+    {
+        string path = "SaveFile/Output.txt";
+
+        //Write some text to the test.txt file
+        StreamWriter writer = new StreamWriter(path, true);
+        writer.WriteLine("TEST");
+        writer.Close();
+    }
+    public void Load()
+    {
+        string path = "SaveFile/Output.txt";
+
+        //Read the text from directly from the test.txt file
+        StreamReader reader = new StreamReader(path);
+        Debug.Log(reader.ReadToEnd());
+        reader.Close();
     }
 
+    }
+    public void Save()
+    {
+        string path = "SaveFile/Output.txt";
+
+        //Write some text to the test.txt file
+        StreamWriter writer = new StreamWriter(path, true);
+        writer.WriteLine("TEST");
+        writer.Close();
+    }
+public void Load()
+{
+    string path = "SaveFile/Output.txt";
+
+    //Read the text from directly from the test.txt file
+    StreamReader reader = new StreamReader(path);
+    Debug.Log(reader.ReadToEnd());
+    reader.Close();
+}
     void PlayerMoves()
     {
         //Player Direction
@@ -217,5 +295,6 @@ public class Player : MonoBehaviour
             localScale.x *= -1;
             transform.localScale = localScale;
         }
+        
     }
-}
+

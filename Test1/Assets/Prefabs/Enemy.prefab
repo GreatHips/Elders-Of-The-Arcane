@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6590502327055629562}
   - component: {fileID: 4836559562588383033}
   - component: {fileID: 8391819255817499988}
+  - component: {fileID: 1012507121433451197}
   - component: {fileID: 1792051562112514886}
   m_Layer: 10
   m_Name: Enemy
@@ -79,7 +80,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 961affb0c2831314a9d678001dc29a48, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 15.23, y: 15.6}
@@ -194,6 +195,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1012507121433451197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3798522903863316787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c41497ab8ad8bd34db9a7ad51a1d6206, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealth: 0
+  enemySpeed: 0
+  enemyFlight: 0
+  enemyInvincible: 0
+  enemyJumpHeight: 0
+  facingRight: 0
+  formerPosition: 0
+  player: {fileID: 9072999314091892559, guid: 88109e7701024d64f84f820fbbb4b018, type: 3}
 --- !u!114 &1792051562112514886
 MonoBehaviour:
   m_ObjectHideFlags: 0

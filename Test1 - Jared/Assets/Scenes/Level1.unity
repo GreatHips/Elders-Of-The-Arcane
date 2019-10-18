@@ -26103,6 +26103,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &1488889749
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488889739}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 633aff1a0c54bab4b9174208c37a8fbc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1492607805 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3798522903863316787, guid: 14585b34d0536604984ccc2dea5ac3f6,
@@ -27013,6 +27032,25 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1738653614}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1738653616
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738653615}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 542ccb0e90853c1469e25c12b6c573f4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!50 &1738653624 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 4367491996354028414, guid: c93dfb5bdb7c32b47833a5f3c8e00daf,
@@ -28579,7 +28617,7 @@ PrefabInstance:
     - target: {fileID: 7608298674858513859, guid: e45f6a9bc625ee540904c0dc3471d88b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -6.9638977
+      value: -6.963928
       objectReference: {fileID: 0}
     - target: {fileID: 7608298674858513859, guid: e45f6a9bc625ee540904c0dc3471d88b,
         type: 3}
@@ -28589,7 +28627,7 @@ PrefabInstance:
     - target: {fileID: 70652057393711855, guid: e45f6a9bc625ee540904c0dc3471d88b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -9.1
+      value: -9.099976
       objectReference: {fileID: 0}
     - target: {fileID: 70652057098793217, guid: e45f6a9bc625ee540904c0dc3471d88b,
         type: 3}

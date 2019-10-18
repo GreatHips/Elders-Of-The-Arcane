@@ -1,6 +1,6 @@
 ﻿
 using UnityEngine;
-
+using System;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
@@ -63,6 +63,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        anime = GetComponent<Animator>();
         fireBookHeld = true;
         Physics2D.IgnoreLayerCollision(8, 9);
         controller = GetComponent<Controller2D>();
@@ -87,6 +88,9 @@ public class Player : MonoBehaviour
     }
     void Update()
     {
+        float h = Input.GetAxis("Horizontal");
+        float v = Input.GetAxis("Vertical");
+        anime.SetFloat("Speed", Math.Abs(h));
 
         if (Input.GetKeyDown(KeyCode.T))
         {

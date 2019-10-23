@@ -9,7 +9,6 @@ public class ProjectileCollision : MonoBehaviour
 
     { 
 
-
         //when touching obstacle destroy the bullet
         if (coll.gameObject.tag == "Obstacle")
         {

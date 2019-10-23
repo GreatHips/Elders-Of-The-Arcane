@@ -17,6 +17,8 @@ public class EnemyAI : MonoBehaviour
     public bool isJumping = false;
     public float dist;
     public bool inDist;
+    public bool slothNotAttacked = true;
+    public bool slothAttacked = false;
 
     Animator anime;
 
@@ -66,18 +68,18 @@ public class EnemyAI : MonoBehaviour
                 facingRight = true;
             }
         }
-
+        // Boss Parameters
         if (gameObject.tag == "SlothBoss" && gameObject.GetComponent<HealthManager>().health < gameObject.GetComponent<HealthManager>().healthMax)
         {
-
+            
             if (movement && inDist)
             { 
                 transform.position = Vector2.MoveTowards(transform.position, target.position, movementSpeed * Time.deltaTime);
-
+                
             }
-
-            if (){
-                anime.SetBool("HeadAttack", true);
+            if (slothNotAttacked)
+            {
+                StartCoroutine(SlothBossAttack());
             }
           
         }
@@ -124,7 +126,42 @@ public class EnemyAI : MonoBehaviour
             }
         }
     }
+    IEnumerator SlothBossAttack()
+    {
+        if (slothNotAttacked)
+        {
+            slothNotAttacked = false;
 
+            yield return new WaitForSeconds(UnityEngine.Random.Range(1, 3));
+            var number = UnityEngine.Random.Range(1, 5);
+            Debug.Log(number);
+
+            slothAttacked = true;
+            if (number == 1)
+            {
+                anime.SetBool("HeadAttack", true);
+            }
+            if (number == 2)
+            {
+
+            }
+            if (number == 3)
+            {
+
+            }
+            if (number == 4)
+            {
+
+            }
+
+            if (slothAttacked == true)
+            {
+                yield return new WaitForSeconds(10);
+                number = 4;
+                slothNotAttacked = true;
+            }
+        }
+    }
     IEnumerator WaitJump()
     {
         isJumping = true;

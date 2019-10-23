@@ -9,6 +9,7 @@ TagManager:
   - Slime
   - Boar
   - SlothBoss
+  - eyeDemon
   layers:
   - Default
   - TransparentFX

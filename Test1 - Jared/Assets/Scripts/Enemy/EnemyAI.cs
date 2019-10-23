@@ -15,6 +15,7 @@ public class EnemyAI : MonoBehaviour
     private bool canJump = true;
     private Rigidbody2D myRigidBody;
     public bool isJumping = false;
+    public float dist;
 
     HealthManager healthManager;
     public void Start()
@@ -27,9 +28,10 @@ public class EnemyAI : MonoBehaviour
 
     void Update()
     {
+        dist = Math.Abs(Vector3.Distance(target.position, transform.position));
         if (gameObject.tag == "Slime")
         {
-            float dist = Math.Abs(Vector3.Distance(target.position, transform.position));
+            
             if (movement && dist < stoppingDistance)
             {
                 transform.position = Vector2.MoveTowards(transform.position, target.position, movementSpeed * Time.deltaTime);
@@ -55,10 +57,10 @@ public class EnemyAI : MonoBehaviour
 
         if (gameObject.tag == "SlothBoss" && gameObject.GetComponent<HealthManager>().health < gameObject.GetComponent<HealthManager>().healthMax)
         {
-            float dist = Math.Abs(Vector3.Distance(target.position, transform.position));
+           
 
             if (movement && dist < stoppingDistance)
-            {
+            { 
                 transform.position = Vector2.MoveTowards(transform.position, target.position, movementSpeed * Time.deltaTime);
 
             }
@@ -67,7 +69,26 @@ public class EnemyAI : MonoBehaviour
         if (gameObject.tag == "Boar")
         { 
 
-            float dist = Math.Abs(Vector3.Distance(target.position, transform.position));
+            if (movement && dist < stoppingDistance)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, target.position, movementSpeed * Time.deltaTime);
+
+            }
+
+            if ((target.position.x < transform.position.x) && facingRight == true && dist < stoppingDistance)
+            {
+                transform.Rotate(Vector3.up * 180);
+                facingRight = false;
+            }
+            else if ((target.position.x > transform.position.x) && facingRight == false && dist < stoppingDistance)
+            {
+                transform.Rotate(Vector3.up * 180);
+                facingRight = true;
+            }
+        }
+
+        if (gameObject.tag == "eyeDemon")
+        {
 
             if (movement && dist < stoppingDistance)
             {

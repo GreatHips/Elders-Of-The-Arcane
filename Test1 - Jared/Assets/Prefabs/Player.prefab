@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 3741610573922321716}
   - component: {fileID: 1545126284128013802}
   m_Layer: 8
-  m_Name: Player 1
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -320,7 +320,9 @@ MonoBehaviour:
   ice3: {fileID: 0}
   iceText: {fileID: 0}
   fireballText: {fileID: 0}
+  healthBar: {fileID: 0}
   moveX: 0
+  rb: {fileID: 0}
 --- !u!114 &4367491996354027651
 MonoBehaviour:
   m_ObjectHideFlags: 0

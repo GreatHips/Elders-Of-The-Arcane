@@ -25,10 +25,10 @@ public class HealthBar : HealthManager
     {
 
         // if the tag is an enemy
-        if (gameObject.tag == "Enemy")
+        if (gameObject.tag == "Slime")
         {
-            healthBar.y = 20f;
-            healthBarsBackgroundScale.y = 10f;
+            healthBar.y = 25f;
+            healthBarsBackgroundScale.y = 20f;
             healthBar.x = health * 3f;
             healthBarsBackgroundScale.x = healthMax * 3f;
             healthBars.transform.localScale = healthBar;

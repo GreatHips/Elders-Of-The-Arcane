@@ -21,7 +21,7 @@ public class ProjectileCollision : MonoBehaviour
             Destroy(gameObject);
         }
         //on touching enemy, destroy bullet
-        if (coll.gameObject.tag == "Enemy")
+        if (coll.gameObject.layer == 10)
         {
             Destroy(gameObject);
         }

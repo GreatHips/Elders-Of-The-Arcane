@@ -51,7 +51,7 @@ public class HealthManager : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // if the collision is from a bullet and it hits an object tagged with enemy, take 50 damage
-        if (collision.gameObject.tag == "Bullets" && gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Bullets" && gameObject.tag == "Slime")
         {
             Damage(50);
         }
@@ -63,7 +63,7 @@ public class HealthManager : MonoBehaviour
         }
 
         // if the collision is from an enemy, and it hits an obect tagged Player, take 20 damage
-        if (collision.gameObject.tag == "Enemy" && gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Slime" && gameObject.tag == "Player")
         {
             Damage(20);
         }

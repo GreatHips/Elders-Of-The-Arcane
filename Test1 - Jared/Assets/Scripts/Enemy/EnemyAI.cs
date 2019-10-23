@@ -26,7 +26,7 @@ public class EnemyAI : MonoBehaviour
 
     void Update()
     {
-        if (gameObject.tag == "Enemy")
+        if (gameObject.tag == "Slime")
         {
             float dist = Math.Abs(Vector3.Distance(target.position, transform.position));
             if (movement && dist < stoppingDistance)

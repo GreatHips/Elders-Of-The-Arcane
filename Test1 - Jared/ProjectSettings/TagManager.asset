@@ -8,6 +8,7 @@ TagManager:
   - Bullets
   - Obstacle
   - Boss
+  - Slime
   layers:
   - Default
   - TransparentFX

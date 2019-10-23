@@ -78,5 +78,15 @@ PrefabInstance:
       propertyPath: scoreObject
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7888061496921323449, guid: 97eee3e4ebed6204ba4bd78978b4d8f6,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -1.9759028
+      objectReference: {fileID: 0}
+    - target: {fileID: 7888061496921323449, guid: 97eee3e4ebed6204ba4bd78978b4d8f6,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 6.0601697
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97eee3e4ebed6204ba4bd78978b4d8f6, type: 3}

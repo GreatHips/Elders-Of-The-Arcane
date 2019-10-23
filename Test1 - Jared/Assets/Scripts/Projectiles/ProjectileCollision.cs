@@ -11,7 +11,6 @@ public class ProjectileCollision : MonoBehaviour
         //if collision with a clone of the bullets, destroy it
         if (coll.gameObject.tag == "Bullets")
         {
-            Debug.Log("touching clone");
             Destroy(gameObject);
         }
 

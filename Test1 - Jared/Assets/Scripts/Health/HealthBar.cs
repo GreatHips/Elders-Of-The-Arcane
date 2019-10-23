@@ -44,7 +44,7 @@ public class HealthBar : HealthManager
             healthBarsBackground.transform.localScale = healthBarsBackgroundScale;
         }
         //if the tag is a boss
-        else if (gameObject.tag == "Boss")
+        else if (gameObject.tag == "SlothBoss")
         {
             healthBar.y = 20f;
             healthBarsBackgroundScale.y = 20f;

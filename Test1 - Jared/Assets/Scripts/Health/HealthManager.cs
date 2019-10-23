@@ -61,7 +61,7 @@ public class HealthManager : MonoBehaviour
             Damage(25);
         }
         // if the collision is from a bullet and it hits an object tagged with Boss, take 25 damage
-        if (collision.gameObject.tag == "Bullets" && gameObject.tag == "Boss")
+        if (collision.gameObject.tag == "Bullets" && gameObject.tag == "SlothBoss")
         {
             Damage(25);
         }
@@ -69,18 +69,18 @@ public class HealthManager : MonoBehaviour
         // if the collision is from an enemy, and it hits an obect tagged Player, take 20 damage
         if (collision.gameObject.tag == "Slime" && gameObject.tag == "Player")
         {
-            Damage(20);
+            Damage(15);
         }
 
         // if the collision is from an boss, and it hits an obect tagged Player, take 20 damage
-        if (collision.gameObject.tag == "Boss" && gameObject.tag == "Player")
+        if (collision.gameObject.tag == "SlothBoss" && gameObject.tag == "Player")
         {
-            Damage(35);
+            Damage(30);
         }
 
         if (collision.gameObject.tag == "Boar" && gameObject.tag == "Player")
         {
-            Damage(25);
+            Damage(20);
         }
     }
 }

@@ -139545,6 +139545,11 @@ PrefabInstance:
       propertyPath: movementSpeed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1129790206667657492, guid: b9e7193c634440046a030baf12ff01cc,
+        type: 3}
+      propertyPath: stoppingDistance
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 1129790206667657490, guid: b9e7193c634440046a030baf12ff01cc,
         type: 3}
       propertyPath: m_Constraints
@@ -139938,6 +139943,11 @@ PrefabInstance:
         type: 3}
       propertyPath: movementSpeed
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8327159058652206800, guid: f41cd77a2bf36f74f8c2c10757eb45ac,
+        type: 3}
+      propertyPath: stoppingDistance
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 7043763332890545343, guid: f41cd77a2bf36f74f8c2c10757eb45ac,
         type: 3}

@@ -16,6 +16,7 @@ public class EnemyAI : MonoBehaviour
     private Rigidbody2D myRigidBody;
     public bool isJumping = false;
     public float dist;
+    public bool inDist;
 
     HealthManager healthManager;
     public void Start()
@@ -29,26 +30,31 @@ public class EnemyAI : MonoBehaviour
     void Update()
     {
         dist = Math.Abs(Vector3.Distance(target.position, transform.position));
+        if (dist < stoppingDistance)
+        {
+            inDist = true;
+        }
+
         if (gameObject.tag == "Slime")
         {
             
-            if (movement && dist < stoppingDistance)
+            if (movement && inDist)
             {
                 transform.position = Vector2.MoveTowards(transform.position, target.position, movementSpeed * Time.deltaTime);
 
             }
 
-            if ((target.position.y >= transform.position.y) && myRigidBody.velocity.y == 0 && (Math.Abs(target.position.x - this.transform.position.x) < 20) && dist < stoppingDistance && !isJumping)
+            if ((target.position.y >= transform.position.y) && myRigidBody.velocity.y == 0 && (Math.Abs(target.position.x - this.transform.position.x) < 20) && inDist && !isJumping)
             {
                 myRigidBody.velocity = new Vector3(myRigidBody.velocity.x, 7.25f, 0); ;
                 StartCoroutine(WaitJump());
             }
-            if ((target.position.x < transform.position.x) && facingRight == true && dist < stoppingDistance)
+            if ((target.position.x < transform.position.x) && facingRight == true && inDist)
             {
                 transform.Rotate(Vector3.up * 180);
                 facingRight = false;
             }
-            else if ((target.position.x > transform.position.x) && facingRight == false && dist < stoppingDistance)
+            else if ((target.position.x > transform.position.x) && facingRight == false && inDist)
             {
                 transform.Rotate(Vector3.up * 180);
                 facingRight = true;
@@ -57,9 +63,8 @@ public class EnemyAI : MonoBehaviour
 
         if (gameObject.tag == "SlothBoss" && gameObject.GetComponent<HealthManager>().health < gameObject.GetComponent<HealthManager>().healthMax)
         {
-           
 
-            if (movement && dist < stoppingDistance)
+            if (movement && inDist)
             { 
                 transform.position = Vector2.MoveTowards(transform.position, target.position, movementSpeed * Time.deltaTime);
 
@@ -69,18 +74,18 @@ public class EnemyAI : MonoBehaviour
         if (gameObject.tag == "Boar")
         { 
 
-            if (movement && dist < stoppingDistance)
+            if (movement && inDist)
             {
                 transform.position = Vector2.MoveTowards(transform.position, target.position, movementSpeed * Time.deltaTime);
 
             }
 
-            if ((target.position.x < transform.position.x) && facingRight == true && dist < stoppingDistance)
+            if ((target.position.x < transform.position.x) && facingRight == true && inDist)
             {
                 transform.Rotate(Vector3.up * 180);
                 facingRight = false;
             }
-            else if ((target.position.x > transform.position.x) && facingRight == false && dist < stoppingDistance)
+            else if ((target.position.x > transform.position.x) && facingRight == false && inDist)
             {
                 transform.Rotate(Vector3.up * 180);
                 facingRight = true;
@@ -88,20 +93,20 @@ public class EnemyAI : MonoBehaviour
         }
 
         if (gameObject.tag == "eyeDemon")
-        {
+        { 
 
-            if (movement && dist < stoppingDistance)
+            if (movement && inDist)
             {
                 transform.position = Vector2.MoveTowards(transform.position, target.position, movementSpeed * Time.deltaTime);
 
             }
 
-            if ((target.position.x < transform.position.x) && facingRight == true && dist < stoppingDistance)
+            if ((target.position.x < transform.position.x) && facingRight == true && inDist)
             {
                 transform.Rotate(Vector3.up * 180);
                 facingRight = false;
             }
-            else if ((target.position.x > transform.position.x) && facingRight == false && dist < stoppingDistance)
+            else if ((target.position.x > transform.position.x) && facingRight == false && inDist)
             {
                 transform.Rotate(Vector3.up * 180);
                 facingRight = true;

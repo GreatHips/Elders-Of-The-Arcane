@@ -139545,6 +139545,11 @@ PrefabInstance:
       propertyPath: movementSpeed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1129790206667657490, guid: b9e7193c634440046a030baf12ff01cc,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1129790206667657491, guid: b9e7193c634440046a030baf12ff01cc,
         type: 3}
       propertyPath: scoreObject
@@ -139682,7 +139687,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 10
+  m_Mass: 1000000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -139934,6 +139939,11 @@ PrefabInstance:
       propertyPath: movementSpeed
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7043763332890545343, guid: f41cd77a2bf36f74f8c2c10757eb45ac,
+        type: 3}
+      propertyPath: scoreObject
+      value: 
+      objectReference: {fileID: 1602485054}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f41cd77a2bf36f74f8c2c10757eb45ac, type: 3}
 --- !u!1 &5346636571244550936 stripped

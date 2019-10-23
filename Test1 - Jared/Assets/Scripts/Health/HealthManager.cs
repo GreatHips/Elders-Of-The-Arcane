@@ -75,7 +75,7 @@ public class HealthManager : MonoBehaviour
         // if the collision is from an boss, and it hits an obect tagged Player, take 20 damage
         if (collision.gameObject.tag == "Boss" && gameObject.tag == "Player")
         {
-            Damage(34);
+            Damage(35);
         }
 
         if (collision.gameObject.tag == "Boar" && gameObject.tag == "Player")

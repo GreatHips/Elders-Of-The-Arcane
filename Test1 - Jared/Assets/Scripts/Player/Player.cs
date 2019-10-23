@@ -196,12 +196,12 @@ public class Player : MonoBehaviour
 
     public void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Enemy" && !invinc)
+        if (collision.gameObject.layer == 10 && !invinc)
         {
             damageStay();
             StartCoroutine(WaitEnemy(.75f));
         }
-        if (collision.gameObject.tag == "Boss" && !invinc)
+        if (collision.gameObject.tag == "SlothBoss" && !invinc)
         {
             damageStay();
             StartCoroutine(WaitEnemy(.75f));

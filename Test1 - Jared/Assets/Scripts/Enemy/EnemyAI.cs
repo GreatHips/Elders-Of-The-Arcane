@@ -64,13 +64,25 @@ public class EnemyAI : MonoBehaviour
         }
 
         if (gameObject.tag == "Boar")
-        {
+        { 
+
             float dist = Math.Abs(Vector3.Distance(target.position, transform.position));
 
             if (movement && dist < stoppingDistance)
             {
                 transform.position = Vector2.MoveTowards(transform.position, target.position, movementSpeed * Time.deltaTime);
 
+            }
+
+            if ((target.position.x < transform.position.x) && facingRight == true && dist < stoppingDistance)
+            {
+                transform.Rotate(Vector3.up * 180);
+                facingRight = false;
+            }
+            else if ((target.position.x > transform.position.x) && facingRight == false && dist < stoppingDistance)
+            {
+                transform.Rotate(Vector3.up * 180);
+                facingRight = true;
             }
         }
     }

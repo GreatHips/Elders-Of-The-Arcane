@@ -6,9 +6,9 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public LayerMask collisionMask;
-    const float skinWidth = .015f;
-    public int horizontalRayCount = 4;
-    public int verticalRayCount = 4;
+    const float skinWidth = .25f;
+    public int horizontalRayCount = 16;
+    public int verticalRayCount = 16;
 
     float horizontalRaySpacing;
     float verticalRaySpacing;

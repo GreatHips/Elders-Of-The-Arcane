@@ -8,12 +8,6 @@ public class ProjectileCollision : MonoBehaviour
     void OnCollisionEnter2D(Collision2D coll)
 
     { 
-        //if collision with a clone of the bullets, destroy it
-        if (coll.gameObject.tag == "Bullets")
-        {
-            Debug.Log("touching clone");
-            Destroy(gameObject);
-        }
 
         //when touching obstacle destroy the bullet
         if (coll.gameObject.tag == "Obstacle")
@@ -21,7 +15,7 @@ public class ProjectileCollision : MonoBehaviour
             Destroy(gameObject);
         }
         //on touching enemy, destroy bullet
-        if (coll.gameObject.tag == "Enemy")
+        if (coll.gameObject.layer == 10)
         {
             Destroy(gameObject);
         }

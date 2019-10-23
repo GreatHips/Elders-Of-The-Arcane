@@ -51,27 +51,45 @@ public class HealthManager : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // if the collision is from a bullet and it hits an object tagged with enemy, take 50 damage
-        if (collision.gameObject.tag == "Bullets" && gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Bullets" && gameObject.tag == "Slime")
         {
             Damage(50);
         }
 
+        if (collision.gameObject.tag == "Bullets" && gameObject.tag == "Boar")
+        {
+            Damage(25);
+        }
         // if the collision is from a bullet and it hits an object tagged with Boss, take 25 damage
-        if (collision.gameObject.tag == "Bullets" && gameObject.tag == "Boss")
+        if (collision.gameObject.tag == "Bullets" && gameObject.tag == "SlothBoss")
+        {
+            Damage(25);
+        }
+
+        if (collision.gameObject.tag == "Bullets" && gameObject.tag == "eyeDemon")
         {
             Damage(25);
         }
 
         // if the collision is from an enemy, and it hits an obect tagged Player, take 20 damage
-        if (collision.gameObject.tag == "Enemy" && gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Slime" && gameObject.tag == "Player")
         {
-            Damage(20);
+            Damage(15);
         }
 
         // if the collision is from an boss, and it hits an obect tagged Player, take 20 damage
-        if (collision.gameObject.tag == "Boss" && gameObject.tag == "Player")
+        if (collision.gameObject.tag == "SlothBoss" && gameObject.tag == "Player")
         {
-            Damage(34);
+            Damage(35);
+        }
+
+        if (collision.gameObject.tag == "Boar" && gameObject.tag == "Player")
+        {
+            Damage(20);
+        }
+        if (collision.gameObject.tag == "eyeDemon" && gameObject.tag == "Player")
+        {
+            Damage(25);
         }
     }
 }

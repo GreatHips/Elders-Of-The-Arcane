@@ -18,6 +18,8 @@ public class EnemyAI : MonoBehaviour
     public float dist;
     public bool inDist;
 
+    Animator anime;
+
     HealthManager healthManager;
     public void Start()
     {
@@ -73,6 +75,11 @@ public class EnemyAI : MonoBehaviour
                 transform.position = Vector2.MoveTowards(transform.position, target.position, movementSpeed * Time.deltaTime);
 
             }
+
+            if (){
+                anime.SetBool("HeadAttack", true);
+            }
+          
         }
 
         if (gameObject.tag == "Boar")

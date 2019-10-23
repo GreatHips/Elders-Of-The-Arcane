@@ -179,6 +179,7 @@ MonoBehaviour:
   stoppingDistance: 250
   isJumping: 0
   dist: 0
+  inDist: 0
 --- !u!114 &4563103935807560491
 MonoBehaviour:
   m_ObjectHideFlags: 0

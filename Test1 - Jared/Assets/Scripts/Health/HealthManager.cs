@@ -56,6 +56,10 @@ public class HealthManager : MonoBehaviour
             Damage(50);
         }
 
+        if (collision.gameObject.tag == "Bullets" && gameObject.tag == "Boar")
+        {
+            Damage(25);
+        }
         // if the collision is from a bullet and it hits an object tagged with Boss, take 25 damage
         if (collision.gameObject.tag == "Bullets" && gameObject.tag == "Boss")
         {
@@ -72,6 +76,11 @@ public class HealthManager : MonoBehaviour
         if (collision.gameObject.tag == "Boss" && gameObject.tag == "Player")
         {
             Damage(34);
+        }
+
+        if (collision.gameObject.tag == "Boar" && gameObject.tag == "Player")
+        {
+            Damage(25);
         }
     }
 }

@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 1
-  stoppingDistance: 2
+  stoppingDistance: 11
   isJumping: 0
 --- !u!114 &4836559562588383033
 MonoBehaviour:

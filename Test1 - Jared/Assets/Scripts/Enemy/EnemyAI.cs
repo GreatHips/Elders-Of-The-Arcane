@@ -10,7 +10,7 @@ public class EnemyAI : MonoBehaviour
     private Transform target;
     public static bool movement = true;
     public float movementSpeed = 2.0f;
-    public float stoppingDistance = 250;
+    public float stoppingDistance = 250f;
     private bool facingRight = true;
     private bool canJump = true;
     private Rigidbody2D myRigidBody;
@@ -53,6 +53,17 @@ public class EnemyAI : MonoBehaviour
         }
 
         if (gameObject.tag == "Boss" && gameObject.GetComponent<HealthManager>().health < gameObject.GetComponent<HealthManager>().healthMax)
+        {
+            float dist = Math.Abs(Vector3.Distance(target.position, transform.position));
+
+            if (movement && dist < stoppingDistance)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, target.position, movementSpeed * Time.deltaTime);
+
+            }
+        }
+
+        if (gameObject.tag == "Boar")
         {
             float dist = Math.Abs(Vector3.Distance(target.position, transform.position));
 

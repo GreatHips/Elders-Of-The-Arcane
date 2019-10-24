@@ -215,10 +215,6 @@ public class Player : MonoBehaviour
 
         }
     }
-    public void OnShiftDown()
-    {
-        moveSpeed = 10;
-    }
     IEnumerator WaitQuit (float seconds)
     {
         yield return new WaitForSeconds(seconds);
@@ -242,11 +238,7 @@ public class Player : MonoBehaviour
         invinc = true;
     }
 
-    public void OnShiftUp()
-    {
-        moveSpeed = 6;
-       // Save();
-    }
+
     public void Save()
     {
         string path = "SaveFile/Output.txt";

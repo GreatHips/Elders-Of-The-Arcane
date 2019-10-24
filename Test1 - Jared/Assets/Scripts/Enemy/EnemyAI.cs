@@ -89,8 +89,8 @@ public class EnemyAI : MonoBehaviour
 
             if (movement && inDist)
             {
+            
                 transform.position = Vector2.MoveTowards(transform.position, target.position, movementSpeed * Time.deltaTime);
-
             }
 
             if ((target.position.x < transform.position.x) && facingRight == true && inDist)
@@ -167,13 +167,15 @@ public class EnemyAI : MonoBehaviour
         isJumping = true;
         if (isJumping)
         {
-            this.GetComponent<Animation>().enabled = true;
+            GetComponent<Animation>().enabled = true;
         } else if (!isJumping)
         {
-            this.GetComponent<Animation>().enabled = false; 
+           GetComponent<Animation>().enabled = false; 
         }
         yield return new WaitForSeconds(2);
         
         isJumping = false;
     }
+
+
 }

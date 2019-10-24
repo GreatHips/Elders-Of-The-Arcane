@@ -21,13 +21,6 @@ public class PlayerInput : MonoBehaviour {
 		if (Input.GetKeyUp (KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) {
 			player.OnJumpInputUp ();
 		}
-        if (Input.GetKeyDown(KeyCode.LeftShift)){
-            player.OnShiftDown();
-        }
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            player.OnShiftUp();
-        }
         if (Input.GetKeyUp(KeyCode.M))
         {
             Mail.SendMail();

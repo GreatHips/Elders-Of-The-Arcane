@@ -24,9 +24,9 @@ public class Player : MonoBehaviour
     public float timeToJumpApex = .4f;
     float accelerationTimeAirborne = .2f;
     float accelerationTimeGrounded = .1f;
-    float moveSpeed = 6;
+    float moveSpeed = 6.5f;
     public static GameObject player;
-    public GameObject blackOverView;
+    public GameObject Death;
     public GameObject actualDeath;
     public GameObject deathText;
     public GameObject iceBook;
@@ -71,18 +71,21 @@ public class Player : MonoBehaviour
         gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);
         maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
         minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) * minJumpHeight);
-    }
+
+}
 
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.layer == 10 && !invinc)
         {
-            damage();
-            StartCoroutine(WaitEnemy(.75f));
-        }
-        if (collision.gameObject.tag == "SlothBoss" && !invinc)
-        {
-            damage();
+            if (collision.gameObject.layer == 10 && collision.gameObject.transform.position.x > player.transform.position.x)
+            {
+                velocity.x += -100;
+            }
+            if (collision.gameObject.layer == 10 && collision.gameObject.transform.position.x <= player.transform.position.x)
+            {
+                velocity.x += 100;
+            }
             StartCoroutine(WaitEnemy(.75f));
         }
     }
@@ -123,19 +126,14 @@ public class Player : MonoBehaviour
             fire3.SetActive(true);
             fireballText.SetActive(true);
         }
-
         
         if (gameObject.transform.position.y <= -100)
         {
-            Destroy(gameObject);
-            actualDeath.SetActive(true);
-            deathText.SetActive(true);
-            blackOverView.SetActive(true);
-            fire1.SetActive(false);
-            fire2.SetActive(false);
-            fire3.SetActive(false);
-            fireballText.SetActive(false);
-            healthBar.SetActive(false);
+            Dead();
+        }
+        if (gameObject.GetComponent<HealthManager>().health <= 0)
+        {
+            Dead();
         }
 
         PlayerMoves();
@@ -228,10 +226,24 @@ public class Player : MonoBehaviour
     }
     void damage()
     {
-        velocity.x *= -3f;
-        healthManager.Damage(20);
+       // velocity.x *= -3f;
+        
         invinc = true;
     }
+    public void Dead()
+    {
+        Death.SetActive(true);
+        deathText.SetActive(true);
+        actualDeath.SetActive(true);
+        fire1.SetActive(false);
+        fire2.SetActive(false);
+        fire3.SetActive(false);
+        ice1.SetActive(false);
+        ice2.SetActive(false);
+        ice3.SetActive(false);
+        healthBar.SetActive(false);
+    }
+
     void damageStay()
     {
         healthManager.Damage(20);

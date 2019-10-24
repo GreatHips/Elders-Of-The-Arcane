@@ -8,6 +8,7 @@ public class HealthManager : MonoBehaviour
     public int health = 100;
     public int healthMax = 100;
 
+
     void Start()
     {
         // on start set health to their max health to reset values

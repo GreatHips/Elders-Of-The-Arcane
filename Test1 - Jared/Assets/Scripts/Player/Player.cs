@@ -245,7 +245,7 @@ public class Player : MonoBehaviour
     public void OnShiftUp()
     {
         moveSpeed = 6;
-        Save();
+       // Save();
     }
     public void Save()
     {

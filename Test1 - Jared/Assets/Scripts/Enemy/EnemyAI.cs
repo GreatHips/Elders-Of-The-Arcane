@@ -19,6 +19,7 @@ public class EnemyAI : MonoBehaviour
     public bool inDist;
     public bool slothNotAttacked = true;
     public bool slothAttacked = false;
+    public bool slothAttacking;
 
     Animator anime;
 
@@ -141,39 +142,86 @@ public class EnemyAI : MonoBehaviour
     {
         if (slothNotAttacked)
         {
-
-            
             slothNotAttacked = false;
 
             yield return new WaitForSeconds(UnityEngine.Random.Range(1, 3));
-            var number = UnityEngine.Random.Range(1, 5);
+            var number = UnityEngine.Random.Range(1, 1);
             Debug.Log(number);
+            // box collider normal size x = 12.58447 y = 10.74055
 
-            slothAttacked = true;
-            if (number == 1)
+            if (number == 1 && !slothAttacking)
             {
+                //enables anim
                 anime.SetBool("HeadAttack", true);
-                
+                //wait .5 seconds to start everything
+                yield return new WaitForSeconds(.5f);
+                    var head = GameObject.Find("SlothHead");
+               
+                //spawn a clone of the head
+                var headClone = Instantiate(head, gameObject.transform);
+
+                //addforce to the clone so it goes left
+                headClone.GetComponent<Rigidbody2D>().AddForce(new Vector2(-250, 0));
+
+                //add a box collider to the cloned object
+                headClone.AddComponent<BoxCollider2D>();
+
+                //sets the box collider to a certain size to match the image
+                headClone.GetComponent<BoxCollider2D>().size = new Vector2(2.5f, 3.8f);
+
+                //remove the original head from the scene
+                head.SetActive(false);
+
+                //check for the sloths attacking
+                    slothAttacking = true;
+
+                //wait a second
+                    yield return new WaitForSeconds(1);
+
+                //turns off the clones box collider
+                headClone.GetComponent<BoxCollider2D>().enabled = false;
+
+                //sends the cloned object sending right
+                headClone.GetComponent<Rigidbody2D>().AddForce(new Vector2(500, 0));
+
+                yield return new WaitForSeconds(1);
+
+                //sets the head active again
+                head.SetActive(true);
+
+                //destroys the clone immediately
+                    Destroy(headClone);
+
+                    //checks to be done at the end
+                    slothAttacked = true;
+                    anime.SetBool("HeadAttack", false);
+                    anime.SetBool("Awake", true);
             }
-            if (number == 2)
+            if (number == 2 && !slothAttacking)
             {
+                slothAttacking = true;
                 anime.SetBool("HeadAttack", true);
-
+                slothAttacked = true;
             }
-            if (number == 3)
+            if (number == 3 && !slothAttacking)
             {
+                slothAttacking = true;
                 anime.SetBool("HeadAttack", true);
-
+                slothAttacked = true;
             }
-            if (number == 4)
+            if (number == 4 && !slothAttacking)
             {
+                slothAttacking = true;
                 anime.SetBool("HeadAttack", true);
-
+                slothAttacked = true;
             }
 
             if (slothAttacked == true)
-            {
-                yield return new WaitForSeconds(10);
+            { 
+                slothAttacking = false;
+                yield return new WaitForSeconds(2);
+                anime.SetBool("HeadAttack", false);
+                anime.SetBool("Awake", true);
                 slothNotAttacked = true;
             }
         }

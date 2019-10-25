@@ -25,6 +25,7 @@ public class EnemyAI : MonoBehaviour
     HealthManager healthManager;
     public void Start()
     {
+        anime = GetComponent<Animator>();
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 
         myRigidBody = GetComponent<Rigidbody2D>();
@@ -106,12 +107,17 @@ public class EnemyAI : MonoBehaviour
         }
 
         if (gameObject.tag == "eyeDemon")
-        { 
-
+        {
+         
+            
             if (movement && inDist)
             {
                 transform.position = Vector2.MoveTowards(transform.position, target.position, movementSpeed * Time.deltaTime);
+                anime.SetBool("Chase", true);
 
+            } else if (!inDist)
+            {
+                anime.SetBool("Chase", false);
             }
 
             if ((target.position.x < transform.position.x) && facingRight == true && inDist)

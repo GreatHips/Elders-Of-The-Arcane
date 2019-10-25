@@ -50,7 +50,11 @@ public class EnemyAI : MonoBehaviour
             if (movement && inDist)
             {
                 transform.position = Vector2.MoveTowards(transform.position, target.position, movementSpeed * Time.deltaTime);
-
+                anime.SetBool("SlimeJump", true);
+            }
+            else
+            {
+                anime.SetBool("SlimeJump", false);
             }
 
             if ((target.position.y >= transform.position.y) && myRigidBody.velocity.y == 0 && (Math.Abs(target.position.x - this.transform.position.x) < 20) && inDist && !isJumping)
@@ -72,9 +76,10 @@ public class EnemyAI : MonoBehaviour
         // Boss Parameters
         if (gameObject.tag == "SlothBoss" && gameObject.GetComponent<HealthManager>().health < gameObject.GetComponent<HealthManager>().healthMax)
         {
-            
+            anime.SetBool("Awake", true);
             if (movement && inDist)
-            { 
+            {
+               
                 transform.position = Vector2.MoveTowards(transform.position, target.position, movementSpeed * Time.deltaTime);
                 
             }
@@ -136,6 +141,8 @@ public class EnemyAI : MonoBehaviour
     {
         if (slothNotAttacked)
         {
+
+            
             slothNotAttacked = false;
 
             yield return new WaitForSeconds(UnityEngine.Random.Range(1, 3));
@@ -146,24 +153,27 @@ public class EnemyAI : MonoBehaviour
             if (number == 1)
             {
                 anime.SetBool("HeadAttack", true);
+                
             }
             if (number == 2)
             {
+                anime.SetBool("HeadAttack", true);
 
             }
             if (number == 3)
             {
+                anime.SetBool("HeadAttack", true);
 
             }
             if (number == 4)
             {
+                anime.SetBool("HeadAttack", true);
 
             }
 
             if (slothAttacked == true)
             {
                 yield return new WaitForSeconds(10);
-                number = 4;
                 slothNotAttacked = true;
             }
         }
@@ -183,5 +193,9 @@ public class EnemyAI : MonoBehaviour
         isJumping = false;
     }
 
+    IEnumerator Wait(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+    }
 
 }

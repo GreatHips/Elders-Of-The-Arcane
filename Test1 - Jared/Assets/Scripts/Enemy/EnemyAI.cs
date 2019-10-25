@@ -144,6 +144,7 @@ public class EnemyAI : MonoBehaviour
         {
             slothNotAttacked = false;
 
+            //SLOTH NEEDS TO BE DONE COMPLETELY
             yield return new WaitForSeconds(UnityEngine.Random.Range(1, 3));
             var number = UnityEngine.Random.Range(1, 1);
             Debug.Log(number);

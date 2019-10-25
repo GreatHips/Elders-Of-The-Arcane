@@ -128,8 +128,9 @@ GameObject:
   - component: {fileID: 1948925934832502628}
   - component: {fileID: 4722362253308006981}
   - component: {fileID: 3666548534181610807}
+  - component: {fileID: 4572376085017805238}
   m_Layer: 10
-  m_Name: Eye Demon 1
+  m_Name: Eye Demon
   m_TagString: eyeDemon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -275,6 +276,8 @@ MonoBehaviour:
   isJumping: 0
   dist: 0
   inDist: 0
+  slothNotAttacked: 1
+  slothAttacked: 0
 --- !u!114 &1948925934832502628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,6 +331,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &4572376085017805238
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3666548534181610806}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 50c002fbe6d81cb4d90825f193341f51, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4910804913286949057
 GameObject:
   m_ObjectHideFlags: 0

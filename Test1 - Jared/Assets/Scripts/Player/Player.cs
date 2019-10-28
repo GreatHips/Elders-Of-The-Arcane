@@ -196,12 +196,11 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.layer == 10 && !invinc)
         {
-            damageStay();
+            
             StartCoroutine(WaitEnemy(.75f));
         }
         if (collision.gameObject.tag == "SlothBoss" && !invinc)
         {
-            damageStay();
             StartCoroutine(WaitEnemy(.75f));
         }
     }
@@ -242,11 +241,6 @@ public class Player : MonoBehaviour
         healthBar.SetActive(false);
     }
 
-    void damageStay()
-    {
-        healthManager.Damage(20);
-        invinc = true;
-    }
 
 
     public void Save()

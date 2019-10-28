@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3951291642102855968}
   - component: {fileID: 3951291642102855971}
   - component: {fileID: 3951291642102855970}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: SlothHead
   m_TagString: SlothBoss
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
+  m_UseAutoMass: 1
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0

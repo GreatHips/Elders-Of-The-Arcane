@@ -159,6 +159,7 @@ public class EnemyAI : MonoBehaviour
                 anime.SetBool("HeadAttack", true);
                 //wait .5 seconds to start everything
                 yield return new WaitForSeconds(.5f);
+                var player = GameObject.Find("Player");
                 var sloth = GameObject.Find("SlothBoss");
                 //x = .54, y = -7.22, instantiate head here!!
                 var head = headPrefab;
@@ -190,6 +191,8 @@ public class EnemyAI : MonoBehaviour
                 //sends the cloned object sending right
 
                 headClone.GetComponent<Rigidbody2D>().AddForce(new Vector2(500, 0));
+                player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
+                player.GetComponent<Rigidbody2D>().constraints = ~RigidbodyConstraints2D.FreezePositionX;
                 yield return new WaitForSeconds(.6f);
                 slothAttacked = true;
  
@@ -197,7 +200,7 @@ public class EnemyAI : MonoBehaviour
                 {
                     anime.SetBool("HeadAttack", false);
                     anime.SetBool("Awake", true);
-                    yield return new WaitForSeconds(.5f);
+                    yield return new WaitForSeconds(.6f);
                     Destroy(headClone);
                 }
             }

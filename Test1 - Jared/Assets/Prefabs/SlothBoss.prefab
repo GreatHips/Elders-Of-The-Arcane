@@ -183,6 +183,7 @@ MonoBehaviour:
   slothNotAttacked: 1
   slothAttacked: 0
   slothAttacking: 0
+  headPrefab: {fileID: 0}
 --- !u!114 &4563103935807560491
 MonoBehaviour:
   m_ObjectHideFlags: 0

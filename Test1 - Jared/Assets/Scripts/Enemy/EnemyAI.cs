@@ -17,11 +17,10 @@ public class EnemyAI : MonoBehaviour
     public bool isJumping = false;
     public float dist;
     public bool inDist;
-    public bool slothNotAttacked = true;
-    public bool slothAttacked = false;
-    public bool slothAttacking;
+    private bool slothNotAttacked = true;
+    private bool slothAttacked = false;
+    private bool slothAttacking;
     public GameObject headPrefab;
-    private bool bounds;
 
     Animator anime;
 
@@ -150,7 +149,7 @@ public class EnemyAI : MonoBehaviour
 
             //SLOTH NEEDS TO BE DONE COMPLETELY
             yield return new WaitForSeconds(UnityEngine.Random.Range(3, 8));
-            var number = UnityEngine.Random.Range(2, 2);
+            var number = UnityEngine.Random.Range(1, 3);
             Debug.Log(number);
             // box collider normal size x = 12.58447 y = 10.74055
 
@@ -213,27 +212,24 @@ public class EnemyAI : MonoBehaviour
 
                 slothAttacking = true;
                 movementSpeed = 0;
-                anime.SetBool("Awake", true);
-                anime.SetBool("HeadAttack", false);
                 anime.SetBool("StretchAttack", true);
                 //offset 0.1 x = 24.61, y = 10.63454
-                if (bounds)
-                {
+                yield return new WaitForSeconds(.5f);
                     sloth.GetComponent<BoxCollider2D>().size = new Vector2(24.61f, 10.63454f);
                     sloth.GetComponent<BoxCollider2D>().offset = new Vector2(0.1f, -4.68273f);
                     yield return new WaitForSeconds(.5f);
-                    Debug.Log(bounds);
+
                     sloth.GetComponent<BoxCollider2D>().size = new Vector2(12.58447f, 10.74055f);
                     sloth.GetComponent<BoxCollider2D>().offset = new Vector2(3.556674f, -4.68273f);
+                yield return new WaitForSeconds(.5f);
                     anime.SetBool("HeadAttack", false);
                     anime.SetBool("StretchAttack", false);
                     anime.SetBool("Awake", true);
                     slothAttacking = false;
                     slothAttacked = true;
                     movementSpeed = .75f;
-                    bounds = false;
-                    Debug.Log(bounds);
-                }
+
+                
             }
             if (number == 3 && !slothAttacking)
             {
@@ -278,13 +274,5 @@ public class EnemyAI : MonoBehaviour
         yield return new WaitForSeconds(seconds);
     }
 
-    private void boxCollider()
-    {
-        bounds = true;
-    }
-    private void boxCollider2()
-    {
-        bounds = false; 
-    }
 
 }

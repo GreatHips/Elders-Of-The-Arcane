@@ -226,8 +226,6 @@ public class Player : MonoBehaviour
     }
     void damage()
     {
-       // velocity.x *= -3f;
-        
         invinc = true;
     }
     public void Dead()

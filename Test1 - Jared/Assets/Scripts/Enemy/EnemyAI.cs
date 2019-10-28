@@ -86,6 +86,9 @@ public class EnemyAI : MonoBehaviour
             }
             if (slothNotAttacked)
             {
+                var player = GameObject.Find("Player");
+                player.GetComponent<Rigidbody2D>().velocity *= 0;
+
                 StartCoroutine(SlothBossAttack());
             }
           
@@ -156,11 +159,13 @@ public class EnemyAI : MonoBehaviour
                 anime.SetBool("HeadAttack", true);
                 //wait .5 seconds to start everything
                 yield return new WaitForSeconds(.5f);
-                    var head = GameObject.Find("SlothHead");
-               
-                //spawn a clone of the head
-                var headClone = Instantiate(head, gameObject.transform);
+                var sloth = GameObject.Find("SlothBoss");
+                var head = GameObject.Find("SlothHead");
 
+                //spawn a clone of the head
+                var headClone = Instantiate(head, sloth.transform, false);
+                headClone.GetComponent<Rigidbody2D>().constraints = ~RigidbodyConstraints2D.FreezePositionX;
+               
                 //addforce to the clone so it goes left
                 headClone.GetComponent<Rigidbody2D>().AddForce(new Vector2(-250, 0));
 
@@ -169,6 +174,7 @@ public class EnemyAI : MonoBehaviour
 
                 //sets the box collider to a certain size to match the image
                 headClone.GetComponent<BoxCollider2D>().size = new Vector2(2.5f, 3.8f);
+                
 
                 //remove the original head from the scene
                 head.SetActive(false);

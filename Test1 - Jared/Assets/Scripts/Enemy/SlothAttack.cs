@@ -1,23 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using UnityEngine.UI;
 
-public class SlothAttack : MonoBehaviour
+public class SlothAttack : EnemyAI
 {
     private bool slothNotAttacked = true;
     private bool slothAttacked = false;
     private bool slothAttacking;
-    public float dist;
-    public static bool movement = true;
-    // Start is called before the first frame update
-    void Start()
+
+    public GameObject headPrefab;
+
+
+    new void Start()
     {
-        
+
+        myRigidBody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        dist = Math.Abs(Vector3.Distance(target.position, transform.position));
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+
         // Boss Parameters
         if (gameObject.tag == "SlothBoss" && gameObject.GetComponent<HealthManager>().health < gameObject.GetComponent<HealthManager>().healthMax)
         {

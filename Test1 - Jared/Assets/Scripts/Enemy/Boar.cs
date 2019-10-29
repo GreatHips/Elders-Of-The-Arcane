@@ -12,9 +12,10 @@ public class Boar : EnemyAI
         player = GameObject.Find("Player");
     }
     // Update is called once per frame
-    new void Update()
+    void Update()
     {
         Distance();
+
 
         if (movement && inDist)
         {

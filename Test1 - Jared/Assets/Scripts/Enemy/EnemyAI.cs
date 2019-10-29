@@ -10,7 +10,7 @@ public class EnemyAI : HealthBar
 
     public bool movement = true;
     public float movementSpeed = 2.0f;
-    public float stoppingDistance = 250f;
+    public float stoppingDistance = 13f;
     public bool facingRight = true;
     public bool canJump = true;
     [HideInInspector]

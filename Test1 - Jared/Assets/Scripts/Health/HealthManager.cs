@@ -17,6 +17,11 @@ public class HealthManager : MonoBehaviour
   
     void Update()
     {
+        
+    }
+
+    public void checkDeath()
+    {
         //if health goes over max, reset it to the max
         if (health > healthMax)
         {
@@ -42,6 +47,7 @@ public class HealthManager : MonoBehaviour
     {
 
         health -= damageAmount;
+
     }
 
     //add health to the total amount of health

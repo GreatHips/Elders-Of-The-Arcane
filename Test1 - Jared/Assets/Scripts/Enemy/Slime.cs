@@ -6,6 +6,7 @@ using System;
 public class Slime : EnemyAI
 {
     private GameObject player;
+
     private new void Start()
     {
         player = GameObject.Find("Player");
@@ -18,6 +19,8 @@ public class Slime : EnemyAI
     new void Update()
     {
         Distance();
+
+
 
         if (movement && inDist)
         {
@@ -45,23 +48,12 @@ public class Slime : EnemyAI
             facingRight = true;
         }
 
-        healthBar.y = 25f;
-        healthBarsBackgroundScale.y = 20f;
-        healthBar.x = health * 3f;
-        healthBarsBackgroundScale.x = healthMax * 3f;
-        healthBars.transform.localScale = healthBar;
-        healthBarsBackground.transform.localScale = healthBarsBackgroundScale;
 
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        healthBar.y = 25f;
-        healthBarsBackgroundScale.y = 20f;
-        healthBar.x = health * 3f;
-        healthBarsBackgroundScale.x = healthMax * 3f;
-        healthBars.transform.localScale = healthBar;
-        healthBarsBackground.transform.localScale = healthBarsBackgroundScale;
+        
         if (collision.gameObject.tag == "Player")
         {
             player.GetComponent<HealthManager>().Damage(30);

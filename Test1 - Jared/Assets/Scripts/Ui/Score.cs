@@ -12,11 +12,13 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (gameObject.GetComponent<HealthManager>().health <= 0)
         {
             score += 10;
             newScore = score;
             scoreObject.GetComponent<Text>().text = "Score: " + newScore;
         }
+        */
     }
 }

@@ -229,6 +229,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51ebbd6bc5b8e364d9511a37aa07fb42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
+  healthMax: 100
+  healthBar: {x: 0, y: 0, z: 0}
+  overallHealthBar: {fileID: 1818135814109188550}
+  healthBars: {fileID: 1818321855951924440}
+  healthBarsBackground: {fileID: 1818172928713862448}
+  healthBarsBackgroundScale: {x: 0, y: 0, z: 0}
   movementSpeed: 2
   stoppingDistance: 250
   facingRight: 1

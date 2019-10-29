@@ -8,12 +8,14 @@ public class Slime : EnemyAI
     private new void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        anime = GetComponent<Animator>();
+        myRigidBody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     new void Update()
     {
-       
+        Distance();
 
         if (movement && inDist)
         {
@@ -40,6 +42,13 @@ public class Slime : EnemyAI
             transform.Rotate(Vector3.up * 180);
             facingRight = true;
         }
+
+        healthBar.y = 25f;
+        healthBarsBackgroundScale.y = 20f;
+        healthBar.x = health * 3f;
+        healthBarsBackgroundScale.x = healthMax * 3f;
+        healthBars.transform.localScale = healthBar;
+        healthBarsBackground.transform.localScale = healthBarsBackgroundScale;
 
     }
 

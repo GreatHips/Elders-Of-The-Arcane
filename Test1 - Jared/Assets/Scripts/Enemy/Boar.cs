@@ -4,9 +4,18 @@ using UnityEngine;
 
 public class Boar : EnemyAI
 {
-    // Update is called once per frame
-    void Update()
+    private GameObject player;
+    new void Start()
     {
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        myRigidBody = GetComponent<Rigidbody2D>();
+        player = GameObject.Find("Player");
+    }
+    // Update is called once per frame
+    new void Update()
+    {
+        Distance();
+
         if (movement && inDist)
         {
 
@@ -22,6 +31,14 @@ public class Boar : EnemyAI
         {
             transform.Rotate(Vector3.up * 180);
             facingRight = true;
+        }
+
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            player.GetComponent<HealthManager>().Damage(20);
         }
     }
 }

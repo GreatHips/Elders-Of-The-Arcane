@@ -7,8 +7,8 @@ using UnityEngine.UI;
 [RequireComponent(typeof(EnemyController))]
 public class EnemyAI : HealthBar
 {
-    
-    public static bool movement = true;
+
+    public bool movement = true;
     public float movementSpeed = 2.0f;
     public float stoppingDistance = 250f;
     public bool facingRight = true;
@@ -31,8 +31,8 @@ public class EnemyAI : HealthBar
         myRigidBody = GetComponent<Rigidbody2D>();
         
     }
-
-    void Update()
+  
+    public void Distance()
     {
         dist = Math.Abs(Vector3.Distance(target.position, transform.position));
         if (dist <= stoppingDistance)
@@ -43,8 +43,8 @@ public class EnemyAI : HealthBar
         {
             inDist = false;
         }
+
     }
-  
  
     IEnumerator Wait(float seconds)
     {

@@ -15,7 +15,7 @@ public class SlothAttack : EnemyAI
 
     new void Start()
     {
-
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         myRigidBody = GetComponent<Rigidbody2D>();
     }
 

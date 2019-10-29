@@ -83,14 +83,5 @@ public class HealthManager : MonoBehaviour
         {
             Damage(35);
         }
-
-        if (collision.gameObject.tag == "Boar" && gameObject.tag == "Player")
-        {
-            Damage(20);
-        }
-        if (collision.gameObject.tag == "eyeDemon" && gameObject.tag == "Player")
-        {
-            Damage(25);
-        }
     }
 }

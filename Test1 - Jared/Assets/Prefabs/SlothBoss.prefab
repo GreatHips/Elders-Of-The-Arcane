@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 5022879920866416961}
   - component: {fileID: 5808051099292758586}
   - component: {fileID: 2863369387865906106}
-  - component: {fileID: 1935528358473234698}
   - component: {fileID: 4563103935807560491}
+  - component: {fileID: 6100737982981383918}
   m_Layer: 10
   m_Name: SlothBoss
   m_TagString: SlothBoss
@@ -163,27 +163,6 @@ MonoBehaviour:
     m_Bits: 0
   horizontalRayCount: 4
   verticalRayCount: 4
---- !u!114 &1935528358473234698
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7200378736989450237}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aca57e601a342884386f1da87ec45318, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementSpeed: 2
-  stoppingDistance: 250
-  isJumping: 0
-  dist: 0
-  inDist: 0
-  slothNotAttacked: 1
-  slothAttacked: 0
-  slothAttacking: 0
-  headPrefab: {fileID: 0}
 --- !u!114 &4563103935807560491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,6 +178,30 @@ MonoBehaviour:
   scoreObject: {fileID: 0}
   newScore: 0
   score: 0
+--- !u!114 &6100737982981383918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7200378736989450237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd56096234f41564a90cb33c497012aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 2
+  stoppingDistance: 250
+  facingRight: 1
+  canJump: 1
+  myRigidBody: {fileID: 0}
+  anime: {fileID: 0}
+  target: {fileID: 0}
+  isJumping: 0
+  dist: 0
+  inDist: 0
+  headPrefab: {fileID: 3951291642102855969, guid: 4fa36f1ebff22a54799ddb3906fdec3e,
+    type: 3}
 --- !u!1001 &9045595790603827023
 PrefabInstance:
   m_ObjectHideFlags: 0

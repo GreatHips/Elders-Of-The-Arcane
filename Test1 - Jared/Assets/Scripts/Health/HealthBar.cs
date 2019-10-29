@@ -24,11 +24,7 @@ public class HealthBar : HealthManager
     public void Update()
     {
 
-        // if the tag is an enemy
-        if (gameObject.tag == "Slime")
-        {
 
-        }
         if (gameObject.tag == "Boar")
         {
             healthBar.y = 25f;

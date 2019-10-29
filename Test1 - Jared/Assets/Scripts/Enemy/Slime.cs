@@ -5,8 +5,10 @@ using System;
 
 public class Slime : EnemyAI
 {
+    private GameObject player;
     private new void Start()
     {
+        player = GameObject.Find("Player");
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         anime = GetComponent<Animator>();
         myRigidBody = GetComponent<Rigidbody2D>();
@@ -60,6 +62,14 @@ public class Slime : EnemyAI
         healthBarsBackgroundScale.x = healthMax * 3f;
         healthBars.transform.localScale = healthBar;
         healthBarsBackground.transform.localScale = healthBarsBackgroundScale;
+        if (collision.gameObject.tag == "Player")
+        {
+            player.GetComponent<HealthManager>().Damage(30);
+        }
+        if (collision.gameObject.tag == "Bullets")
+        {
+            GetComponent<HealthManager>().Damage(30);
+        }
     }
     IEnumerator WaitJump()
     {

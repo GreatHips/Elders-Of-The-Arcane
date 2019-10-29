@@ -47,5 +47,10 @@ public class eyeDemon : EnemyAI
         {
             player.GetComponent<HealthManager>().Damage(30);
         }
+
+        if (collision.gameObject.tag == "Bullets")
+        {
+            GetComponent<HealthManager>().Damage(30);
+        }
     }
 }

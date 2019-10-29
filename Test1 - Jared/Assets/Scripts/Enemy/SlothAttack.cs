@@ -11,10 +11,11 @@ public class SlothAttack : EnemyAI
     private bool slothAttacking;
 
     public GameObject headPrefab;
-
+    private GameObject player;
 
     new void Start()
     {
+        player = GameObject.Find("Player");
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         myRigidBody = GetComponent<Rigidbody2D>();
     }
@@ -22,6 +23,7 @@ public class SlothAttack : EnemyAI
     // Update is called once per frame
     void Update()
     {
+        Distance();
 
         dist = Math.Abs(Vector3.Distance(target.position, transform.position));
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -156,6 +158,17 @@ public class SlothAttack : EnemyAI
                 anime.SetBool("Awake", true);
                 slothNotAttacked = true;
             }
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            player.GetComponent<HealthManager>().Damage(35);
+        }
+        if (collision.gameObject.tag == "Bullets")
+        {
+            GetComponent<HealthManager>().Damage(30);
         }
     }
 }

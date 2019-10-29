@@ -40,7 +40,8 @@ public class HealthManager : MonoBehaviour
     //subtract damage from health
     public void Damage(int damageAmount)
     {
-         health -= damageAmount;
+
+        health -= damageAmount;
     }
 
     //add health to the total amount of health
@@ -51,37 +52,7 @@ public class HealthManager : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // if the collision is from a bullet and it hits an object tagged with enemy, take 50 damage
-        if (collision.gameObject.tag == "Bullets" && gameObject.tag == "Slime")
-        {
-            Damage(50);
-        }
+ 
 
-        if (collision.gameObject.tag == "Bullets" && gameObject.tag == "Boar")
-        {
-            Damage(25);
-        }
-        // if the collision is from a bullet and it hits an object tagged with Boss, take 25 damage
-        if (collision.gameObject.tag == "Bullets" && gameObject.tag == "SlothBoss")
-        {
-            Damage(25);
-        }
-
-        if (collision.gameObject.tag == "Bullets" && gameObject.tag == "eyeDemon")
-        {
-            Damage(25);
-        }
-
-        // if the collision is from an enemy, and it hits an obect tagged Player, take 20 damage
-        if (collision.gameObject.tag == "Slime" && gameObject.tag == "Player")
-        {
-            Damage(15);
-        }
-
-        // if the collision is from an boss, and it hits an obect tagged Player, take 20 damage
-        if (collision.gameObject.tag == "SlothBoss" && gameObject.tag == "Player")
-        {
-            Damage(35);
-        }
     }
 }

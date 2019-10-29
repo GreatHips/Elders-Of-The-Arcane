@@ -23,8 +23,13 @@ public class HealthBar : HealthManager
 
     public void Update()
     {
+        checkHealthBars();
+        checkDeath();
 
-        // if the tag is an enemy
+    }
+
+    public void checkHealthBars()
+    {
         if (gameObject.tag == "Slime")
         {
             healthBar.y = 25f;
@@ -36,6 +41,9 @@ public class HealthBar : HealthManager
         }
         if (gameObject.tag == "Boar")
         {
+            //slime
+
+            //
             healthBar.y = 25f;
             healthBarsBackgroundScale.y = 20f;
             healthBar.x = health * 3f;
@@ -76,3 +84,4 @@ public class HealthBar : HealthManager
         }
     }
 }
+

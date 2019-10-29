@@ -221,7 +221,6 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(seconds);
         invinc = false;
-        EnemyAI.movement = true;
     }
     void damage()
     {

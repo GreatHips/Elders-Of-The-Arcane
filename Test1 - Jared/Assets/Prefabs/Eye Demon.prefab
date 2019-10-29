@@ -124,11 +124,11 @@ GameObject:
   - component: {fileID: 7098544828256095870}
   - component: {fileID: 6348327696452211417}
   - component: {fileID: 3384093890150892204}
-  - component: {fileID: 6041940737771948074}
   - component: {fileID: 1948925934832502628}
   - component: {fileID: 4722362253308006981}
   - component: {fileID: 3666548534181610807}
   - component: {fileID: 4572376085017805238}
+  - component: {fileID: 8447748786137018380}
   m_Layer: 10
   m_Name: Eye Demon
   m_TagString: eyeDemon
@@ -259,25 +259,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   healthMax: 100
---- !u!114 &6041940737771948074
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3666548534181610806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aca57e601a342884386f1da87ec45318, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementSpeed: 3
-  stoppingDistance: 13
-  isJumping: 0
-  dist: 0
-  inDist: 0
-  slothNotAttacked: 1
-  slothAttacked: 0
 --- !u!114 &1948925934832502628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,6 +331,28 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8447748786137018380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3666548534181610806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb6fe46e837884140a5c1dec4caa42b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 2
+  stoppingDistance: 250
+  facingRight: 1
+  canJump: 1
+  myRigidBody: {fileID: 0}
+  anime: {fileID: 0}
+  target: {fileID: 0}
+  isJumping: 0
+  dist: 0
+  inDist: 0
 --- !u!1 &4910804913286949057
 GameObject:
   m_ObjectHideFlags: 0

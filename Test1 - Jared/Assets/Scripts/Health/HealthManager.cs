@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class HealthManager : MonoBehaviour
 {
     public int health = 100;
@@ -56,9 +57,5 @@ public class HealthManager : MonoBehaviour
         health += healAmount;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
- 
 
-    }
 }

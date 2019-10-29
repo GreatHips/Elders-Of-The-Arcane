@@ -4,7 +4,8 @@ using UnityEngine;
 using System;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(EnemyController))]
+
+    [RequireComponent(typeof(EnemyController))]
 public class EnemyAI : HealthBar
 {
 
@@ -31,7 +32,6 @@ public class EnemyAI : HealthBar
         myRigidBody = GetComponent<Rigidbody2D>();
         
     }
-  
     public void Distance()
     {
         dist = Math.Abs(Vector3.Distance(target.position, transform.position));
@@ -43,7 +43,6 @@ public class EnemyAI : HealthBar
         {
             inDist = false;
         }
-
     }
  
     IEnumerator Wait(float seconds)

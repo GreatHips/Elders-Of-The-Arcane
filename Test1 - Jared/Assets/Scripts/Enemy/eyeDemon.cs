@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class eyeDemon : EnemyAI
 {
     private GameObject player;
@@ -17,8 +18,6 @@ public class eyeDemon : EnemyAI
     void Update()
     {
         Distance();
-
-
 
         if (movement && inDist)
         {

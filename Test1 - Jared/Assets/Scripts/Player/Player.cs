@@ -1,5 +1,4 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 using System;
 using UnityEngine.UI;
 using System.Collections;
@@ -72,7 +71,7 @@ public class Player : MonoBehaviour
         maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
         minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) * minJumpHeight);
 
-}
+    }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -126,7 +125,7 @@ public class Player : MonoBehaviour
             fire3.SetActive(true);
             fireballText.SetActive(true);
         }
-        
+
         if (gameObject.transform.position.y <= -100)
         {
             Dead();
@@ -137,9 +136,9 @@ public class Player : MonoBehaviour
         }
 
         PlayerMoves();
-        
+
         CalculateVelocity();
-        
+
 
         controller.Move(velocity * Time.deltaTime, directionalInput);
 
@@ -164,7 +163,7 @@ public class Player : MonoBehaviour
 
     public void OnJumpInputDown()
     {
-        
+
         if (controller.collisions.below)
         {
             if (controller.collisions.slidingDownMaxSlope)
@@ -188,7 +187,7 @@ public class Player : MonoBehaviour
         float targetVelocityX = directionalInput.x * moveSpeed;
         velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
         velocity.y += gravity * Time.deltaTime;
-      
+
 
     }
 
@@ -196,7 +195,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.layer == 10 && !invinc)
         {
-            
+
             StartCoroutine(WaitEnemy(.75f));
         }
         if (collision.gameObject.tag == "SlothBoss" && !invinc)
@@ -212,7 +211,7 @@ public class Player : MonoBehaviour
 
         }
     }
-    IEnumerator WaitQuit (float seconds)
+    IEnumerator WaitQuit(float seconds)
     {
         yield return new WaitForSeconds(seconds);
         Application.Quit();
@@ -286,5 +285,4 @@ public class Player : MonoBehaviour
         }
 
     }
- }
-
+}

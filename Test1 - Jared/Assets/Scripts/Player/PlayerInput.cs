@@ -8,7 +8,7 @@ public class PlayerInput : MonoBehaviour {
     public GameObject inventory;
     public GameObject hearts;
     void Start () {
-		player = GetComponent<Player> ();
+		player = GetComponent<Player>();
 	}
 
 	void Update () {

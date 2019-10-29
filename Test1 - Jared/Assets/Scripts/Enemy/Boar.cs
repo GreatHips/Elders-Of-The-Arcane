@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Boar : EnemyAI
 {
     private GameObject player;
+
     new void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -15,7 +17,7 @@ public class Boar : EnemyAI
     void Update()
     {
         Distance();
-
+        
 
         if (movement && inDist)
         {

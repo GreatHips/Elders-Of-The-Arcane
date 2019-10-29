@@ -6,6 +6,7 @@ using System;
 public class Slime : EnemyAI
 {
     private GameObject player;
+    HealthManager healthTotal;
 
     private new void Start()
     {
@@ -13,6 +14,8 @@ public class Slime : EnemyAI
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         anime = GetComponent<Animator>();
         myRigidBody = GetComponent<Rigidbody2D>();
+        var healthTotal = GetComponent<HealthManager>();
+        
     }
 
     // Update is called once per frame
@@ -20,7 +23,7 @@ public class Slime : EnemyAI
     {
         Distance();
 
-
+        
 
         if (movement && inDist)
         {

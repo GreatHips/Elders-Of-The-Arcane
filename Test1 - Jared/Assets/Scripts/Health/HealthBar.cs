@@ -23,13 +23,26 @@ public class HealthBar : HealthManager
 
     public void Update()
     {
-
+        checkHealthBars();
         checkDeath();
 
+    }
+
+    public void checkHealthBars()
+    {
+        if (gameObject.tag == "Slime")
+        {
+            healthBar.y = 25f;
+            healthBarsBackgroundScale.y = 20f;
+            healthBar.x = health * 3f;
+            healthBarsBackgroundScale.x = healthMax * 3f;
+            healthBars.transform.localScale = healthBar;
+            healthBarsBackground.transform.localScale = healthBarsBackgroundScale;
+        }
         if (gameObject.tag == "Boar")
         {
             //slime
-            
+
             //
             healthBar.y = 25f;
             healthBarsBackgroundScale.y = 20f;
@@ -71,3 +84,4 @@ public class HealthBar : HealthManager
         }
     }
 }
+

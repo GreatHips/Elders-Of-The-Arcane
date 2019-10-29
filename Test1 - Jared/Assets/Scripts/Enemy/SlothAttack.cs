@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.UI;
-
-public class SlothAttack : EnemyAI
+    public class SlothAttack : EnemyAI
 {
     private bool slothNotAttacked = true;
     private bool slothAttacked = false;
@@ -13,6 +12,7 @@ public class SlothAttack : EnemyAI
     public GameObject headPrefab;
     private GameObject player;
 
+    
     new void Start()
     {
         player = GameObject.Find("Player");

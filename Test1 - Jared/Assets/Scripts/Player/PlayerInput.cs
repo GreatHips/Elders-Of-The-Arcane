@@ -7,12 +7,35 @@ public class PlayerInput : MonoBehaviour {
 	Player player;
     public GameObject inventory;
     public GameObject hearts;
+    private GameObject players;
     void Start () {
 		player = GetComponent<Player>();
 	}
 
 	void Update () {
-		Vector2 directionalInput = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
+
+        var players = GameObject.Find("Player");
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            players.GetComponent<HealthManager>().healthMax += 100000;
+            players.GetComponent<HealthManager>().health += 1000000;
+        }
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            players.GetComponent<HealthManager>().healthMax -= 10;
+            players.GetComponent<HealthManager>().health -= 10;
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            player.GetComponent<Player>().moveSpeed = 299792459;
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            player.GetComponent<Player>().moveSpeed = 6.5f;
+        }
+
+        Vector2 directionalInput = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
 		player.SetDirectionalInput (directionalInput);
 
 		if (Input.GetKeyDown (KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) {

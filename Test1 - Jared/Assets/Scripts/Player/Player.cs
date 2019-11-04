@@ -13,7 +13,6 @@ using System.IO;
 [RequireComponent(typeof(Controller2D))]
 public class Player : MonoBehaviour
 {
-    public bool invinc = false;
     public bool facingRight = false;
 
     Animator anime;
@@ -23,7 +22,7 @@ public class Player : MonoBehaviour
     public float timeToJumpApex = .4f;
     float accelerationTimeAirborne = .2f;
     float accelerationTimeGrounded = .1f;
-    float moveSpeed = 6.5f;
+    public float moveSpeed = 6.5f;
     public static GameObject player;
     public GameObject Death;
     public GameObject actualDeath;
@@ -75,15 +74,16 @@ public class Player : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 10 && !invinc)
+        
+        if (collision.gameObject.layer == 10)
         {
             if (collision.gameObject.layer == 10 && collision.gameObject.transform.position.x > player.transform.position.x)
             {
-                velocity.x += -100;
+                velocity.x += -40;
             }
             if (collision.gameObject.layer == 10 && collision.gameObject.transform.position.x <= player.transform.position.x)
             {
-                velocity.x += 100;
+                velocity.x += 40;
             }
             StartCoroutine(WaitEnemy(.75f));
         }
@@ -128,7 +128,7 @@ public class Player : MonoBehaviour
 
         if (gameObject.transform.position.y <= -100)
         {
-            Dead();
+            //Dead();
         }
         if (gameObject.GetComponent<HealthManager>().health <= 0)
         {
@@ -193,12 +193,12 @@ public class Player : MonoBehaviour
 
     public void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 10 && !invinc)
+        if (collision.gameObject.layer == 10)
         {
 
             StartCoroutine(WaitEnemy(.75f));
         }
-        if (collision.gameObject.tag == "SlothBoss" && !invinc)
+        if (collision.gameObject.tag == "SlothBoss")
         {
             StartCoroutine(WaitEnemy(.75f));
         }
@@ -219,11 +219,6 @@ public class Player : MonoBehaviour
     IEnumerator WaitEnemy(float seconds)
     {
         yield return new WaitForSeconds(seconds);
-        invinc = false;
-    }
-    void damage()
-    {
-        invinc = true;
     }
     public void Dead()
     {

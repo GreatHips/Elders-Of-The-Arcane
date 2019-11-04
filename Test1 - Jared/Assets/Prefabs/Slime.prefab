@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 431964429004802335}
   - component: {fileID: 7314402966340808023}
   - component: {fileID: 5974773485717634874}
-  - component: {fileID: 2254054237088903444}
   - component: {fileID: 5597235053665954494}
   - component: {fileID: 5979929312938221718}
   - component: {fileID: 5380914104248853935}
@@ -187,21 +186,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &2254054237088903444
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1308299566820531037}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82b672f6e8d9a0842928be1459b0d046, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreObject: {fileID: 0}
-  newScore: 0
-  score: 0
 --- !u!111 &5597235053665954494
 Animation:
   m_ObjectHideFlags: 0
@@ -247,6 +231,7 @@ MonoBehaviour:
   isJumping: 0
   dist: 0
   inDist: 0
+  intFacingRight: 0
 --- !u!95 &5380914104248853935
 Animator:
   serializedVersion: 3
@@ -273,14 +258,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2828196969766604422}
     m_Modifications:
-    - target: {fileID: 1473727354331688, guid: 01a6b42a1d84b664c890d8dcb066becd, type: 3}
-      propertyPath: m_Name
-      value: HealthBar
-      objectReference: {fileID: 0}
-    - target: {fileID: 1473727354331688, guid: 01a6b42a1d84b664c890d8dcb066becd, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4090514546342678, guid: 01a6b42a1d84b664c890d8dcb066becd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -324,6 +301,14 @@ PrefabInstance:
     - target: {fileID: 4090514546342678, guid: 01a6b42a1d84b664c890d8dcb066becd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1473727354331688, guid: 01a6b42a1d84b664c890d8dcb066becd, type: 3}
+      propertyPath: m_Name
+      value: HealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 1473727354331688, guid: 01a6b42a1d84b664c890d8dcb066becd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4497247268064488, guid: 01a6b42a1d84b664c890d8dcb066becd, type: 3}
       propertyPath: m_LocalScale.x

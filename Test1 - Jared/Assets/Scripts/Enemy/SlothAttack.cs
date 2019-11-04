@@ -216,9 +216,13 @@ using UnityEngine.UI;
         {
             player.GetComponent<HealthManager>().Damage(35);
         }
-        if (collision.gameObject.tag == "Bullets")
+        if (collision.gameObject.tag == "FireBall")
         {
             GetComponent<HealthManager>().Damage(30);
+        }
+        if (collision.gameObject.tag == "Ice")
+        {
+            GetComponent<HealthManager>().Damage(15);
         }
     }
 }

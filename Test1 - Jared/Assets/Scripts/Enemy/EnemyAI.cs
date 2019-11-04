@@ -24,6 +24,18 @@ public class EnemyAI : HealthBar
     public float dist;
     public bool inDist;
 
+    public int intFacingRight;
+    public new void Update()
+    {
+        if (facingRight)
+        {
+            intFacingRight = -1;
+        }
+        else if (!facingRight)
+        {
+            intFacingRight = 1;
+        }
+    }
     public void Start()
     {
         anime = GetComponent<Animator>();
@@ -44,11 +56,10 @@ public class EnemyAI : HealthBar
             inDist = false;
         }
     }
- 
+
     IEnumerator Wait(float seconds)
     {
         yield return new WaitForSeconds(seconds);
     }
-
 
 }

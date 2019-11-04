@@ -43,7 +43,7 @@ public class Boar : EnemyAI
         {
             player.GetComponent<HealthManager>().Damage(20);
         }
-        if (collision.gameObject.tag == "Bullets")
+        if (collision.gameObject.tag == "BulletsFire")
         {
             GetComponent<HealthManager>().Damage(30);
         }

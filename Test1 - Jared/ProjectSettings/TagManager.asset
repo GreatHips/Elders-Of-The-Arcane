@@ -10,6 +10,9 @@ TagManager:
   - Boar
   - SlothBoss
   - eyeDemon
+  - Lava
+  - FireBall
+  - Ice
   layers:
   - Default
   - TransparentFX

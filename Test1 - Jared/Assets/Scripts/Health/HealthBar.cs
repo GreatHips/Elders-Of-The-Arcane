@@ -41,9 +41,6 @@ public class HealthBar : HealthManager
         }
         if (gameObject.tag == "Boar")
         {
-            //slime
-
-            //
             healthBar.y = 25f;
             healthBarsBackgroundScale.y = 20f;
             healthBar.x = health * 3f;

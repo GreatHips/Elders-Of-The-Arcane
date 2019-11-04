@@ -8,13 +8,13 @@ using UnityEngine.UI;
     private bool slothNotAttacked = true;
     private bool slothAttacked = false;
     private bool slothAttacking;
-
     public GameObject headPrefab;
     private GameObject player;
 
     
     new void Start()
     {
+        anime = GetComponent<Animator>();
         player = GameObject.Find("Player");
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         myRigidBody = GetComponent<Rigidbody2D>();
@@ -23,6 +23,13 @@ using UnityEngine.UI;
     // Update is called once per frame
     void Update()
     {
+        if (facingRight)
+        {
+            intFacingRight = -1;
+        } else if (!facingRight)
+        {
+            intFacingRight = 1;
+        }
         Distance();
 
         dist = Math.Abs(Vector3.Distance(target.position, transform.position));
@@ -36,12 +43,20 @@ using UnityEngine.UI;
             {
 
                 transform.position = Vector2.MoveTowards(transform.position, target.position, movementSpeed * Time.deltaTime);
-
+                if ((player.transform.position.x > transform.position.x) && facingRight == true && inDist)
+                {
+                    transform.Rotate(Vector3.up * 180);
+                    facingRight = false;
+                }
+                else if ((player.transform.position.x <= transform.position.x) && facingRight == false && inDist)
+                {
+                    transform.Rotate(Vector3.up * 180);
+                    facingRight = true;
+                }
             }
             if (slothNotAttacked)
             {
-
-
+                
                 StartCoroutine(SlothBossAttack());
             }
 
@@ -55,7 +70,7 @@ using UnityEngine.UI;
 
             //SLOTH NEEDS TO BE DONE COMPLETELY
             yield return new WaitForSeconds(UnityEngine.Random.Range(3, 8));
-            var number = UnityEngine.Random.Range(1, 3);
+            var number = UnityEngine.Random.Range(2, 2);
             Debug.Log(number);
             // box collider normal size x = 12.58447 y = 10.74055
 
@@ -78,8 +93,14 @@ using UnityEngine.UI;
                 headClone.GetComponent<Rigidbody2D>().constraints = ~RigidbodyConstraints2D.FreezePositionX;
 
                 //addforce to the clone so it goes left
-                headClone.GetComponent<Rigidbody2D>().AddForce(new Vector2(-250, 0));
-
+                if (!facingRight)
+                {
+                    headClone.GetComponent<Rigidbody2D>().AddForce(new Vector2(250, 0));
+                }
+                else if (facingRight)
+                {
+                    headClone.GetComponent<Rigidbody2D>().AddForce(new Vector2(-250, 0));
+                }
                 //add a box collider to the cloned object
                 headClone.AddComponent<BoxCollider2D>();
 
@@ -96,9 +117,14 @@ using UnityEngine.UI;
                 headClone.GetComponent<BoxCollider2D>().enabled = false;
 
                 //sends the cloned object sending right
-
-                headClone.GetComponent<Rigidbody2D>().AddForce(new Vector2(500, 0));
-                yield return new WaitForSeconds(.6f);
+                if (!facingRight)
+                {
+                    headClone.GetComponent<Rigidbody2D>().AddForce(new Vector2(-500, 0));
+                } else if (facingRight)
+                {
+                    headClone.GetComponent<Rigidbody2D>().AddForce(new Vector2(500, 0));
+                }
+                    yield return new WaitForSeconds(.6f);
                 slothAttacked = true;
 
                 if (anime.GetCurrentAnimatorStateInfo(0).IsName("Sloth_shoot"))
@@ -119,15 +145,39 @@ using UnityEngine.UI;
                 slothAttacking = true;
                 movementSpeed = 0;
                 anime.SetBool("StretchAttack", true);
-                //offset 0.1 x = 24.61, y = 10.63454
-                yield return new WaitForSeconds(.5f);
-                sloth.GetComponent<BoxCollider2D>().size = new Vector2(24.61f, 10.63454f);
-                sloth.GetComponent<BoxCollider2D>().offset = new Vector2(0.1f, -4.68273f);
-                yield return new WaitForSeconds(.5f);
+                //left norm = x = 12.66573 y = 10.2775
+                //offset left norm = x = -3.645622 y = -4.504251
 
-                sloth.GetComponent<BoxCollider2D>().size = new Vector2(12.58447f, 10.74055f);
-                sloth.GetComponent<BoxCollider2D>().offset = new Vector2(3.556674f, -4.68273f);
+                //right norm = x = 12.58447f  y = 10.74055f
+                //offset right norm = x = 3.556674f  y = -4.68273f
+
+                //stretch right norm = x = 24.49597 y = 10.27758
+                //stretch right offset = x = 0.1113005 y = -4.504251
                 yield return new WaitForSeconds(.5f);
+                if (!facingRight)
+                {
+                    sloth.GetComponent<BoxCollider2D>().size = new Vector2(24.61f, 10.63454f);
+                    sloth.GetComponent<BoxCollider2D>().offset = new Vector2(0.1f, -4.68273f);
+                } else if (facingRight)
+                {
+                    sloth.GetComponent<BoxCollider2D>().size = new Vector2(24.49597f, 10.27758f);
+                    sloth.GetComponent<BoxCollider2D>().offset = new Vector2(0.1113005f ,4.504251f);
+                }
+                sloth.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+                yield return new WaitForSeconds(.6f);
+
+                if (!facingRight)
+                {
+                    sloth.GetComponent<BoxCollider2D>().size = new Vector2(12.58447f, 10.74055f);
+                    sloth.GetComponent<BoxCollider2D>().offset = new Vector2(3.556674f, -4.68273f);
+                } else if (facingRight)
+                {
+                    sloth.GetComponent<BoxCollider2D>().size = new Vector2(12.66573f, 10.2775f);
+                    sloth.GetComponent<BoxCollider2D>().offset = new Vector2(-3.645622f, -4.504251f);
+                }
+                    yield return new WaitForSeconds(.5f);
+                sloth.GetComponent<Rigidbody2D>().constraints = ~RigidbodyConstraints2D.FreezeAll;
+                sloth.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
                 anime.SetBool("HeadAttack", false);
                 anime.SetBool("StretchAttack", false);
                 anime.SetBool("Awake", true);

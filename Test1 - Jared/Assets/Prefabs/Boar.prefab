@@ -243,16 +243,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a2ef3d4786de2e43adbc9cc0f0b225d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  health: 100
+  healthMax: 100
+  healthBar: {x: 0, y: 0, z: 0}
+  overallHealthBar: {fileID: 0}
+  healthBars: {fileID: 0}
+  healthBarsBackground: {fileID: 0}
+  healthBarsBackgroundScale: {x: 0, y: 0, z: 0}
+  movement: 1
   movementSpeed: 2
-  stoppingDistance: 250
+  stoppingDistance: 13
   facingRight: 1
   canJump: 1
   myRigidBody: {fileID: 0}
+  anime: {fileID: 0}
+  target: {fileID: 0}
   isJumping: 0
   dist: 0
   inDist: 0
-  anime: {fileID: 0}
 --- !u!1 &7655745836747260127
 GameObject:
   m_ObjectHideFlags: 0

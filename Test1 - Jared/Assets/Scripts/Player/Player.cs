@@ -1,5 +1,4 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 using System;
 using UnityEngine.UI;
 using System.Collections;
@@ -14,7 +13,6 @@ using System.IO;
 [RequireComponent(typeof(Controller2D))]
 public class Player : MonoBehaviour
 {
-    public bool invinc = false;
     public bool facingRight = false;
 
     Animator anime;
@@ -24,7 +22,7 @@ public class Player : MonoBehaviour
     public float timeToJumpApex = .4f;
     float accelerationTimeAirborne = .2f;
     float accelerationTimeGrounded = .1f;
-    float moveSpeed = 6.5f;
+    public float moveSpeed = 6.5f;
     public static GameObject player;
     public GameObject Death;
     public GameObject actualDeath;
@@ -72,19 +70,20 @@ public class Player : MonoBehaviour
         maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
         minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) * minJumpHeight);
 
-}
+    }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 10 && !invinc)
+        
+        if (collision.gameObject.layer == 10)
         {
             if (collision.gameObject.layer == 10 && collision.gameObject.transform.position.x > player.transform.position.x)
             {
-                velocity.x += -100;
+                velocity.x += -40;
             }
             if (collision.gameObject.layer == 10 && collision.gameObject.transform.position.x <= player.transform.position.x)
             {
-                velocity.x += 100;
+                velocity.x += 40;
             }
             StartCoroutine(WaitEnemy(.75f));
         }
@@ -126,10 +125,10 @@ public class Player : MonoBehaviour
             fire3.SetActive(true);
             fireballText.SetActive(true);
         }
-        
+
         if (gameObject.transform.position.y <= -100)
         {
-            Dead();
+            //Dead();
         }
         if (gameObject.GetComponent<HealthManager>().health <= 0)
         {
@@ -137,9 +136,9 @@ public class Player : MonoBehaviour
         }
 
         PlayerMoves();
-        
+
         CalculateVelocity();
-        
+
 
         controller.Move(velocity * Time.deltaTime, directionalInput);
 
@@ -164,7 +163,7 @@ public class Player : MonoBehaviour
 
     public void OnJumpInputDown()
     {
-        
+
         if (controller.collisions.below)
         {
             if (controller.collisions.slidingDownMaxSlope)
@@ -188,18 +187,18 @@ public class Player : MonoBehaviour
         float targetVelocityX = directionalInput.x * moveSpeed;
         velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
         velocity.y += gravity * Time.deltaTime;
-      
+
 
     }
 
     public void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 10 && !invinc)
+        if (collision.gameObject.layer == 10)
         {
-            
+
             StartCoroutine(WaitEnemy(.75f));
         }
-        if (collision.gameObject.tag == "SlothBoss" && !invinc)
+        if (collision.gameObject.tag == "SlothBoss")
         {
             StartCoroutine(WaitEnemy(.75f));
         }
@@ -212,7 +211,7 @@ public class Player : MonoBehaviour
 
         }
     }
-    IEnumerator WaitQuit (float seconds)
+    IEnumerator WaitQuit(float seconds)
     {
         yield return new WaitForSeconds(seconds);
         Application.Quit();
@@ -220,11 +219,6 @@ public class Player : MonoBehaviour
     IEnumerator WaitEnemy(float seconds)
     {
         yield return new WaitForSeconds(seconds);
-        invinc = false;
-    }
-    void damage()
-    {
-        invinc = true;
     }
     public void Dead()
     {
@@ -284,7 +278,6 @@ public class Player : MonoBehaviour
             localScale.x *= -1;
             transform.localScale = localScale;
         }
-
+        //no
     }
- }
-
+}

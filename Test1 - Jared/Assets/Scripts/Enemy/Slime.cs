@@ -10,6 +10,9 @@ public class Slime : EnemyAI
 
     private new void Start()
     {
+        health = 50;
+        healthMax = 50;
+        health = healthMax;
         player = GameObject.Find("Player");
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         anime = GetComponent<Animator>();
@@ -40,12 +43,12 @@ public class Slime : EnemyAI
             myRigidBody.velocity = new Vector3(myRigidBody.velocity.x, 7.25f, 0); ;
             StartCoroutine(WaitJump());
         }
-        if ((target.position.x < transform.position.x) && facingRight == true && inDist)
+        if ((target.position.x > transform.position.x) && facingRight == true && inDist)
         {
             transform.Rotate(Vector3.up * 180);
             facingRight = false;
         }
-        else if ((target.position.x > transform.position.x) && facingRight == false && inDist)
+        else if ((target.position.x <= transform.position.x) && facingRight == false && inDist)
         {
             transform.Rotate(Vector3.up * 180);
             facingRight = true;

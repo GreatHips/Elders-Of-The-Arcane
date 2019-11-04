@@ -26,15 +26,6 @@ public class PlayerInput : MonoBehaviour {
             players.GetComponent<HealthManager>().health -= 10;
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            player.GetComponent<Player>().moveSpeed = 299792459;
-        }
-        else if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            player.GetComponent<Player>().moveSpeed = 6.5f;
-        }
-
         Vector2 directionalInput = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
 		player.SetDirectionalInput (directionalInput);
 

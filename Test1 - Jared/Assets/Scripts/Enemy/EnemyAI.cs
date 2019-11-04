@@ -3,12 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.UI;
-
-
     [RequireComponent(typeof(EnemyController))]
 public class EnemyAI : HealthBar
 {
-
     public bool movement = true;
     public float movementSpeed = 2.0f;
     public float stoppingDistance = 13f;
@@ -61,5 +58,11 @@ public class EnemyAI : HealthBar
     {
         yield return new WaitForSeconds(seconds);
     }
-
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            movement = false;
+        }
+    }
 }

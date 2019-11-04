@@ -25,10 +25,7 @@ public class Slime : EnemyAI
     new void Update()
     {
         Distance();
-
-        
-
-        if (movement && inDist)
+        if (movement && inDist && movement)
         {
             transform.position = Vector2.MoveTowards(transform.position, target.position, movementSpeed * Time.deltaTime);
             anime.SetBool("SlimeJump", true);
@@ -63,10 +60,16 @@ public class Slime : EnemyAI
         if (collision.gameObject.tag == "Player")
         {
             player.GetComponent<HealthManager>().Damage(30);
+            movement = false;
+            StartCoroutine(WaitMov(1.25f));
         }
-        if (collision.gameObject.tag == "Bullets")
+        if (collision.gameObject.tag == "FireBall")
         {
             GetComponent<HealthManager>().Damage(30);
+        }
+        if (collision.gameObject.tag == "Ice")
+        {
+            GetComponent<HealthManager>().Damage(15);
         }
     }
     IEnumerator WaitJump()
@@ -84,5 +87,9 @@ public class Slime : EnemyAI
 
         isJumping = false;
     }
-
+    IEnumerator WaitMov(float Seconds)
+    {
+        yield return new WaitForSeconds(Seconds);
+        movement = true;
+    }
 }

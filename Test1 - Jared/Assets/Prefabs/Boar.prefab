@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 7655745836313837590}
   - component: {fileID: 7655745836313837585}
   - component: {fileID: 5277591058406546337}
+  - component: {fileID: 1218850177465965470}
   m_Layer: 10
   m_Name: Boar
   m_TagString: Boar
@@ -246,6 +247,25 @@ MonoBehaviour:
   dist: 0
   inDist: 0
   intFacingRight: 0
+--- !u!95 &1218850177465965470
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7655745836313837587}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bfff9ed141a755f4da23db77aa66333e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7655745836747260127
 GameObject:
   m_ObjectHideFlags: 0

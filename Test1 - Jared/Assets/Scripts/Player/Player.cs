@@ -128,7 +128,7 @@ public class Player : MonoBehaviour
 
         if (gameObject.transform.position.y <= -100)
         {
-            //Dead();
+            Dead();
         }
         if (gameObject.GetComponent<HealthManager>().health <= 0)
         {

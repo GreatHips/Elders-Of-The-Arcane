@@ -87,9 +87,5 @@ public class Slime : EnemyAI
 
         isJumping = false;
     }
-    IEnumerator WaitMov(float Seconds)
-    {
-        yield return new WaitForSeconds(Seconds);
-        movement = true;
-    }
+  
 }

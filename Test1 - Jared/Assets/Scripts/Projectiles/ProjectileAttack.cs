@@ -25,9 +25,6 @@ public class ProjectileAttack : MonoBehaviour
     public void Start()
     {
         Physics2D.IgnoreLayerCollision(8, 11);
-        
-        
-       
     }
      private void Update()
     {
@@ -53,8 +50,6 @@ public class ProjectileAttack : MonoBehaviour
 
                     StartCoroutine(RechargeFireball());
 
-                    StartCoroutine(AttackWaitFireball());
-
                     if (varFacingRight == 1)
                     {
                         bfire.transform.Rotate(0, 0, -90f);
@@ -77,7 +72,6 @@ public class ProjectileAttack : MonoBehaviour
 
                     StartCoroutine(RechargeIce());
 
-                    StartCoroutine(AttackWaitIce());
 
                     Destroy(bice, 2f);
                     Destroy(bice2, 2f);
@@ -155,30 +149,6 @@ public class ProjectileAttack : MonoBehaviour
 
     }
 
-    IEnumerator AttackWaitFireball ()
-    {
-        canAttack = false;
-
-        fireballSource.PlayOneShot(fireballSound);
-        fireballSource.pitch = 1f;
-
-        yield return new WaitForSeconds(.5f);
-
-        canAttack = true;
-
-    }
-    IEnumerator AttackWaitIce()
-    {
-        canAttack = false;
-
-        iceSource.PlayOneShot(iceSound);
-        iceSource.pitch = 1f;
-
-        yield return new WaitForSeconds(.75f);
-
-        canAttack = true;
-
-    }
 
     IEnumerator RechargeFireball ()
     {
@@ -186,7 +156,7 @@ public class ProjectileAttack : MonoBehaviour
         while (chargeAmounts == 0 && !Charging && player.fireBookHeld)
         {
             Charging = true;
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(.75f);
             chargeAmounts += 1;
             Charging = false;
 
@@ -194,7 +164,7 @@ public class ProjectileAttack : MonoBehaviour
           while (chargeAmounts == 1 && !Charging && player.fireBookHeld)
         {
             Charging = true;
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(.75f);
             chargeAmounts += 1;
             Charging = false;
 
@@ -202,7 +172,7 @@ public class ProjectileAttack : MonoBehaviour
         while (chargeAmounts == 2 && !Charging && player.fireBookHeld)
         {
             Charging = true;
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(.75f);
             chargeAmounts += 1;
             Charging = false;
         }
@@ -210,14 +180,14 @@ public class ProjectileAttack : MonoBehaviour
         if (chargeAmounts == 1 && !Charging && player.fireBookHeld)
         {
             Charging = true;
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(.75f);
             chargeAmounts += 1;
             Charging = false;
         }
         if (chargeAmounts == 2 && !Charging && player.fireBookHeld)
         {
             Charging = true;
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(.75f);
             chargeAmounts += 1;
             Charging = false;
         }
@@ -234,7 +204,7 @@ public class ProjectileAttack : MonoBehaviour
         while (chargeAmounts == 0 && !Charging && player.iceBookHeld)
         {
             Charging = true;
-            yield return new WaitForSeconds(4.5f);
+            yield return new WaitForSeconds(1f);
             chargeAmounts += 1;
             Charging = false;
 
@@ -242,7 +212,7 @@ public class ProjectileAttack : MonoBehaviour
         while (chargeAmounts == 1 && !Charging && player.iceBookHeld)
         {
             Charging = true;
-            yield return new WaitForSeconds(4.5f);
+            yield return new WaitForSeconds(1f);
             chargeAmounts += 1;
             Charging = false;
 
@@ -250,7 +220,7 @@ public class ProjectileAttack : MonoBehaviour
         while (chargeAmounts == 2 && !Charging && player.iceBookHeld)
         {
             Charging = true;
-            yield return new WaitForSeconds(4.5f);
+            yield return new WaitForSeconds(1f);
             chargeAmounts += 1;
             Charging = false;
         }
@@ -258,14 +228,14 @@ public class ProjectileAttack : MonoBehaviour
         if (chargeAmounts == 1 && !Charging && player.iceBookHeld)
         {
             Charging = true;
-            yield return new WaitForSeconds(4.5f);
+            yield return new WaitForSeconds(1f);
             chargeAmounts += 1;
             Charging = false;
         }
         if (chargeAmounts == 2 && !Charging && player.iceBookHeld)
         {
             Charging = true;
-            yield return new WaitForSeconds(4.5f);
+            yield return new WaitForSeconds(1f);
             chargeAmounts += 1;
             Charging = false;
         }

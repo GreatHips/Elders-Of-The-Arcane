@@ -55,15 +55,9 @@ public class EnemyAI : HealthBar
         }
     }
 
-    IEnumerator Wait(float seconds)
+    public IEnumerator WaitMov(float Seconds)
     {
-        yield return new WaitForSeconds(seconds);
-    }
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            movement = false;
-        }
+        yield return new WaitForSeconds(Seconds);
+        movement = true;
     }
 }

@@ -18,7 +18,7 @@ public class HealthManager : MonoBehaviour
   
     void Update()
     {
-        
+        checkDeath();
     }
 
     public void checkDeath()

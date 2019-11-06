@@ -13,6 +13,7 @@ TagManager:
   - Lava
   - FireBall
   - Ice
+  - Bat
   layers:
   - Default
   - TransparentFX

@@ -6,6 +6,7 @@ using UnityEngine.UI;
     [RequireComponent(typeof(EnemyController))]
 public class EnemyAI : HealthBar
 {
+    //Makes variables
     public bool movement = true;
     public float movementSpeed = 2.0f;
     public float stoppingDistance = 13f;

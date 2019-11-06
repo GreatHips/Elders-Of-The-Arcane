@@ -4,7 +4,7 @@ using System.Collections;
 public class Controller2D : RaycastController
 {
 
-    public float maxSlopeAngle = 10;
+    public float maxSlopeAngle = 80;
     public CollisionInfo collisions;
     [HideInInspector]
     public Vector2 playerInput;
@@ -35,7 +35,7 @@ public class Controller2D : RaycastController
 
         if (moveAmount.x != 0)
         {
-            //collisions.faceDir = (int)Mathf.Sign(moveAmount.x);
+            collisions.faceDir = (int)Mathf.Sign(moveAmount.x);
         }
 
         HorizontalCollisions(ref moveAmount);
@@ -99,6 +99,7 @@ public class Controller2D : RaycastController
                 // fix this
                 if (!collisions.climbingSlope || slopeAngle > maxSlopeAngle)
                 {
+                    //most likely the next line messing it up
                     moveAmount.x = (hit.distance - skinWidth) * directionX;
 
                     rayLength = hit.distance;
@@ -194,7 +195,7 @@ public class Controller2D : RaycastController
         if (moveAmount.y <= climbmoveAmountY)
         {
             moveAmount.y = climbmoveAmountY;
-            //moveAmount.x = Mathf.Cos(slopeAngle * Mathf.Deg2Rad) * moveDistance * Mathf.Sign(moveAmount.x);
+            moveAmount.x = Mathf.Cos(slopeAngle * Mathf.Deg2Rad) * moveDistance * Mathf.Sign(moveAmount.x);
             collisions.below = true;
             collisions.climbingSlope = true;
             collisions.slopeAngle = slopeAngle;

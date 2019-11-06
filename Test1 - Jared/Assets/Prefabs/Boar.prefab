@@ -46,8 +46,8 @@ GameObject:
   - component: {fileID: 7655745836313837588}
   - component: {fileID: 7655745836313837590}
   - component: {fileID: 7655745836313837585}
-  - component: {fileID: 7655745836313837584}
   - component: {fileID: 5277591058406546337}
+  - component: {fileID: 1218850177465965470}
   m_Layer: 10
   m_Name: Boar
   m_TagString: Boar
@@ -216,21 +216,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &7655745836313837584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7655745836313837587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82b672f6e8d9a0842928be1459b0d046, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreObject: {fileID: 0}
-  newScore: 0
-  score: 0
 --- !u!114 &5277591058406546337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,6 +246,26 @@ MonoBehaviour:
   isJumping: 0
   dist: 0
   inDist: 0
+  intFacingRight: 0
+--- !u!95 &1218850177465965470
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7655745836313837587}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bfff9ed141a755f4da23db77aa66333e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7655745836747260127
 GameObject:
   m_ObjectHideFlags: 0

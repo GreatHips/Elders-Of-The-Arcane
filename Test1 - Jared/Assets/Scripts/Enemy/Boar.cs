@@ -11,18 +11,23 @@ public class Boar : EnemyAI
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         myRigidBody = GetComponent<Rigidbody2D>();
+        anime = GetComponent<Animator>();
         player = GameObject.Find("Player");
     }
+
     // Update is called once per frame
-    void Update()
+    new void Update()
     {
         Distance();
         
 
         if (movement && inDist)
         {
-
+            anime.SetBool("Attacking", true);
             transform.position = Vector2.MoveTowards(transform.position, target.position, movementSpeed * Time.deltaTime);
+        } else
+        {
+            anime.SetBool("Attacking", false);
         }
 
         if ((target.position.x < transform.position.x) && facingRight == true && inDist)

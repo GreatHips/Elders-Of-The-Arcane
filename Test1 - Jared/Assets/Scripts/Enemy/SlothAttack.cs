@@ -215,6 +215,8 @@ using UnityEngine.UI;
         if (collision.gameObject.tag == "Player")
         {
             player.GetComponent<HealthManager>().Damage(35);
+            movement = false;
+            StartCoroutine(WaitMov(1.25f));
         }
         if (collision.gameObject.tag == "FireBall")
         {

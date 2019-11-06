@@ -25,9 +25,6 @@ public class ProjectileAttack : MonoBehaviour
     public void Start()
     {
         Physics2D.IgnoreLayerCollision(8, 11);
-        
-        
-       
     }
      private void Update()
     {

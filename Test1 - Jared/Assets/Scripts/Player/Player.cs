@@ -236,13 +236,14 @@ public class Player : MonoBehaviour
 
 
 
-    public void Save()
+    public void Save(int level, String Book)
     {
         string path = "SaveFile/Output.txt";
 
         //Write some text to the test.txt file
-        StreamWriter writer = new StreamWriter(path, true);
-        writer.WriteLine("TEST");
+        StreamWriter writer = new StreamWriter(path, false);
+        string Save = level + Book;
+        writer.WriteLine(Save);
         writer.Close();
     }
     public void Load()

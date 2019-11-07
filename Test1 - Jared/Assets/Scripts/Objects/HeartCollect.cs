@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class HeartCollect : MonoBehaviour
 {
-    public GameObject player;
+    private GameObject player;
     HealthManager healthManager;
 
-
+    private void Start()
+    {
+        player = GameObject.Find("Player");
+    }
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject == player)
@@ -15,7 +18,7 @@ public class HeartCollect : MonoBehaviour
     
             if (player.GetComponent<HealthManager>().health < player.GetComponent<HealthManager>().healthMax)
             {
-                player.GetComponent<HealthManager>().Heal(20);
+                player.GetComponent<HealthManager>().Heal(75);
                 Destroy(gameObject);
             }
         } else

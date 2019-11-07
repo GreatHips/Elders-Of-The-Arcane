@@ -6,11 +6,11 @@ using UnityEngine.UI;
 using System.IO;
 
 
-public class Level2 : Player
+public class Level2 : MonoBehaviour
 {
     string spellEquiped;
-
-    private void Start()
+    Player player;
+    void Start()
     {
         var player = GameObject.Find("Player");
     }
@@ -19,11 +19,11 @@ public class Level2 : Player
         if (collision.gameObject.tag == "Player")
         {
             SceneManager.LoadScene("Level2");
-            if (iceBookHeld == true)
+            if (player.iceBookHeld == true)
             {
                 spellEquiped = "i";
             }
-            else if (fireBookHeld == true)
+            else if (player.fireBookHeld == true)
             {
                 spellEquiped = "f";
             }
@@ -34,4 +34,16 @@ public class Level2 : Player
             Save(2, spellEquiped);
         }
     }
+    
+    public void Save(int level, string Book)
+    {
+        string path = "SaveFile/Output.txt";
+
+        //Write some text to the test.txt file
+        StreamWriter writer = new StreamWriter(path, false);
+        string Save = level + Book;
+        writer.WriteLine(Save);
+        writer.Close();
+    }
+    
 }

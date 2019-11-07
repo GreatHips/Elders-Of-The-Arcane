@@ -63,14 +63,6 @@ public class EnemyAI : HealthBar
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
-        {
-            if (collision.gameObject.transform.position.x > gameObject.gameObject.transform.position.x)
-            {
-                gameObject.transform.position += new Vector3(-10000, 0, 0);
-            } else if (collision.gameObject.transform.position.x <= gameObject.gameObject.transform.position.x) {
-                gameObject.transform.position += new Vector3(10000, 0, 0);
-            }
-        }
+        
     }
 }

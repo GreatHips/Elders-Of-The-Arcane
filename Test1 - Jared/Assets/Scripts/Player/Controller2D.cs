@@ -30,7 +30,7 @@ public class Controller2D : RaycastController
 
         if (moveAmount.y < 0)
         {
-           //DescendSlope(ref moveAmount);
+           DescendSlope(ref moveAmount);
         }
 
         if (moveAmount.x != 0)
@@ -110,8 +110,7 @@ public class Controller2D : RaycastController
                         moveAmount.y = Mathf.Tan(collisions.slopeAngle * Mathf.Deg2Rad) * Mathf.Abs(moveAmount.x);
                     }
 
-                    collisions.left = directionX == -1;
-                    collisions.right = directionX == 1;
+                   
                 }
                 
             }

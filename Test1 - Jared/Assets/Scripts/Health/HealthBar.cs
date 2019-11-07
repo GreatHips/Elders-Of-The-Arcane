@@ -79,10 +79,10 @@ public class HealthBar : HealthManager
         //if its the player
         if (gameObject.tag == "Player")
         {
-            healthBar.y = .5f;
-            healthBarsBackgroundScale.y = .25f;
-            healthBar.x = health / 10;
-            healthBarsBackgroundScale.x = healthMax / 10;
+            healthBar.y = 25f;
+            healthBarsBackgroundScale.y = 20f;
+            healthBar.x = health * 3f;
+            healthBarsBackgroundScale.x = healthMax * 3f;
 
             healthBars.transform.localScale = healthBar;
 

@@ -61,11 +61,16 @@ public class EnemyAI : HealthBar
         movement = true;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            gameObject.GetComponent<Rigidbody2D>().velocity += new Vector2(10000, 0);
+            if (collision.gameObject.transform.position.x > gameObject.gameObject.transform.position.x)
+            {
+                gameObject.transform.position += new Vector3(-10000, 0, 0);
+            } else if (collision.gameObject.transform.position.x <= gameObject.gameObject.transform.position.x) {
+                gameObject.transform.position += new Vector3(10000, 0, 0);
+            }
         }
     }
 }

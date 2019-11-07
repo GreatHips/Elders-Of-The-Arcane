@@ -6,19 +6,13 @@ using System;
 public class Slime : EnemyAI
 {
     private GameObject player;
-    HealthManager healthTotal;
 
     private new void Start()
     {
-        health = 50;
-        healthMax = 50;
-        health = healthMax;
         player = GameObject.Find("Player");
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         anime = GetComponent<Animator>();
         myRigidBody = GetComponent<Rigidbody2D>();
-        var healthTotal = GetComponent<HealthManager>();
-        
     }
 
     // Update is called once per frame
@@ -50,8 +44,6 @@ public class Slime : EnemyAI
             transform.Rotate(Vector3.up * 180);
             facingRight = true;
         }
-
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -65,11 +57,11 @@ public class Slime : EnemyAI
         }
         if (collision.gameObject.tag == "FireBall")
         {
-            GetComponent<HealthManager>().Damage(30);
+            GetComponent<HealthBar>().Damage(30);
         }
         if (collision.gameObject.tag == "Ice")
         {
-            GetComponent<HealthManager>().Damage(15);
+            GetComponent<HealthBar>().Damage(15);
         }
     }
     IEnumerator WaitJump()

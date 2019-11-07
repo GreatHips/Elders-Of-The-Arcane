@@ -22,6 +22,8 @@ public class ProjectileAttack : MonoBehaviour
 
     public bool Charging = false;
 
+    public int varFacingRight;
+
     public void Start()
     {
         Physics2D.IgnoreLayerCollision(8, 11);
@@ -29,7 +31,7 @@ public class ProjectileAttack : MonoBehaviour
      private void Update()
     {
        CheckCharges();
-        int varFacingRight = 1;
+         varFacingRight = 1;
             
             if (player.facingRight == false) {
             varFacingRight = -1;
@@ -45,40 +47,50 @@ public class ProjectileAttack : MonoBehaviour
                 
                 if (player.fireBookHeld == true)
                 {
-                    GameObject bfire = (GameObject)(Instantiate(fireball, transform.position + transform.up * .45f +  transform.right * varFacingRight * -2f, Quaternion.identity));
-                    bfire.GetComponent<Rigidbody2D>().AddForce(transform.right * varFacingRight * -1000);
-
-                    StartCoroutine(RechargeFireball());
-
-                    if (varFacingRight == 1)
-                    {
-                        bfire.transform.Rotate(0, 0, -90f);
-                    }
-                    else if (varFacingRight == -1)
-                    {
-                        bfire.transform.Rotate(0, 0, 90f);
-                    }
-                    Destroy(bfire, 2f);
+                    ShootFireball();
                 }
                 else if (player.iceBookHeld == true)
                 {
-                    GameObject bice = (GameObject)(Instantiate(ice, transform.position + transform.up * 3f + transform.right * varFacingRight * -3f, Quaternion.identity));
-                    GameObject bice2 = (GameObject)(Instantiate(ice, transform.position + transform.up * 3f + transform.right * varFacingRight * -3.5f, Quaternion.identity));
-                    GameObject bice3 = (GameObject)(Instantiate(ice, transform.position + transform.up * 3f + transform.right * varFacingRight * -4f, Quaternion.identity));
-                    bice.GetComponent<Rigidbody2D>().AddForce(transform.up * -1);
-                    bice2.GetComponent<Rigidbody2D>().AddForce(transform.up * -1);
-                    bice3.GetComponent<Rigidbody2D>().AddForce(transform.up * -1);
-
-
-                    StartCoroutine(RechargeIce());
-
-
-                    Destroy(bice, 2f);
-                    Destroy(bice2, 2f);
-                    Destroy(bice3, 2f);
+                    ShootIce();
                 }
             }
         }
+    }
+
+    void ShootFireball()
+    {
+        GameObject bfire = (GameObject)(Instantiate(fireball, transform.position + transform.up * .45f + transform.right * varFacingRight * -2f, Quaternion.identity));
+        bfire.GetComponent<Rigidbody2D>().AddForce(transform.right * varFacingRight * -1000);
+
+        StartCoroutine(RechargeFireball());
+
+        if (varFacingRight == 1)
+        {
+            bfire.transform.Rotate(0, 0, -90f);
+        }
+        else if (varFacingRight == -1)
+        {
+            bfire.transform.Rotate(0, 0, 90f);
+        }
+        Destroy(bfire, 2f);
+    }
+
+    void ShootIce()
+    {
+        GameObject bice = (GameObject)(Instantiate(ice, transform.position + transform.up * 3f + transform.right * varFacingRight * -3f, Quaternion.identity));
+        GameObject bice2 = (GameObject)(Instantiate(ice, transform.position + transform.up * 3f + transform.right * varFacingRight * -3.5f, Quaternion.identity));
+        GameObject bice3 = (GameObject)(Instantiate(ice, transform.position + transform.up * 3f + transform.right * varFacingRight * -4f, Quaternion.identity));
+        bice.GetComponent<Rigidbody2D>().AddForce(transform.up * -1);
+        bice2.GetComponent<Rigidbody2D>().AddForce(transform.up * -1);
+        bice3.GetComponent<Rigidbody2D>().AddForce(transform.up * -1);
+
+
+        StartCoroutine(RechargeIce());
+
+
+        Destroy(bice, 2f);
+        Destroy(bice2, 2f);
+        Destroy(bice3, 2f);
     }
 
     void CheckCharges()

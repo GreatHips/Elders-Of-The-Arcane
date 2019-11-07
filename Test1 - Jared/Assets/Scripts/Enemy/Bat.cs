@@ -15,7 +15,7 @@ public class Bat : EnemyAI
     }
 
     // Update is called once per frame
-    void Update()
+    new void Update()
     {
         Distance();
 
@@ -39,7 +39,7 @@ public class Bat : EnemyAI
 
     }
 
-    private new void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
@@ -48,7 +48,7 @@ public class Bat : EnemyAI
 
         if (collision.gameObject.tag == "FireBall")
         {
-            GetComponent<HealthManager>().Damage(30);
+            GetComponent<HealthBar>().Damage(30);
         }
         if (collision.gameObject.tag == "Ice")
         {

@@ -14,6 +14,11 @@ public class ProjectileCollision : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        //when touching lava destroy the bullet
+        if (coll.gameObject.tag == "Lava")
+        {
+            Destroy(gameObject);
+        }
         //on touching enemy, destroy bullet
         if (coll.gameObject.layer == 10)
         {

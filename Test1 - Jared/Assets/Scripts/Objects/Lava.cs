@@ -9,8 +9,10 @@ public class Lava : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         var player = GameObject.Find("Player");
-
-        player.GetComponent<HealthManager>().health = 0;
+        if (collision.gameObject.tag == "Player")
+        {
+            player.GetComponent<HealthManager>().health = 0;
+        }
     }
 }
 

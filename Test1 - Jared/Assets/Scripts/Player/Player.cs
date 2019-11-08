@@ -53,7 +53,9 @@ public class Player : MonoBehaviour
 
     Controller2D controller;
 
+    public Scene currentScene;
     public Rigidbody2D rb;
+    string sceneName;
 
     Vector2 directionalInput;
 
@@ -61,6 +63,10 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+         currentScene = SceneManager.GetActiveScene();
+
+        sceneName = currentScene.name;
+
         anime = GetComponent<Animator>();
         fireBookHeld = true;
         Physics2D.IgnoreLayerCollision(8, 9);
@@ -90,6 +96,9 @@ public class Player : MonoBehaviour
     }
     void Update()
     {
+
+ 
+
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
         anime.SetFloat("Speed", Math.Abs(h));
@@ -182,7 +191,7 @@ public class Player : MonoBehaviour
     }
 
 
-    void CalculateVelocity()
+    public void CalculateVelocity()
     {
         float targetVelocityX = directionalInput.x * moveSpeed;
         velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
@@ -271,30 +280,5 @@ public class Player : MonoBehaviour
             transform.localScale = localScale;
         }
         //no
-    }
-
-
-    public void Save()
-    {
-        string spellEquiped;
-        string path = "SaveFile/Output.txt";
-            if (iceBookHeld && !fireBookHeld)
-            {
-                spellEquiped = "i";
-            }
-            else if (fireBookHeld && !iceBookHeld)
-            {
-                spellEquiped = "f";
-            }
-            else
-            {
-                spellEquiped = "n";
-            }
-            //Write some text to the test.txt file
-            StreamWriter writer = new StreamWriter(path, true);
-            string Save = 2 + spellEquiped;
-            writer.WriteLine(Save);
-            writer.Close();
-        Debug.Log("Saved");
     }
 }

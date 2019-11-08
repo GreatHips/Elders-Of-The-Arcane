@@ -9,42 +9,38 @@ using System.IO;
 
 public class Level2 : MonoBehaviour
 {
-    string spellEquiped;
-    Player player;
-    void Start()
-    {
-        var player = GameObject.Find("Player");
-    }
+       Player player;
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.layer == 8)
         {
             SceneManager.LoadScene("Level2");
-            if (player.iceBookHeld == true)
-            {
-                spellEquiped = "i";
-            }
-            else if (player.fireBookHeld == true)
-            {
-                spellEquiped = "f";
-            }
-            else
-            {
-                spellEquiped = "n";
-            }
-            Save(2, spellEquiped);
+             Save();
         }
     }
-    
-    public void Save(int level, string Book)
-    {
-        string path = "SaveFile/Output.txt";
 
+
+    public void Save()
+    {
+        string spellEquiped;
+        string path = "Output.txt";
+        if (player.iceBookHeld && !player.fireBookHeld)
+        {
+            spellEquiped = "i";
+        }
+        else if (player.fireBookHeld && !player.iceBookHeld)
+        {
+            spellEquiped = "f";
+        }
+        else
+        {
+            spellEquiped = "n";
+        }
         //Write some text to the test.txt file
-        StreamWriter writer = new StreamWriter(path, false);
-        string Save = level + Book;
+        StreamWriter writer = new StreamWriter(path);
+        string Save = 2 + spellEquiped;
         writer.WriteLine(Save);
         writer.Close();
+        Debug.Log("Saved");
     }
-    
 }

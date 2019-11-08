@@ -272,4 +272,29 @@ public class Player : MonoBehaviour
         }
         //no
     }
+
+
+    public void Save()
+    {
+        string spellEquiped;
+        string path = "SaveFile/Output.txt";
+            if (iceBookHeld && !fireBookHeld)
+            {
+                spellEquiped = "i";
+            }
+            else if (fireBookHeld && !iceBookHeld)
+            {
+                spellEquiped = "f";
+            }
+            else
+            {
+                spellEquiped = "n";
+            }
+            //Write some text to the test.txt file
+            StreamWriter writer = new StreamWriter(path, true);
+            string Save = 2 + spellEquiped;
+            writer.WriteLine(Save);
+            writer.Close();
+        Debug.Log("Saved");
+    }
 }

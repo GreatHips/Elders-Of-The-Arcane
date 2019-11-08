@@ -56,6 +56,7 @@ public class Player : MonoBehaviour
     public Scene currentScene;
     public Rigidbody2D rb;
     string sceneName;
+    public int sceneInt;
 
     Vector2 directionalInput;
 
@@ -66,6 +67,10 @@ public class Player : MonoBehaviour
          currentScene = SceneManager.GetActiveScene();
 
         sceneName = currentScene.name;
+        if (sceneName == "Level1")
+        {
+            sceneInt = 1;
+        }
 
         anime = GetComponent<Animator>();
         fireBookHeld = true;

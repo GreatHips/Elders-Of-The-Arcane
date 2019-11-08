@@ -13,12 +13,14 @@ public class Player2 : MonoBehaviour
 
     Animator anime;
 
-    public float maxJumpHeight = 4;
-    public float minJumpHeight = 1;
-    public float timeToJumpApex = .4f;
-    float accelerationTimeAirborne = .2f;
-    float accelerationTimeGrounded = .1f;
-    public float moveSpeed = 6.5f;
+
+    [SerializeField] private float maxJumpHeight = 4;
+    [SerializeField] private float minJumpHeight = 1;
+    [SerializeField] private float timeToJumpApex = .4f;
+    [SerializeField] private float accelerationTimeAirborne = .2f;
+    [SerializeField] private float accelerationTimeGrounded = .1f;
+    [SerializeField] private float moveSpeed = 6.5f;
+    private Vector2 direction;
     public static GameObject player;
     public GameObject Death;
     public GameObject actualDeath;
@@ -65,11 +67,34 @@ public class Player2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GetInput();
         Move();
     }
 
     public void Move()
     {
-        
+        transform.Translate(direction*Vector2.right * moveSpeed * Time.deltaTime);
     }
+
+    private void GetInput()
+    {
+        direction = Vector2.zero;
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            direction += Vector2.up;
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            direction += Vector2.down;
+        }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            direction += Vector2.left;
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            direction += Vector2.right;
+        }
+    }
+    
 }

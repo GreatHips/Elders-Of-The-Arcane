@@ -173,9 +173,12 @@ GameObject:
   - component: {fileID: 4367491996354028414}
   - component: {fileID: 4367491996354028412}
   - component: {fileID: 4804524012888796551}
+  - component: {fileID: 1433906194319405730}
   - component: {fileID: 4367491996354028413}
+  - component: {fileID: 5105613353395908484}
   - component: {fileID: 3741610573922321716}
   - component: {fileID: 1545126284128013802}
+  - component: {fileID: 8671412490514741476}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -283,6 +286,28 @@ MonoBehaviour:
   healthBars: {fileID: 4330905626771090372}
   healthBarsBackground: {fileID: 4331054392838007340}
   healthBarsBackgroundScale: {x: 0, y: 0, z: 0}
+--- !u!114 &1433906194319405730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4367491996354028405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e58087aa1a1700b47b79327760d8e894, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 1536
+  horizontalRayCount: 0
+  verticalRayCount: 0
+  horizontalRaySpacing: 0
+  verticalRaySpacing: 0
+  collider: {fileID: 0}
+  maxSlopeAngle: 80
+  playerInput: {x: 0, y: 0}
 --- !u!114 &4367491996354028413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,6 +335,26 @@ MonoBehaviour:
   fireballSource: {fileID: 4367491997414679467}
   Charging: 0
   varFacingRight: 0
+--- !u!114 &5105613353395908484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4367491996354028405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41b7e3f8d6777d9449748a45f6f66b51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 1536
+  horizontalRayCount: 0
+  verticalRayCount: 0
+  horizontalRaySpacing: 0
+  verticalRaySpacing: 0
+  collider: {fileID: 0}
 --- !u!114 &3741610573922321716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,6 +418,44 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8671412490514741476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4367491996354028405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f4685e6b3aeacb4396bb39ca88efb42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  facingRight: 0
+  maxJumpHeight: 4
+  minJumpHeight: 1
+  timeToJumpApex: 0.4
+  moveSpeed: 6.5
+  Death: {fileID: 0}
+  actualDeath: {fileID: 0}
+  deathText: {fileID: 0}
+  iceBook: {fileID: 4367491995792849693}
+  fireBook: {fileID: 4367491996270621750}
+  fireBookHeld: 0
+  iceBookHeld: 0
+  fire1: {fileID: 0}
+  fire2: {fileID: 0}
+  fire3: {fileID: 0}
+  ice1: {fileID: 0}
+  ice2: {fileID: 0}
+  ice3: {fileID: 0}
+  iceText: {fileID: 0}
+  fireballText: {fileID: 0}
+  healthBar: {fileID: 4331017273136207578}
+  moveX: 0
+  currentScene:
+    m_Handle: 0
+  rb: {fileID: 0}
+  sceneInt: 0
 --- !u!1 &4367491996916197970
 GameObject:
   m_ObjectHideFlags: 0

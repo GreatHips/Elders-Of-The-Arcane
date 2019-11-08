@@ -172,9 +172,6 @@ GameObject:
   - component: {fileID: 4367491996354028410}
   - component: {fileID: 4367491996354028414}
   - component: {fileID: 4367491996354028412}
-  - component: {fileID: 4367491996354028411}
-  - component: {fileID: 4367491996354028404}
-  - component: {fileID: 4367491996354027651}
   - component: {fileID: 4804524012888796551}
   - component: {fileID: 4367491996354028413}
   - component: {fileID: 3741610573922321716}
@@ -267,83 +264,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 0}
   hearts: {fileID: 0}
---- !u!114 &4367491996354028411
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4367491996354028405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e58087aa1a1700b47b79327760d8e894, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collisionMask:
-    serializedVersion: 2
-    m_Bits: 512
-  horizontalRayCount: 0
-  verticalRayCount: 0
-  horizontalRaySpacing: 0
-  verticalRaySpacing: 0
-  collider: {fileID: 0}
-  maxSlopeAngle: 80
-  playerInput: {x: 0, y: 0}
---- !u!114 &4367491996354028404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4367491996354028405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f4685e6b3aeacb4396bb39ca88efb42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  facingRight: 1
-  maxJumpHeight: 4
-  minJumpHeight: 1
-  timeToJumpApex: 0.4
-  moveSpeed: 6.5
-  Death: {fileID: 0}
-  actualDeath: {fileID: 0}
-  deathText: {fileID: 0}
-  iceBook: {fileID: 4367491995792849693}
-  fireBook: {fileID: 4367491996270621750}
-  fireBookHeld: 0
-  iceBookHeld: 0
-  fire1: {fileID: 0}
-  fire2: {fileID: 0}
-  fire3: {fileID: 0}
-  ice1: {fileID: 0}
-  ice2: {fileID: 0}
-  ice3: {fileID: 0}
-  iceText: {fileID: 0}
-  fireballText: {fileID: 0}
-  healthBar: {fileID: 0}
-  moveX: 0
-  rb: {fileID: 0}
---- !u!114 &4367491996354027651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4367491996354028405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41b7e3f8d6777d9449748a45f6f66b51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collisionMask:
-    serializedVersion: 2
-    m_Bits: 1536
-  horizontalRayCount: 0
-  verticalRayCount: 0
-  horizontalRaySpacing: 0
-  verticalRaySpacing: 0
-  collider: {fileID: 0}
 --- !u!114 &4804524012888796551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,7 +298,7 @@ MonoBehaviour:
   fireball: {fileID: 1819404365271520155, guid: 9bc07910a112d6b43a05724bb7a8c82b,
     type: 3}
   ice: {fileID: 5272729900788835118, guid: 5571f6078415dca49a68889363963f38, type: 3}
-  player: {fileID: 4367491996354028404}
+  player: {fileID: 0}
   canAttack: 1
   chargeAmounts: 3
   fire1: {fileID: 0}

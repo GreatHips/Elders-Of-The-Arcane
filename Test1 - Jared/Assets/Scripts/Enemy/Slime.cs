@@ -58,7 +58,7 @@ public class Slime : EnemyAI
                 GetComponent<Rigidbody2D>().velocity += new Vector2(2, 0);
             } else if (intFacingRight == -1)
             {
-                GetComponent<Rigidbody2D>().velocity += new Vector2(2, 0);
+                GetComponent<Rigidbody2D>().velocity += new Vector2(20, 0);
             }
             StartCoroutine(WaitMov(1.25f));
         }

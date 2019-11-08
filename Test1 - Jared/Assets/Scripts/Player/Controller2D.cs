@@ -30,12 +30,12 @@ public class Controller2D : RaycastController
 
         if (moveAmount.y < 0)
         {
-           DescendSlope(ref moveAmount);
+            DescendSlope(ref moveAmount);
         }
 
         if (moveAmount.x != 0)
         {
-            //collisions.faceDir = (int)Mathf.Sign(moveAmount.x);
+            collisions.faceDir = (int)Mathf.Sign(moveAmount.x);
         }
 
         HorizontalCollisions(ref moveAmount);
@@ -79,7 +79,7 @@ public class Controller2D : RaycastController
                 }
 
                 float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
-                
+
                 if (i == 0 && slopeAngle <= maxSlopeAngle)
                 {
                     if (collisions.descendingSlope)
@@ -96,12 +96,12 @@ public class Controller2D : RaycastController
                     ClimbSlope(ref moveAmount, slopeAngle, hit.normal);
                     moveAmount.x += distanceToSlopeStart * directionX;
                 }
+
                 
-                // fix this
                 if (!collisions.climbingSlope || slopeAngle > maxSlopeAngle)
                 {
-                    //most likely the next line messing it up
-                    moveAmount.x = (hit.distance - skinWidth) * directionX;
+                    
+                    moveAmount.x = (hit.distance - skinWidth) * 1;
 
                     rayLength = hit.distance;
 
@@ -110,9 +110,9 @@ public class Controller2D : RaycastController
                         moveAmount.y = Mathf.Tan(collisions.slopeAngle * Mathf.Deg2Rad) * Mathf.Abs(moveAmount.x);
                     }
 
-                   
+
                 }
-                
+
             }
         }
     }
@@ -139,12 +139,12 @@ public class Controller2D : RaycastController
                     {
 
                         continue;
-                        
+
                     }
                     if (collisions.fallingThroughPlatform)
                     {
 
-                        continue; 
+                        continue;
                     }
                     if (playerInput.y == -1)
                     {
@@ -187,7 +187,7 @@ public class Controller2D : RaycastController
             }
         }
     }
-    
+
     void ClimbSlope(ref Vector2 moveAmount, float slopeAngle, Vector2 slopeNormal)
     {
         float moveDistance = Mathf.Abs(moveAmount.x);

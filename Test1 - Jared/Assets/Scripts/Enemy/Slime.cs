@@ -53,6 +53,13 @@ public class Slime : EnemyAI
         {
             player.GetComponent<HealthManager>().Damage(30);
             movement = false;
+            if (intFacingRight == 1)
+            {
+                GetComponent<Rigidbody2D>().velocity += new Vector2(2, 0);
+            } else if (intFacingRight == -1)
+            {
+                GetComponent<Rigidbody2D>().velocity += new Vector2(2, 0);
+            }
             StartCoroutine(WaitMov(1.25f));
         }
         if (collision.gameObject.tag == "FireBall")

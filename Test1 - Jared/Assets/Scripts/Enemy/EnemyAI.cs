@@ -18,6 +18,7 @@ public class EnemyAI : HealthBar
     public Animator anime;
     [HideInInspector]
     public Transform target;
+    public Vector3 velocity;
     public bool isJumping = false;
     public float dist;
     public bool inDist;
@@ -59,10 +60,5 @@ public class EnemyAI : HealthBar
     {
         yield return new WaitForSeconds(Seconds);
         movement = true;
-    }
-
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        
     }
 }

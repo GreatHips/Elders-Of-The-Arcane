@@ -35,7 +35,7 @@ public class Controller2D : RaycastController
 
         if (moveAmount.x != 0)
         {
-            collisions.faceDir = (int)Mathf.Sign(moveAmount.x);
+            //collisions.faceDir = (int)Mathf.Sign(moveAmount.x);
         }
 
         HorizontalCollisions(ref moveAmount);

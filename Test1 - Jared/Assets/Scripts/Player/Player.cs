@@ -65,7 +65,7 @@ public class Player : MonoBehaviour
     public Scene currentScene;
     public Rigidbody2D rb;
     string sceneName;
-    public int sceneInt;
+    public static int sceneInt;
 
     public int bookHeldInt = 0;
     Vector2 directionalInput;
@@ -307,10 +307,18 @@ public class Player : MonoBehaviour
         ice3.SetActive(false);
         healthBar.SetActive(false);
     }
+    public static void SavePlayer()
+    {
+        string path = "SaveFile/Save.txt";
+
+        // This text is added only once to the file.
+
+        string createText = sceneInt + Environment.NewLine;
+        File.WriteAllText(path, createText);
+    }
 
 
 
-   
     public void Load()
     {
         string path = "SaveFile/Output.txt";

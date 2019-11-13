@@ -53,11 +53,18 @@ public class ProjectileAttack : MonoBehaviour
                 {
                     ShootIce();
                 }
-                else if (player.)
+                else if (player.speedBookHeld == true)
+                {
+                    ShootSpeed();
+                }
             }
         }
     }
 
+    void ShootSpeed()
+    {
+
+    }
     void ShootFireball()
     {
         GameObject bfire = (GameObject)(Instantiate(fireball, transform.position + transform.up * .45f + transform.right * varFacingRight * -2f, Quaternion.identity));

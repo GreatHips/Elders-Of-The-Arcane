@@ -5,13 +5,9 @@ using UnityEngine;
 
 public class Bat : EnemyAI
 {
-    private GameObject player;
     new void Start()
     {
-        anime = GetComponent<Animator>();
-        myRigidBody = GetComponent<Rigidbody2D>();
-        player = GameObject.Find("Player");
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        enemyParameterCheck();
     }
 
     // Update is called once per frame
@@ -41,18 +37,6 @@ public class Bat : EnemyAI
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
-        {
-            player.GetComponent<HealthManager>().Damage(30);
-        }
-
-        if (collision.gameObject.tag == "FireBall")
-        {
-            GetComponent<HealthBar>().Damage(30);
-        }
-        if (collision.gameObject.tag == "Ice")
-        {
-            GetComponent<HealthManager>().Damage(15);
-        }
+        TakeDamage(30, 15, 20, collision);
     }
 }

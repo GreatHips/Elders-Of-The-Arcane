@@ -75,6 +75,17 @@ public class HealthBar : HealthManager
             healthBarsBackgroundScale.x = healthMax * 3f;
             healthBars.transform.localScale = healthBar;
             healthBarsBackground.transform.localScale = healthBarsBackgroundScale;
+
+
+        }
+        if (gameObject.tag == "Skellyboy")
+        {
+            healthBar.y = 25f;
+            healthBarsBackgroundScale.y = 20f;
+            healthBar.x = health * 3f;
+            healthBarsBackgroundScale.x = healthMax * 3f;
+            healthBars.transform.localScale = healthBar;
+            healthBarsBackground.transform.localScale = healthBarsBackgroundScale;
         }
         //if its the player
         if (gameObject.tag == "Player")

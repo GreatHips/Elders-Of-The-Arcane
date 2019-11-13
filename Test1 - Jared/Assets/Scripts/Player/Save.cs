@@ -1,34 +1,22 @@
-﻿using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
+﻿using System;
+using System.IO;
+using System.Text;
 using UnityEngine;
 
 public static class SaveSystem
 {
-    public static void SavePlayer(Player player)
+    public static void SavePlayer()
     {
-        BinaryFormatter formatter = new BinaryFormatter();
-        string path = "player.sav";
-        FileStream stream = new FileStream(path, FileMode.Create);
-        PlayerData data = new PlayerData(player);
-        formatter.Serialize(stream, data);
-        stream.Close();
+        string path = "SaveFile/Save.txt";
 
+        // This text is added only once to the file.
+            string createText = "OVERWRITE?" + Environment.NewLine;
+            File.WriteAllText(path, createText);
     }
-    public static PlayerData LoadPlayer()
+    public static void LoadPlayer()
     {
-        string path = "player.fun";
-        if (File.Exists(path))
-        {
-            BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(path, FileMode.Open);
-            PlayerData data = formatter.Deserialize(stream) as PlayerData;
-            stream.Close();
-            return data;
-        }
-        else
-        {
-            Debug.LogError("Save file not found in" + path);
-            return null;
-        }
+        /* Open the file to read from.
+        string readText = File.ReadAllText(path);
+        Console.WriteLine(readText); */
     }
 }

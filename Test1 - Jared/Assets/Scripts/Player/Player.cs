@@ -259,13 +259,7 @@ public class Player : MonoBehaviour
         StreamReader reader = new StreamReader(path);
         Debug.Log(reader.ReadToEnd());
         reader.Close();
-        //https://www.youtube.com/watch?v=XOjd_qU2Ido
     }
-    public void Save()
-    {
-        SaveSystem.SavePlayer(this);
-    }
-
     void PlayerMoves()
     {
         //Player Direction

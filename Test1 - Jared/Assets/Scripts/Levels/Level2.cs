@@ -15,7 +15,7 @@ public class Level2 : MonoBehaviour
         if (collision.gameObject.layer == 8)
         {
             SceneManager.LoadScene("Level2");
-            player.Save();
+            SaveSystem.SavePlayer();
         }
     }
     }

@@ -151,7 +151,7 @@ public class Player : MonoBehaviour
 
         PlayerMoves();
 
-        //CalculateVelocity();
+        CalculateVelocity();
 
 
         controller.Move(velocity * Time.deltaTime, directionalInput);
@@ -196,14 +196,14 @@ public class Player : MonoBehaviour
     }
 
 
-    //public void CalculateVelocity()
-    //{
-    //    float targetVelocityX = directionalInput.x * moveSpeed;
-    //    velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
-    //    velocity.y += gravity * Time.deltaTime;
+    public void CalculateVelocity()
+    {
+        float targetVelocityX = directionalInput.x * moveSpeed;
+        velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
+        velocity.y += gravity * Time.deltaTime;
 
 
-    //}
+    }
 
     public void OnCollisionStay2D(Collision2D collision)
     {
@@ -259,6 +259,11 @@ public class Player : MonoBehaviour
         StreamReader reader = new StreamReader(path);
         Debug.Log(reader.ReadToEnd());
         reader.Close();
+        //https://www.youtube.com/watch?v=XOjd_qU2Ido
+    }
+    public void Save()
+    {
+        SaveSystem.SavePlayer(this);
     }
 
     void PlayerMoves()

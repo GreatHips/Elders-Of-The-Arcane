@@ -260,7 +260,6 @@ public class Player : MonoBehaviour
         Debug.Log(reader.ReadToEnd());
         reader.Close();
     }
-
     void PlayerMoves()
     {
         //Player Direction

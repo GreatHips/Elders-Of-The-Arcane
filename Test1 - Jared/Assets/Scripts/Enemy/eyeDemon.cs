@@ -12,7 +12,7 @@ public class eyeDemon : EnemyAI
     }
 
     // Update is called once per frame
-    void Update()
+    new void Update()
     {
         Distance();
 

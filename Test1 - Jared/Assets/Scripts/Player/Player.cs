@@ -29,14 +29,20 @@ public class Player : MonoBehaviour
     public GameObject deathText;
     public GameObject iceBook;
     public GameObject fireBook;
+    public GameObject speedBook;
     public bool fireBookHeld;
     public bool iceBookHeld;
+    public bool speedBookHeld;
     public GameObject fire1;
     public GameObject fire2;
     public GameObject fire3;
     public GameObject ice1;
     public GameObject ice2;
     public GameObject ice3;
+    public GameObject speed1;
+    public GameObject speed2;
+    public GameObject speed3;
+    public GameObject speedText;
     public GameObject iceText;
     public GameObject fireballText;
     public GameObject healthBar;
@@ -58,6 +64,8 @@ public class Player : MonoBehaviour
     string sceneName;
     public int sceneInt;
 
+    [HideInInspector]
+    public int bookHeldInt = 1;
     Vector2 directionalInput;
 
     HealthManager healthManager;
@@ -99,46 +107,80 @@ public class Player : MonoBehaviour
             StartCoroutine(WaitEnemy(.75f));
         }
     }
-    void Update()
+    void findParameters()
     {
 
- 
+    }
+    void setIce(bool active)
+    {
+        iceBookHeld = active;
+        iceBook.SetActive(active);
+        ice1.SetActive(active);
+        ice2.SetActive(active);
+        ice3.SetActive(active);
+        iceText.SetActive(active);
+    }
+    void setFire(bool active)
+    {
+        fireBookHeld = active;
+        fireBook.SetActive(active);
+        fire1.SetActive(active);
+        fire2.SetActive(active);
+        fire3.SetActive(active);
+        fireballText.SetActive(active);
+    }
+    void setSpeed(bool active)
+    {
+        speedBookHeld = active;
+        speedBook.SetActive(active);
+        speed1.SetActive(active);
+        speed2.SetActive(active);
+        speed3.SetActive(active);
+        speedText.SetActive(active);
+    }
+    void checkBookHeld()
+    {
+        if (fireBookHeld && !iceBookHeld && !speedBookHeld)
+        {
+            bookHeldInt = 1;
+        }
+        else if (!fireBookHeld && iceBookHeld && !speedBookHeld)
+        {
+            bookHeldInt = 2;
+        }
+         else if (!fireBookHeld && !iceBookHeld && speedBookHeld)
+        {
+            bookHeldInt = 3;
+        }
+
+        if (bookHeldInt == 1)
+        {
+            setFire(true);
+            setIce(false);
+            setSpeed(true);
+        }
+        else if (bookHeldInt == 2)
+        {
+            setFire(false);
+            setIce(true);
+            setSpeed(false);
+        }
+        else if (bookHeldInt == 3)
+        {
+            setFire(false);
+            setIce(false);
+            setSpeed(true);
+        }
+    }
+    void Update()
+    {
+        checkBookHeld();
 
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
         anime.SetFloat("Speed", Math.Abs(h));
 
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            //whenever the ice book is held it hides all of the fireball related ui and brings the ice ui to the front
-            iceBookHeld = true;
-            fireBookHeld = false;
-            fireBook.SetActive(false);
-            iceBook.SetActive(true);
-            ice1.SetActive(true);
-            ice2.SetActive(true);
-            ice3.SetActive(true);
-            iceText.SetActive(true);
-            fire1.SetActive(false);
-            fire2.SetActive(false);
-            fire3.SetActive(false);
-            fireballText.SetActive(false);
-        }
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            iceBookHeld = false;
-            fireBookHeld = true;
-            fireBook.SetActive(true);
-            iceBook.SetActive(false);
-            ice1.SetActive(false);
-            ice2.SetActive(false);
-            ice3.SetActive(false);
-            iceText.SetActive(false);
-            fire1.SetActive(true);
-            fire2.SetActive(true);
-            fire3.SetActive(true);
-            fireballText.SetActive(true);
-        }
+       
 
         if (gameObject.transform.position.y <= -100)
         {

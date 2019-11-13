@@ -53,6 +53,7 @@ public class ProjectileAttack : MonoBehaviour
                 {
                     ShootIce();
                 }
+                else if (player.)
             }
         }
     }

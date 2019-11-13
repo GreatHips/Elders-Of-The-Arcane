@@ -15,6 +15,7 @@ TagManager:
   - Ice
   - Bat
   - Skellyboy
+  - Sound
   layers:
   - Default
   - TransparentFX

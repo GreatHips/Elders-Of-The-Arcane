@@ -44,27 +44,22 @@ public class ProjectileAttack : MonoBehaviour
 
                 chargeAmounts -= 1;
 
-                
-                if (player.fireBookHeld == true)
+
+                if (player.bookHeldInt == 1)
                 {
                     ShootFireball();
                 }
-                else if (player.iceBookHeld == true)
+                else if (player.bookHeldInt == 2)
                 {
                     ShootIce();
-                }
-                else if (player.speedBookHeld == true)
+                } else if (player.bookHeldInt == 3)
                 {
-                    ShootSpeed();
+
                 }
             }
         }
     }
 
-    void ShootSpeed()
-    {
-
-    }
     void ShootFireball()
     {
         GameObject bfire = (GameObject)(Instantiate(fireball, transform.position + transform.up * .45f + transform.right * varFacingRight * -2f, Quaternion.identity));
@@ -103,26 +98,26 @@ public class ProjectileAttack : MonoBehaviour
 
     void CheckCharges()
     {
-        if (chargeAmounts == 0 && player.fireBookHeld)
+        if (chargeAmounts == 0 && player.bookHeldInt == 1)
         {
             fire1.SetActive(false);
             fire2.SetActive(false);
             fire3.SetActive(false);
             canAttack = false;
         }
-        else if(chargeAmounts == 1 && player.fireBookHeld)
+        else if(chargeAmounts == 1 && player.bookHeldInt == 1)
         {
             fire1.SetActive(true);
             fire2.SetActive(false);
             fire3.SetActive(false);
             canAttack = true;
-        } else if(chargeAmounts == 2 && player.fireBookHeld)
+        } else if(chargeAmounts == 2 && player.bookHeldInt == 1)
         {
             fire1.SetActive(true);
             fire2.SetActive(true);
             fire3.SetActive(false);
             canAttack = true;
-        } else if (chargeAmounts == 3 && player.fireBookHeld)
+        } else if (chargeAmounts == 3 && player.bookHeldInt == 1)
         {
             fire1.SetActive(true);
             fire2.SetActive(true);
@@ -133,14 +128,14 @@ public class ProjectileAttack : MonoBehaviour
         {
             chargeAmounts = 3;
         }
-        if (chargeAmounts == 0 && player.iceBookHeld)
+        if (chargeAmounts == 0 && player.bookHeldInt == 2)
         {
             player.ice1.SetActive(false);
             player.ice2.SetActive(false);
             player.ice3.SetActive(false);
             canAttack = false;
         }
-        else if (chargeAmounts == 1 && player.iceBookHeld)
+        else if (chargeAmounts == 1 && player.bookHeldInt == 2)
         {
 
             player.ice1.SetActive(true);
@@ -148,14 +143,14 @@ public class ProjectileAttack : MonoBehaviour
             player.ice3.SetActive(false);
             canAttack = true;
         }
-        else if (chargeAmounts == 2 && player.iceBookHeld)
+        else if (chargeAmounts == 2 && player.bookHeldInt == 2)
         {
             player.ice1.SetActive(true);
             player.ice2.SetActive(true);
             player.ice3.SetActive(false);
             canAttack = true;
         }
-        else if (chargeAmounts == 3 && player.iceBookHeld)
+        else if (chargeAmounts == 3 && player.bookHeldInt == 2)
         {
             player.ice1.SetActive(true);
             player.ice2.SetActive(true);

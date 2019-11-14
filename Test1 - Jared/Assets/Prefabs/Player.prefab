@@ -105,7 +105,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4367491996270621750}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.72, y: -0.229, z: 0.03606322}
+  m_LocalPosition: {x: 2.64, y: -0.07, z: 0.03606322}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 4367491996354028415}
@@ -146,12 +146,12 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1469401837
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 70301da9eb28ff44d9ed4c6fe3f6ce37, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.98, y: 1.02}
@@ -324,12 +324,10 @@ MonoBehaviour:
   fireball: {fileID: 1819404365271520155, guid: 9bc07910a112d6b43a05724bb7a8c82b,
     type: 3}
   ice: {fileID: 5272729900788835118, guid: 5571f6078415dca49a68889363963f38, type: 3}
+  speed: {fileID: 0}
   player: {fileID: 0}
   canAttack: 1
   chargeAmounts: 3
-  fire1: {fileID: 0}
-  fire2: {fileID: 0}
-  fire3: {fileID: 0}
   fireballSound: {fileID: 8300000, guid: 92d26943658836f4280bc21ef707adf8, type: 3}
   iceSound: {fileID: 8300000, guid: 7493c530655156c47b5ed28b414675dc, type: 3}
   iceSource: {fileID: 4367491996916197969}
@@ -410,7 +408,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7efb8a4c50c09fd49b014f69c6d2ee26, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 10, y: 10}
@@ -441,14 +439,20 @@ MonoBehaviour:
   deathText: {fileID: 0}
   iceBook: {fileID: 4367491995792849693}
   fireBook: {fileID: 4367491996270621750}
+  speedBook: {fileID: 0}
   fireBookHeld: 0
   iceBookHeld: 0
+  speedBookHeld: 0
   fire1: {fileID: 0}
   fire2: {fileID: 0}
   fire3: {fileID: 0}
   ice1: {fileID: 0}
   ice2: {fileID: 0}
   ice3: {fileID: 0}
+  speed1: {fileID: 0}
+  speed2: {fileID: 0}
+  speed3: {fileID: 0}
+  speedText: {fileID: 0}
   iceText: {fileID: 0}
   fireballText: {fileID: 0}
   healthBar: {fileID: 4331017273136207578}
@@ -456,7 +460,7 @@ MonoBehaviour:
   currentScene:
     m_Handle: 0
   rb: {fileID: 0}
-  sceneInt: 0
+  bookHeldInt: 0
 --- !u!1 &4367491996916197970
 GameObject:
   m_ObjectHideFlags: 0

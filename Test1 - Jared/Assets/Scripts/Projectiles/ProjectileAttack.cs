@@ -65,7 +65,7 @@ public class ProjectileAttack : MonoBehaviour
         bspeed.transform.parent = player.transform;
         bspeed.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
 
-        player.moveSpeed = 12;
+        player.moveSpeed = 16;
         StartCoroutine(SpeedChange());
         StartCoroutine(SpeedRecharge());
 
@@ -100,7 +100,7 @@ public class ProjectileAttack : MonoBehaviour
         bice3.GetComponent<Rigidbody2D>().AddForce(transform.up * -1);
 
 
-        StartCoroutine(SpeedChange());
+        StartCoroutine(RechargeIce());
 
 
         Destroy(bice, 2f);

@@ -33,11 +33,8 @@ public class Player : MonoBehaviour
     public bool fireBookHeld;
     public bool iceBookHeld;
     public bool speedBookHeld;
-    [HideInInspector]
     public GameObject fire1;
-    [HideInInspector]
     public GameObject fire2;
-    [HideInInspector]
     public GameObject fire3;
     public GameObject ice1;
     public GameObject ice2;
@@ -72,11 +69,6 @@ public class Player : MonoBehaviour
 
     HealthManager healthManager;
 
-    void checkParameters() {
-        fire1 = GameObject.Find("Fire1");
-        fire2 = GameObject.Find("Fire2");
-        fire3 = GameObject.Find("Fire3");
-    }
     void Start()
     {
 
@@ -115,83 +107,10 @@ public class Player : MonoBehaviour
             StartCoroutine(WaitEnemy(.75f));
         }
     }
-    void checkBookHeld()
-    {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            bookHeldInt += 1;
-            if (bookHeldInt >= 4)
-            {
-                bookHeldInt = 1;
-            }
-        }
-        if (bookHeldInt == 1)
-        {
-            fireBookHeld = true;
-            fireBook.SetActive(true);
-            fire1.SetActive(true);
-            fire2.SetActive(true);
-            fire3.SetActive(true);
-            fireballText.SetActive(true);
-            fireBookHeld = true;
-            iceBook.SetActive(false);
-            ice1.SetActive(false);
-            ice2.SetActive(false);
-            ice3.SetActive(false);
-            iceText.SetActive(false);
-            speedBookHeld = false;
-            speedBook.SetActive(false);
-            speed1.SetActive(false);
-            speed2.SetActive(false);
-            speed3.SetActive(false);
-            speedText.SetActive(false);
-        }
-        if (bookHeldInt == 2)
-        {
-            fireBookHeld = false;
-            fireBook.SetActive(false);
-            fire1.SetActive(false);
-            fire2.SetActive(false);
-            fire3.SetActive(false);
-            fireballText.SetActive(false);
-            fireBookHeld = true;
-            iceBook.SetActive(true);
-            ice1.SetActive(true);
-            ice2.SetActive(true);
-            ice3.SetActive(true);
-            iceText.SetActive(true);
-            speedBookHeld = false;
-            speedBook.SetActive(false);
-            speed1.SetActive(false);
-            speed2.SetActive(false);
-            speed3.SetActive(false);
-            speedText.SetActive(false);
-        }
-        if (bookHeldInt == 3)
-        {
-            fireBookHeld = false;
-            fireBook.SetActive(false);
-            fire1.SetActive(false);
-            fire2.SetActive(false);
-            fire3.SetActive(false);
-            fireballText.SetActive(false);
-            fireBookHeld = false;
-            iceBook.SetActive(false);
-            ice1.SetActive(false);
-            ice2.SetActive(false);
-            ice3.SetActive(false);
-            iceText.SetActive(false);
-            speedBookHeld = true;
-            speedBook.SetActive(true);
-            speed1.SetActive(true);
-            speed2.SetActive(true);
-            speed3.SetActive(true);
-            speedText.SetActive(true);
-        }
-    }
+
+
     void Update()
     {
-        checkBookHeld();
  
 
         float h = Input.GetAxis("Horizontal");

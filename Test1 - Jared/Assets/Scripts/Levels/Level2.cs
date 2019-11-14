@@ -11,12 +11,39 @@ public class Level2 : MonoBehaviour
 {
     Player player;
 
-    public void OnCollisionEnter2D(Collision2D collision)
+    public GameObject tavernText;
+    private bool ableTo = false;
+
+    private void Update()
     {
-        if (collision.gameObject.layer == 8)
+        CheckCollision();
+    }
+
+    private void CheckCollision()
+    {
+        if (ableTo)
         {
-            SceneManager.LoadScene("Level2");
-            Player.SavePlayer();
+            tavernText.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                SceneManager.LoadScene("Level2");
+                Player.SavePlayer();
+            }
         }
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            ableTo = true;
+        }
     }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            ableTo = false;
+            tavernText.SetActive(false);
+        }
+    }
+}

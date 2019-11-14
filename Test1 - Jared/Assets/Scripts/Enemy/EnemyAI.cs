@@ -68,6 +68,10 @@ public class EnemyAI : HealthBar
             {
                 anime.SetBool("Chase", true);
             }
+            if (gameObject.tag == "Boar")
+            {
+                anime.SetBool("Attacking", true);
+            }
         }
         else if (!inDist)
         {
@@ -78,6 +82,10 @@ public class EnemyAI : HealthBar
             if (gameObject.tag == "eyeDemon")
             {
                 anime.SetBool("Chase", false);
+            }
+            if (gameObject.tag == "Boar")
+            {
+                anime.SetBool("Attacking", false);
             }
         }
         if (gameObject.tag == "Slime")

@@ -5,11 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class MainMen : MonoBehaviour
 {
-     public void NewGame ()
+    Player player;
+    public void NewGame ()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
-
+    public void LoadGame()
+    {
+       
+        player.Load();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
+    }
 
     public void ExitGame()
     {

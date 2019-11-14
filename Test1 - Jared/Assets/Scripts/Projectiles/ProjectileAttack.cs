@@ -65,7 +65,7 @@ public class ProjectileAttack : MonoBehaviour
         bspeed.transform.parent = player.transform;
         bspeed.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
 
-        player.moveSpeed = 12;
+        player.moveSpeed = 25;
         StartCoroutine(SpeedChange());
         StartCoroutine(SpeedRecharge());
 
@@ -100,7 +100,7 @@ public class ProjectileAttack : MonoBehaviour
         bice3.GetComponent<Rigidbody2D>().AddForce(transform.up * -1);
 
 
-        StartCoroutine(SpeedChange());
+        StartCoroutine(RechargeIce());
 
 
         Destroy(bice, 2f);
@@ -209,7 +209,7 @@ public class ProjectileAttack : MonoBehaviour
         while (chargeAmounts == 0 && !Charging && player.speedBookHeld)
         {
             Charging = true;
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(7f);
             chargeAmounts += 1;
             Charging = false;
 
@@ -217,7 +217,7 @@ public class ProjectileAttack : MonoBehaviour
         while (chargeAmounts == 1 && !Charging && player.speedBookHeld)
         {
             Charging = true;
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(7f);
             chargeAmounts += 1;
             Charging = false;
 
@@ -225,7 +225,7 @@ public class ProjectileAttack : MonoBehaviour
         while (chargeAmounts == 2 && !Charging && player.speedBookHeld)
         {
             Charging = true;
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(7f);
             chargeAmounts += 1;
             Charging = false;
         }
@@ -233,14 +233,14 @@ public class ProjectileAttack : MonoBehaviour
         if (chargeAmounts == 1 && !Charging && player.speedBookHeld)
         {
             Charging = true;
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(7f);
             chargeAmounts += 1;
             Charging = false;
         }
         if (chargeAmounts == 2 && !Charging && player.speedBookHeld)
         {
             Charging = true;
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(7f);
             chargeAmounts += 1;
             Charging = false;
         }

@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7c842c47afd2aec4c802a586a544d448, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 15.23, y: 15.6}
@@ -221,15 +221,13 @@ MonoBehaviour:
   healthBarsBackground: {fileID: 1818172928713862448}
   healthBarsBackgroundScale: {x: 0, y: 0, z: 0}
   movement: 1
-  movementSpeed: 1.5
+  movementSpeed: 2
   stoppingDistance: 13
   facingRight: 0
   canJump: 1
   myRigidBody: {fileID: 0}
   anime: {fileID: 0}
   target: {fileID: 0}
-  player: {fileID: 0}
-  velocity: {x: 0, y: 0, z: 0}
   isJumping: 0
   dist: 0
   inDist: 0
@@ -260,14 +258,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2828196969766604422}
     m_Modifications:
-    - target: {fileID: 1473727354331688, guid: 01a6b42a1d84b664c890d8dcb066becd, type: 3}
-      propertyPath: m_Name
-      value: HealthBar
-      objectReference: {fileID: 0}
-    - target: {fileID: 1473727354331688, guid: 01a6b42a1d84b664c890d8dcb066becd, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4090514546342678, guid: 01a6b42a1d84b664c890d8dcb066becd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -311,6 +301,14 @@ PrefabInstance:
     - target: {fileID: 4090514546342678, guid: 01a6b42a1d84b664c890d8dcb066becd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1473727354331688, guid: 01a6b42a1d84b664c890d8dcb066becd, type: 3}
+      propertyPath: m_Name
+      value: HealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 1473727354331688, guid: 01a6b42a1d84b664c890d8dcb066becd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4497247268064488, guid: 01a6b42a1d84b664c890d8dcb066becd, type: 3}
       propertyPath: m_LocalScale.x

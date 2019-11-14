@@ -61,40 +61,10 @@ public class EnemyAI : HealthBar
         {
 
             transform.position = Vector2.MoveTowards(transform.position, target.position, movementSpeed * Time.deltaTime);
-            if(gameObject.tag == "Slime") {
-                anime.SetBool("SlimeJump", true);
-            }
-            if (gameObject.tag == "eyeDemon")
-            {
-                anime.SetBool("Chase", true);
-            }
-            if (gameObject.tag == "Boar")
-            {
-                anime.SetBool("Attacking", true);
-            }
         }
         else if (!inDist)
         {
-            if (gameObject.tag == "Slime")
-            {
-                anime.SetBool("SlimeJump", false);
-            }
-            if (gameObject.tag == "eyeDemon")
-            {
-                anime.SetBool("Chase", false);
-            }
-            if (gameObject.tag == "Boar")
-            {
-                anime.SetBool("Attacking", false);
-            }
-        }
-        if (gameObject.tag == "Slime")
-        {
-            if ((target.position.y >= transform.position.y) && myRigidBody.velocity.y == 0 && (Math.Abs(target.position.x - this.transform.position.x) < 20) && inDist && !isJumping)
-            {
-                myRigidBody.velocity = new Vector3(myRigidBody.velocity.x, 7.25f, 0); ;
-                StartCoroutine(WaitJump());
-            }
+
         }
 
         if ((target.position.x < transform.position.x) && facingRight == true && inDist)
@@ -109,21 +79,6 @@ public class EnemyAI : HealthBar
         }
     }
 
-    IEnumerator WaitJump()
-    {
-        isJumping = true;
-        if (isJumping)
-        {
-            GetComponent<Animation>().enabled = true;
-        }
-        else if (!isJumping)
-        {
-            GetComponent<Animation>().enabled = false;
-        }
-        yield return new WaitForSeconds(2);
-
-        isJumping = false;
-    }
     public IEnumerator WaitMov(float Seconds)
     {
         yield return new WaitForSeconds(Seconds);

@@ -9,9 +9,6 @@ using UnityEngine.UI;
     private bool slothAttacked = false;
     private bool slothAttacking;
     public GameObject headPrefab;
-    private GameObject player;
-
-    
     new void Start()
     {
         anime = GetComponent<Animator>();
@@ -21,7 +18,7 @@ using UnityEngine.UI;
     }
 
     // Update is called once per frame
-    void Update()
+    new void Update()
     {
         if (facingRight)
         {
@@ -212,19 +209,6 @@ using UnityEngine.UI;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
-        {
-            player.GetComponent<HealthManager>().Damage(35);
-            movement = false;
-            StartCoroutine(WaitMov(1.25f));
-        }
-        if (collision.gameObject.tag == "FireBall")
-        {
-            GetComponent<HealthManager>().Damage(30);
-        }
-        if (collision.gameObject.tag == "Ice")
-        {
-            GetComponent<HealthManager>().Damage(15);
-        }
+        TakeDamage(30, 15, 35, collision);
     }
 }

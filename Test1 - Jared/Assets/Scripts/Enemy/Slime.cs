@@ -5,7 +5,7 @@ using System;
 
 public class Slime : EnemyAI
 {
-    private GameObject player;
+    
 
     private new void Start()
     {

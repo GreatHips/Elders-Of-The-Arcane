@@ -29,14 +29,23 @@ public class Player : MonoBehaviour
     public GameObject deathText;
     public GameObject iceBook;
     public GameObject fireBook;
+    public GameObject speedBook;
     public bool fireBookHeld;
     public bool iceBookHeld;
+    public bool speedBookHeld;
+    [HideInInspector]
     public GameObject fire1;
+    [HideInInspector]
     public GameObject fire2;
+    [HideInInspector]
     public GameObject fire3;
     public GameObject ice1;
     public GameObject ice2;
     public GameObject ice3;
+    public GameObject speed1;
+    public GameObject speed2;
+    public GameObject speed3;
+    public GameObject speedText;
     public GameObject iceText;
     public GameObject fireballText;
     public GameObject healthBar;
@@ -56,14 +65,21 @@ public class Player : MonoBehaviour
     public Scene currentScene;
     public Rigidbody2D rb;
     string sceneName;
-    public int sceneInt;
+    public static int sceneInt;
 
+    public int bookHeldInt = 0;
     Vector2 directionalInput;
 
     HealthManager healthManager;
 
+    void checkParameters() {
+        fire1 = GameObject.Find("Fire1");
+        fire2 = GameObject.Find("Fire2");
+        fire3 = GameObject.Find("Fire3");
+    }
     void Start()
     {
+
          currentScene = SceneManager.GetActiveScene();
 
         sceneName = currentScene.name;
@@ -99,46 +115,90 @@ public class Player : MonoBehaviour
             StartCoroutine(WaitEnemy(.75f));
         }
     }
+    void checkBookHeld()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            bookHeldInt += 1;
+            if (bookHeldInt >= 4)
+            {
+                bookHeldInt = 1;
+            }
+        }
+        if (bookHeldInt == 1)
+        {
+            fireBookHeld = true;
+            fireBook.SetActive(true);
+            fire1.SetActive(true);
+            fire2.SetActive(true);
+            fire3.SetActive(true);
+            fireballText.SetActive(true);
+            fireBookHeld = true;
+            iceBook.SetActive(false);
+            ice1.SetActive(false);
+            ice2.SetActive(false);
+            ice3.SetActive(false);
+            iceText.SetActive(false);
+            speedBookHeld = false;
+            speedBook.SetActive(false);
+            speed1.SetActive(false);
+            speed2.SetActive(false);
+            speed3.SetActive(false);
+            speedText.SetActive(false);
+        }
+        if (bookHeldInt == 2)
+        {
+            fireBookHeld = false;
+            fireBook.SetActive(false);
+            fire1.SetActive(false);
+            fire2.SetActive(false);
+            fire3.SetActive(false);
+            fireballText.SetActive(false);
+            fireBookHeld = true;
+            iceBook.SetActive(true);
+            ice1.SetActive(true);
+            ice2.SetActive(true);
+            ice3.SetActive(true);
+            iceText.SetActive(true);
+            speedBookHeld = false;
+            speedBook.SetActive(false);
+            speed1.SetActive(false);
+            speed2.SetActive(false);
+            speed3.SetActive(false);
+            speedText.SetActive(false);
+        }
+        if (bookHeldInt == 3)
+        {
+            fireBookHeld = false;
+            fireBook.SetActive(false);
+            fire1.SetActive(false);
+            fire2.SetActive(false);
+            fire3.SetActive(false);
+            fireballText.SetActive(false);
+            fireBookHeld = false;
+            iceBook.SetActive(false);
+            ice1.SetActive(false);
+            ice2.SetActive(false);
+            ice3.SetActive(false);
+            iceText.SetActive(false);
+            speedBookHeld = true;
+            speedBook.SetActive(true);
+            speed1.SetActive(true);
+            speed2.SetActive(true);
+            speed3.SetActive(true);
+            speedText.SetActive(true);
+        }
+    }
     void Update()
     {
-
+        checkBookHeld();
  
 
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
         anime.SetFloat("Speed", Math.Abs(h));
 
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            //whenever the ice book is held it hides all of the fireball related ui and brings the ice ui to the front
-            iceBookHeld = true;
-            fireBookHeld = false;
-            fireBook.SetActive(false);
-            iceBook.SetActive(true);
-            ice1.SetActive(true);
-            ice2.SetActive(true);
-            ice3.SetActive(true);
-            iceText.SetActive(true);
-            fire1.SetActive(false);
-            fire2.SetActive(false);
-            fire3.SetActive(false);
-            fireballText.SetActive(false);
-        }
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            iceBookHeld = false;
-            fireBookHeld = true;
-            fireBook.SetActive(true);
-            iceBook.SetActive(false);
-            ice1.SetActive(false);
-            ice2.SetActive(false);
-            ice3.SetActive(false);
-            iceText.SetActive(false);
-            fire1.SetActive(true);
-            fire2.SetActive(true);
-            fire3.SetActive(true);
-            fireballText.SetActive(true);
-        }
+       
 
         if (gameObject.transform.position.y <= -100)
         {
@@ -247,10 +307,18 @@ public class Player : MonoBehaviour
         ice3.SetActive(false);
         healthBar.SetActive(false);
     }
+    public static void SavePlayer()
+    {
+        string path = "SaveFile/Save.txt";
+
+        // This text is added only once to the file.
+
+        string createText = sceneInt + Environment.NewLine;
+        File.WriteAllText(path, createText);
+    }
 
 
 
-   
     public void Load()
     {
         string path = "SaveFile/Output.txt";
@@ -259,13 +327,7 @@ public class Player : MonoBehaviour
         StreamReader reader = new StreamReader(path);
         Debug.Log(reader.ReadToEnd());
         reader.Close();
-        //https://www.youtube.com/watch?v=XOjd_qU2Ido
     }
-    public void Save()
-    {
-        SaveSystem.SavePlayer(this);
-    }
-
     void PlayerMoves()
     {
         //Player Direction

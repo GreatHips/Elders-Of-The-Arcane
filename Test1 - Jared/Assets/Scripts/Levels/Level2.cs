@@ -10,12 +10,13 @@ using System.IO;
 public class Level2 : MonoBehaviour
 {
     Player player;
+
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.layer == 8)
         {
             SceneManager.LoadScene("Level2");
-            player.Save();
+            Player.SavePlayer();
         }
     }
     }

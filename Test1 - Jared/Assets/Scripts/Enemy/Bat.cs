@@ -9,8 +9,6 @@ public class Bat : EnemyAI
     {
         enemyParameterCheck();
     }
-
-    // Update is called once per frame
     new void Update()
     {
         Distance();

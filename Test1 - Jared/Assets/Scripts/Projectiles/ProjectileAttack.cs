@@ -65,7 +65,7 @@ public class ProjectileAttack : MonoBehaviour
         bspeed.transform.parent = player.transform;
         bspeed.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
 
-        player.moveSpeed = 25;
+        player.moveSpeed = 16;
         StartCoroutine(SpeedChange());
         StartCoroutine(SpeedRecharge());
 

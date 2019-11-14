@@ -287,6 +287,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 31084659}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &31084668 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9165568945769064418, guid: 81f2009f22461774abc1304f6da94e6a,
+    type: 3}
+  m_PrefabInstance: {fileID: 31084659}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &31084671 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9165568945938248721, guid: 81f2009f22461774abc1304f6da94e6a,
@@ -573,6 +579,7 @@ GameObject:
   - component: {fileID: 319019785}
   - component: {fileID: 319019786}
   - component: {fileID: 319019787}
+  - component: {fileID: 319019788}
   m_Layer: 0
   m_Name: FilterCloud8bit_inline
   m_TagString: Untagged
@@ -643,7 +650,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &319019787
+--- !u!61 &319019787
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319019784}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.4969082, y: -0.5531616}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4, y: 3}
+    newSize: {x: 4, y: 3}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.318572, y: 2.0061836}
+  m_EdgeRadius: 0
+--- !u!114 &319019788
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -652,10 +685,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 319019784}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e8b6283b4e4ec5459159cbd8d393a21, type: 3}
+  m_Script: {fileID: 11500000, guid: 14804246cbe65264faf826d841bc7a10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1493875292}
+  tavernText: {fileID: 31084668}
 --- !u!1001 &442211545
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6022,12 +6055,12 @@ PrefabInstance:
     - target: {fileID: 4367491996354028415, guid: c93dfb5bdb7c32b47833a5f3c8e00daf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.17
+      value: 4.19
       objectReference: {fileID: 0}
     - target: {fileID: 4367491996354028415, guid: c93dfb5bdb7c32b47833a5f3c8e00daf,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.55
+      value: -2.62
       objectReference: {fileID: 0}
     - target: {fileID: 4367491996354028415, guid: c93dfb5bdb7c32b47833a5f3c8e00daf,
         type: 3}

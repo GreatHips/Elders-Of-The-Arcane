@@ -63,11 +63,13 @@ public class Player : MonoBehaviour
     public Rigidbody2D rb;
     string sceneName;
     public static int sceneInt;
+    
 
     public int bookHeldInt = 0;
     Vector2 directionalInput;
-
+    public string savefile;
     HealthManager healthManager;
+    public static int PlayerHealth=250;
 
     void Start()
     {
@@ -232,7 +234,7 @@ public class Player : MonoBehaviour
 
         // This text is added only once to the file.
 
-        string createText = sceneInt + Environment.NewLine;
+        string createText = sceneInt + PlayerHealth+ Environment.NewLine;
         File.WriteAllText(path, createText);
     }
 
@@ -244,7 +246,10 @@ public class Player : MonoBehaviour
 
         //Read the text from directly from the test.txt file
         StreamReader reader = new StreamReader(path);
-        Debug.Log(reader.ReadToEnd());
+        savefile = reader.ReadToEnd();
+        char[] b = savefile.ToCharArray();
+        sceneInt = b[1];
+        healthManager.health = b[2];
         reader.Close();
     }
     void PlayerMoves()

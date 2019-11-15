@@ -209,7 +209,7 @@ public class ProjectileAttack : MonoBehaviour
         while (chargeAmounts == 0 && !Charging && player.speedBookHeld)
         {
             Charging = true;
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(7f);
             chargeAmounts += 1;
             Charging = false;
 
@@ -217,7 +217,7 @@ public class ProjectileAttack : MonoBehaviour
         while (chargeAmounts == 1 && !Charging && player.speedBookHeld)
         {
             Charging = true;
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(7f);
             chargeAmounts += 1;
             Charging = false;
 
@@ -225,7 +225,7 @@ public class ProjectileAttack : MonoBehaviour
         while (chargeAmounts == 2 && !Charging && player.speedBookHeld)
         {
             Charging = true;
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(7f);
             chargeAmounts += 1;
             Charging = false;
         }
@@ -233,14 +233,14 @@ public class ProjectileAttack : MonoBehaviour
         if (chargeAmounts == 1 && !Charging && player.speedBookHeld)
         {
             Charging = true;
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(7f);
             chargeAmounts += 1;
             Charging = false;
         }
         if (chargeAmounts == 2 && !Charging && player.speedBookHeld)
         {
             Charging = true;
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(7f);
             chargeAmounts += 1;
             Charging = false;
         }

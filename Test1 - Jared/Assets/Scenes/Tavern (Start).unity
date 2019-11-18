@@ -585,19 +585,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0625, y: 1.1666666}
   m_EdgeRadius: 0
---- !u!114 &226275101
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 226275099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 068ca1dbf08f16b45af451e8e9145469, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tavernText: {fileID: 2108552427}
 --- !u!1 &319019784
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,7 +598,7 @@ GameObject:
   - component: {fileID: 319019787}
   - component: {fileID: 319019788}
   m_Layer: 0
-  m_Name: FilterCloud8bit_inline
+  m_Name: DoorTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -797,6 +784,11 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6529110258957774146, guid: 5808ca7cfa9bad240b1c2c52003f4817,
+        type: 3}
+      propertyPath: tavernText
+      value: 
+      objectReference: {fileID: 31084668}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5808ca7cfa9bad240b1c2c52003f4817, type: 3}
 --- !u!1 &689608038
@@ -6090,7 +6082,7 @@ PrefabInstance:
     - target: {fileID: 4367491996354028415, guid: c93dfb5bdb7c32b47833a5f3c8e00daf,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.62
+      value: -2.156
       objectReference: {fileID: 0}
     - target: {fileID: 4367491996354028415, guid: c93dfb5bdb7c32b47833a5f3c8e00daf,
         type: 3}
@@ -6358,10 +6350,15 @@ PrefabInstance:
       propertyPath: speed1
       value: 
       objectReference: {fileID: 31084676}
+    - target: {fileID: 8671412490514741476, guid: c93dfb5bdb7c32b47833a5f3c8e00daf,
+        type: 3}
+      propertyPath: speedBook
+      value: 
+      objectReference: {fileID: 1687595216}
     - target: {fileID: 4367491996354028414, guid: c93dfb5bdb7c32b47833a5f3c8e00daf,
         type: 3}
       propertyPath: m_Constraints
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4367491996354028414, guid: c93dfb5bdb7c32b47833a5f3c8e00daf,
         type: 3}
@@ -6372,6 +6369,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1545126284128013802, guid: c93dfb5bdb7c32b47833a5f3c8e00daf,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5106439038878345674, guid: c93dfb5bdb7c32b47833a5f3c8e00daf,
+        type: 3}
+      propertyPath: m_Name
+      value: SpeedBook
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c93dfb5bdb7c32b47833a5f3c8e00daf, type: 3}
@@ -6439,6 +6446,12 @@ Animator:
 --- !u!50 &1640788903 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 4367491996354028414, guid: c93dfb5bdb7c32b47833a5f3c8e00daf,
+    type: 3}
+  m_PrefabInstance: {fileID: 1493875291}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1687595216 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5106439038878345674, guid: c93dfb5bdb7c32b47833a5f3c8e00daf,
     type: 3}
   m_PrefabInstance: {fileID: 1493875291}
   m_PrefabAsset: {fileID: 0}

@@ -57,5 +57,9 @@ public class HealthManager : MonoBehaviour
         health += healAmount;
     }
 
+    public void SetHealth(int newHealth)
+    {
+        health = newHealth;
+    }
 
 }

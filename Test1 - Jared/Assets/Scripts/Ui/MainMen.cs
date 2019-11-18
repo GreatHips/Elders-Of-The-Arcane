@@ -20,5 +20,6 @@ public class MainMen : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
+        UnityEditor.EditorApplication.isPlaying = false;
     }
 }

@@ -242,7 +242,7 @@ public class Player : MonoBehaviour
 
     public void Load()
     {
-        string path = "SaveFile/Output.txt";
+        string path = "SaveFile/Save.txt";
 
         //Read the text from directly from the test.txt file
         StreamReader reader = new StreamReader(path);

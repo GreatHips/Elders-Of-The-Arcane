@@ -6082,7 +6082,7 @@ PrefabInstance:
     - target: {fileID: 4367491996354028415, guid: c93dfb5bdb7c32b47833a5f3c8e00daf,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.156
+      value: -2.534
       objectReference: {fileID: 0}
     - target: {fileID: 4367491996354028415, guid: c93dfb5bdb7c32b47833a5f3c8e00daf,
         type: 3}
@@ -6128,6 +6128,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5106439038878345674, guid: c93dfb5bdb7c32b47833a5f3c8e00daf,
+        type: 3}
+      propertyPath: m_Name
+      value: SpeedBook
       objectReference: {fileID: 0}
     - target: {fileID: 4804524012888796551, guid: c93dfb5bdb7c32b47833a5f3c8e00daf,
         type: 3}
@@ -6358,27 +6363,22 @@ PrefabInstance:
     - target: {fileID: 4367491996354028414, guid: c93dfb5bdb7c32b47833a5f3c8e00daf,
         type: 3}
       propertyPath: m_Constraints
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4367491996354028414, guid: c93dfb5bdb7c32b47833a5f3c8e00daf,
         type: 3}
       propertyPath: m_CollisionDetection
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4327989081118046234, guid: c93dfb5bdb7c32b47833a5f3c8e00daf,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1545126284128013802, guid: c93dfb5bdb7c32b47833a5f3c8e00daf,
         type: 3}
       propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5106439038878345674, guid: c93dfb5bdb7c32b47833a5f3c8e00daf,
+    - target: {fileID: 4327989081118046234, guid: c93dfb5bdb7c32b47833a5f3c8e00daf,
         type: 3}
-      propertyPath: m_Name
-      value: SpeedBook
+      propertyPath: m_LocalScale.x
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c93dfb5bdb7c32b47833a5f3c8e00daf, type: 3}
@@ -6523,8 +6523,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1469401837
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}

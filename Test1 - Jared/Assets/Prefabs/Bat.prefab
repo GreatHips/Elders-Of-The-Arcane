@@ -98,7 +98,7 @@ Animation:
   m_GameObject: {fileID: 4475484320881132806}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 0}
+  m_Animation: {fileID: 7400000, guid: 2effb48c7339f804d84e7a833a6757e6, type: 2}
   m_Animations: []
   m_WrapMode: 0
   m_PlayAutomatically: 1
@@ -226,6 +226,8 @@ MonoBehaviour:
   myRigidBody: {fileID: 0}
   anime: {fileID: 0}
   target: {fileID: 0}
+  player: {fileID: 0}
+  velocity: {x: 0, y: 0, z: 0}
   isJumping: 0
   dist: 0
   inDist: 0

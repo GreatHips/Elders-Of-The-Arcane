@@ -14,7 +14,7 @@ public class MainMen : MonoBehaviour
     {
         Player player = new Player();
         player.Load();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + Player.sceneInt+1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void ExitGame()

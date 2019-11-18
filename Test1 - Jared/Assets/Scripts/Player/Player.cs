@@ -255,7 +255,7 @@ public class Player : MonoBehaviour
         savefile = reader.ReadToEnd();
         char[] b = savefile.ToCharArray();
         sceneInt = b[1];
-        healthManager.SetHealth(b[4] * 100 + b[3] * 10 + b[2]);
+        //healthManager.SetHealth(b[4] * 100 + b[3] * 10 + b[2]);
         reader.Close();
     }
     void PlayerMoves()

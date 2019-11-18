@@ -254,8 +254,9 @@ public class Player : MonoBehaviour
         StreamReader reader = new StreamReader(path);
         savefile = reader.ReadToEnd();
         char[] b = savefile.ToCharArray();
-        sceneInt = b[1];
-        healthManager.SetHealth(b[4] * 100 + b[3] * 10 + b[2]);
+        Debug.Log(b[0]);
+        sceneInt = b[0]-48;
+        //healthManager.SetHealth(b[3] * 100 + b[2] * 10 + b[1]);
         reader.Close();
     }
     void PlayerMoves()

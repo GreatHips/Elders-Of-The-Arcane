@@ -233,6 +233,12 @@ public class Player : MonoBehaviour
         string path = "SaveFile/Save.txt";
 
         // This text is added only once to the file.
+        if (PlayerHealth < 10){
+            PlayerHealth *= 100;
+        }else if(PlayerHealth < 100)
+        {
+            PlayerHealth *= 10;
+        }
 
         string createText = sceneInt + PlayerHealth+ Environment.NewLine;
         File.WriteAllText(path, createText);
@@ -249,7 +255,7 @@ public class Player : MonoBehaviour
         savefile = reader.ReadToEnd();
         char[] b = savefile.ToCharArray();
         sceneInt = b[1];
-        healthManager.health = b[2];
+        healthManager.SetHealth(b[4] * 100 + b[3] * 10 + b[2]);
         reader.Close();
     }
     void PlayerMoves()

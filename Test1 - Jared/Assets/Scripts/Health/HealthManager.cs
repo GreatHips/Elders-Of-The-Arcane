@@ -8,6 +8,7 @@ public class HealthManager : MonoBehaviour
 {
     public int health = 100;
     public int healthMax = 100;
+    Player player;
 
 
     void Start()
@@ -48,6 +49,7 @@ public class HealthManager : MonoBehaviour
     {
 
         health -= damageAmount;
+        Player.PlayerHealth = health;
 
     }
 

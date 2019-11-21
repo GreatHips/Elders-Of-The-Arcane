@@ -11,6 +11,7 @@ using UnityEngine.UI;
     public GameObject headPrefab;
     new void Start()
     {
+        movementSpeed = 0.0f;
         anime = GetComponent<Animator>();
         player = GameObject.Find("Player");
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -35,6 +36,7 @@ using UnityEngine.UI;
         // Boss Parameters
         if (gameObject.tag == "SlothBoss" && gameObject.GetComponent<HealthManager>().health < gameObject.GetComponent<HealthManager>().healthMax)
         {
+            movementSpeed = .75f;
             anime.SetBool("Awake", true);
             if (movement && inDist)
             {

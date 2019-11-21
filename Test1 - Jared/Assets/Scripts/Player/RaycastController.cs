@@ -6,7 +6,7 @@ public class RaycastController : MonoBehaviour {
 
 	public LayerMask collisionMask;
 	
-	public const float skinWidth = .15f;
+	public const float skinWidth = .23f;
 	const float dstBetweenRays = .25f;
 	[HideInInspector]
 	public int horizontalRayCount;

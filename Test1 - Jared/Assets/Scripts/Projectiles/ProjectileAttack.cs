@@ -76,7 +76,7 @@ public class ProjectileAttack : MonoBehaviour
     {
         GameObject bfire = (GameObject)(Instantiate(fireball, transform.position + transform.up * .45f + transform.right * varFacingRight * -2f, Quaternion.identity));
         bfire.GetComponent<Rigidbody2D>().AddForce(transform.right * varFacingRight * -1000);
-
+        fireballSource.Play();
         StartCoroutine(RechargeFireball());
 
         if (varFacingRight == 1)
@@ -98,7 +98,6 @@ public class ProjectileAttack : MonoBehaviour
         bice.GetComponent<Rigidbody2D>().AddForce(transform.up * -1);
         bice2.GetComponent<Rigidbody2D>().AddForce(transform.up * -1);
         bice3.GetComponent<Rigidbody2D>().AddForce(transform.up * -1);
-
 
         StartCoroutine(RechargeIce());
 

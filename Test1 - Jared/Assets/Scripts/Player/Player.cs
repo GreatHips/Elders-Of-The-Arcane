@@ -73,7 +73,6 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-
          currentScene = SceneManager.GetActiveScene();
 
         sceneName = currentScene.name;

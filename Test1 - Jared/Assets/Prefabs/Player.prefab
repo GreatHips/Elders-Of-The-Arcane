@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 5738127269473703714}
   - component: {fileID: 4032665527365661512}
   m_Layer: 8
-  m_Name: Player 1
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -228,7 +228,7 @@ MonoBehaviour:
   horizontalRaySpacing: 0
   verticalRaySpacing: 0
   collider: {fileID: 0}
-  maxSlopeAngle: 80
+  maxSlopeAngle: 359
   playerInput: {x: 0, y: 0}
 --- !u!114 &822633960989871291
 MonoBehaviour:

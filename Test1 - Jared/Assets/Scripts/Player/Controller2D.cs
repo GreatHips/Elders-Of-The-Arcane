@@ -35,6 +35,7 @@ public class Controller2D : RaycastController
 
         if (moveAmount.x != 0)
         {
+            StartCoroutine(Wait(.01f));
             collisions.faceDir = (int)Mathf.Sign(moveAmount.x);
         }
 
@@ -117,6 +118,10 @@ public class Controller2D : RaycastController
         }
     }
 
+    IEnumerator Wait(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+    }
     void VerticalCollisions(ref Vector2 moveAmount)
     {
         float directionY = Mathf.Sign(moveAmount.y);
@@ -195,7 +200,7 @@ public class Controller2D : RaycastController
 
         if (moveAmount.y <= climbmoveAmountY)
         {
-            moveAmount.y = climbmoveAmountY;
+           // moveAmount.y = climbmoveAmountY;
             moveAmount.x = Mathf.Cos(slopeAngle * Mathf.Deg2Rad) * moveDistance * Mathf.Sign(moveAmount.x);
             collisions.below = true;
             collisions.climbingSlope = true;

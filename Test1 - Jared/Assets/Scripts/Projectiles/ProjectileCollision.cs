@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class ProjectileCollision : MonoBehaviour
 {
-    
-    void OnCollisionEnter2D(Collision2D coll)
+    private AudioSource iceSound;
+    public AudioClip iceClip;
 
+    private void Start()
+    {
+        GameObject iceSource = GameObject.Find("IceSound");
+
+        iceClip = Resources.Load<AudioClip>("Ice_Crashing");
+    }
+    void OnCollisionEnter2D(Collision2D coll)
     { 
 
         //when touching obstacle destroy the bullet
-        if (coll.gameObject.tag == "Obstacle")
+        if (coll.gameObject.tag == "Obstacle" && gameObject.tag != "Ice")
         {
             Destroy(gameObject);
         }
@@ -30,14 +37,10 @@ public class ProjectileCollision : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-
-
-    void OnCollisionStay2D(Collision2D collision)
-    {
-        //if it stays in the collider of an obstacle destroy the bullet
-        if (collision.gameObject.tag == "Obstacle")
+        if (coll.gameObject.tag == "Obstacle" && gameObject.tag == "Ice")
         {
+            iceSound.PlayOneShot(iceClip, .75f);
+
             Destroy(gameObject);
         }
     }

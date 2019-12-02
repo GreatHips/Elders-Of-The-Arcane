@@ -35,7 +35,7 @@ using UnityEngine.UI;
         // Boss Parameters
         if (gameObject.tag == "SlothBoss" && gameObject.GetComponent<HealthManager>().health < gameObject.GetComponent<HealthManager>().healthMax)
         {
-            movementSpeed = .75f;
+            movementSpeed = .52f;
             anime.SetBool("Awake", true);
             transform.position = Vector2.MoveTowards(transform.position, target.position, movementSpeed * Time.deltaTime);
             if (movement && inDist)
@@ -58,33 +58,44 @@ using UnityEngine.UI;
             }
 
         }
-    }
+    } 
+    //default, offset, x = 3.441797, y = -4.504251
+      //default size, x = 13.01794, y = 10.27758
+
+    //GetComponent<BoxCollider2D>().size = new Vector2();
+    //GetComponent<BoxCollider2D>().offset = new Vector2();
     IEnumerator SlothBossAttack()
     {
         if (slothNotAttacked)
         {
             slothNotAttacked = false;
-
-            //SLOTH NEEDS TO BE DONE COMPLETELY
+            
             yield return new WaitForSeconds(UnityEngine.Random.Range(3, 8));
             var number = UnityEngine.Random.Range(1, 1);
             Debug.Log(number);
             if (number == 1 && !slothAttacking)
             {
-               
+                slothAttacking = true;
+                anime.SetBool("LongStretch", false);
+                anime.SetBool("StretchAttack", true);
+
+                yield return new WaitForSeconds(1.75f);
+                this.GetComponent<BoxCollider2D>().offset = new Vector2(-1.084347f, -5.819191f);
+                this.GetComponent<BoxCollider2D>().size = new Vector2(22.07023f, 7.647701f); 
+
+                //reset collider to normal
+                yield return new WaitForSeconds(1f);
+                this.GetComponent<BoxCollider2D>().offset = new Vector2(3.441797f, -4.504251f);
+                this.GetComponent<BoxCollider2D>().size = new Vector2(13.01794f, 10.27758f);
+
+                anime.SetBool("LongStretch", false);
+                anime.SetBool("StretchAttack", false);
+                slothNotAttacked = true;
             }
             if (number == 2 && !slothAttacking)
             {
                 
 
-            }
-            if (number == 3 && !slothAttacking)
-            {
-               
-            }
-            if (number == 4 && !slothAttacking)
-            {
-             
             }
         }
     }

@@ -200,9 +200,9 @@ public class Controller2D : RaycastController
 
         if (moveAmount.y <= climbmoveAmountY)
         {
-           // moveAmount.y = climbmoveAmountY;
+           //moveAmount.y = climbmoveAmountY;
             moveAmount.x = Mathf.Cos(slopeAngle * Mathf.Deg2Rad) * moveDistance * Mathf.Sign(moveAmount.x);
-            collisions.below = true;
+            //collisions.below = true;
             collisions.climbingSlope = true;
             collisions.slopeAngle = slopeAngle;
             collisions.slopeNormal = slopeNormal;

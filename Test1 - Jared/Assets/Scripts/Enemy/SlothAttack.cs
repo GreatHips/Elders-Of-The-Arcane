@@ -35,7 +35,7 @@ using UnityEngine.UI;
         // Boss Parameters
         if (gameObject.tag == "SlothBoss" && gameObject.GetComponent<HealthManager>().health < gameObject.GetComponent<HealthManager>().healthMax)
         {
-            movementSpeed = .52f;
+            movementSpeed = .25f;
             anime.SetBool("Awake", true);
             transform.position = Vector2.MoveTowards(transform.position, target.position, movementSpeed * Time.deltaTime);
             if (movement && inDist)
@@ -70,8 +70,8 @@ using UnityEngine.UI;
         {
             slothNotAttacked = false;
             
-            yield return new WaitForSeconds(UnityEngine.Random.Range(3, 8));
-            var number = UnityEngine.Random.Range(1, 1);
+            yield return new WaitForSeconds(UnityEngine.Random.Range(2, 4));
+            var number = UnityEngine.Random.Range(1, 3);
             Debug.Log(number);
             if (number == 1 && !slothAttacking)
             {
@@ -96,8 +96,14 @@ using UnityEngine.UI;
             }
             if (number == 2 && !slothAttacking)
             {
-                
+                slothAttacking = true;
+                anime.SetBool("LongStretch", true);
+                anime.SetBool("StretchAttack", false);
 
+                yield return new WaitForSeconds(2f);
+                anime.SetBool("LongStretch", false);
+                anime.SetBool("StretchAttack", false);
+                slothNotAttacked = true;
             }
         }
     }

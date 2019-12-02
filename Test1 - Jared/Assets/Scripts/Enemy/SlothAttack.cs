@@ -40,12 +40,12 @@ using UnityEngine.UI;
             transform.position = Vector2.MoveTowards(transform.position, target.position, movementSpeed * Time.deltaTime);
             if (movement && inDist)
             {
-                if ((player.transform.position.x > transform.position.x) && facingRight == true && inDist)
+                if ((player.transform.position.x < transform.position.x) && facingRight == true && inDist)
                 {
                     transform.Rotate(Vector3.up * 180);
                     facingRight = false;
                 }
-                else if ((player.transform.position.x <= transform.position.x) && facingRight == false && inDist)
+                else if ((player.transform.position.x >= transform.position.x) && facingRight == false && inDist)
                 {
                     transform.Rotate(Vector3.up * 180);
                     facingRight = true;
@@ -78,6 +78,7 @@ using UnityEngine.UI;
                 slothAttacking = true;
                 anime.SetBool("LongStretch", false);
                 anime.SetBool("StretchAttack", true);
+                movementSpeed = 0.0f;
 
                 yield return new WaitForSeconds(1.75f);
                 this.GetComponent<BoxCollider2D>().offset = new Vector2(-1.084347f, -5.819191f);
@@ -88,6 +89,7 @@ using UnityEngine.UI;
                 this.GetComponent<BoxCollider2D>().offset = new Vector2(3.441797f, -4.504251f);
                 this.GetComponent<BoxCollider2D>().size = new Vector2(13.01794f, 10.27758f);
 
+                movementSpeed = .5f;
                 anime.SetBool("LongStretch", false);
                 anime.SetBool("StretchAttack", false);
                 slothNotAttacked = true;

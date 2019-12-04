@@ -17,6 +17,7 @@ TagManager:
   - Skellyboy
   - Sound
   - Boulder
+  - BoulderStop
   layers:
   - Default
   - TransparentFX

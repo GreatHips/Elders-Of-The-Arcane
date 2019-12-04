@@ -35,7 +35,6 @@ public class Controller2D : RaycastController
 
         if (moveAmount.x != 0)
         {
-            StartCoroutine(Wait(.01f));
             collisions.faceDir = (int)Mathf.Sign(moveAmount.x);
         }
 
@@ -69,7 +68,7 @@ public class Controller2D : RaycastController
             rayOrigin += Vector2.up * (horizontalRaySpacing * i);
             RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, rayLength, collisionMask);
 
-            Debug.DrawRay(rayOrigin, Vector2.right * directionX, Color.red);
+            Debug.DrawRay(rayOrigin, Vector2.right * directionX, Color.blue);
 
             if (hit)
             {
@@ -92,7 +91,7 @@ public class Controller2D : RaycastController
                     if (slopeAngle != collisions.slopeAngleOld)
                     {
                         distanceToSlopeStart = hit.distance - skinWidth;
-                        moveAmount.x -= distanceToSlopeStart * directionX;
+                      //  moveAmount.x -= distanceToSlopeStart * directionX;
                     }
                     ClimbSlope(ref moveAmount, slopeAngle, hit.normal);
                     moveAmount.x += distanceToSlopeStart * directionX;

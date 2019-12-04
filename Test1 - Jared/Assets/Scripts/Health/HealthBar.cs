@@ -71,8 +71,8 @@ public class HealthBar : HealthManager
         {
             healthBar.y = 25f;
             healthBarsBackgroundScale.y = 20f;
-            healthBar.x = health * 3f;
-            healthBarsBackgroundScale.x = healthMax * 3f;
+            healthBar.x = health * 10f;
+            healthBarsBackgroundScale.x = healthMax * 10f;
             healthBars.transform.localScale = healthBar;
             healthBarsBackground.transform.localScale = healthBarsBackgroundScale;
 

@@ -23,40 +23,45 @@ using UnityEngine.UI;
         if (facingRight)
         {
             intFacingRight = -1;
-        } else if (!facingRight)
+        }
+        else if (!facingRight)
         {
             intFacingRight = 1;
         }
         Distance();
-
-        dist = Math.Abs(Vector3.Distance(target.position, transform.position));
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-
-        // Boss Parameters
-        if (gameObject.tag == "SlothBoss" && gameObject.GetComponent<HealthManager>().health < gameObject.GetComponent<HealthManager>().healthMax)
+        if (target)
         {
-            movementSpeed = .25f;
-            anime.SetBool("Awake", true);
-            transform.position = Vector2.MoveTowards(transform.position, target.position, movementSpeed * Time.deltaTime);
-            if (movement && inDist)
+            dist = Math.Abs(Vector3.Distance(target.position, transform.position));
+            target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        }
+        // Boss Parameters
+        if (target)
+        {
+            if (gameObject.tag == "SlothBoss" && gameObject.GetComponent<HealthManager>().health < gameObject.GetComponent<HealthManager>().healthMax)
             {
-                if ((player.transform.position.x < transform.position.x) && facingRight == true && inDist)
+                movementSpeed = .25f;
+                anime.SetBool("Awake", true);
+                transform.position = Vector2.MoveTowards(transform.position, target.position, movementSpeed * Time.deltaTime);
+                if (movement && inDist)
                 {
-                    transform.Rotate(Vector3.up * 180);
-                    facingRight = false;
+                    if ((player.transform.position.x < transform.position.x) && facingRight == true && inDist)
+                    {
+                        transform.Rotate(Vector3.up * 180);
+                        facingRight = false;
+                    }
+                    else if ((player.transform.position.x >= transform.position.x) && facingRight == false && inDist)
+                    {
+                        transform.Rotate(Vector3.up * 180);
+                        facingRight = true;
+                    }
                 }
-                else if ((player.transform.position.x >= transform.position.x) && facingRight == false && inDist)
+                if (slothNotAttacked)
                 {
-                    transform.Rotate(Vector3.up * 180);
-                    facingRight = true;
-                }
-            }
-            if (slothNotAttacked)
-            {
-                
-                StartCoroutine(SlothBossAttack());
-            }
 
+                    StartCoroutine(SlothBossAttack());
+                }
+
+            }
         }
     } 
     //default, offset, x = 3.441797, y = -4.504251

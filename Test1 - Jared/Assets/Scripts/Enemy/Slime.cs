@@ -24,11 +24,12 @@ public class Slime : EnemyAI
         {
             anime.SetBool("SlimeJump", false);
         }
-
+        if (target){ 
         if ((target.position.y >= transform.position.y) && myRigidBody.velocity.y == 0 && (Math.Abs(target.position.x - this.transform.position.x) < 20) && inDist && !isJumping)
         {
             myRigidBody.velocity = new Vector3(myRigidBody.velocity.x, 7.25f, 0); ;
             StartCoroutine(WaitJump());
+        }
         }
     }
 

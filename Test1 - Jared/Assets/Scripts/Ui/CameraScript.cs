@@ -8,6 +8,9 @@ public class CameraScript : MonoBehaviour
 
     private void LateUpdate()
     {
-        transform.position = new Vector3(target.position.x, target.position.y + 3.25f, transform.position.z);
+        if (target)
+        {
+            transform.position = new Vector3(target.position.x, target.position.y + 3.25f, transform.position.z);
+        }
     }
 }

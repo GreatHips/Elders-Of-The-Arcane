@@ -22,12 +22,14 @@ public class PlayerInput : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.G))
         {
+            //Testing Only Delete me
             players.GetComponent<HealthManager>().healthMax -= 10;
             players.GetComponent<HealthManager>().health -= 10;
         }
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
+            //Testing Only Delete me
             player.GetComponent<Player>().moveSpeed = 20;
         }
         else if (Input.GetKeyUp(KeyCode.LeftShift))

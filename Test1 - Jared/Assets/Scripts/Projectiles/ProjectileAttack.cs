@@ -37,7 +37,7 @@ public class ProjectileAttack : MonoBehaviour
         }
         if (canAttack && chargeAmounts >= 1)
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetKeyDown(KeyCode.K) || (Input.GetKeyDown(KeyCode.L)))
             {
 
                 chargeAmounts -= 1;

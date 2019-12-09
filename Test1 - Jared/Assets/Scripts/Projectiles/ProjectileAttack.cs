@@ -11,6 +11,7 @@ public class ProjectileAttack : MonoBehaviour
     GameObject b;
     public bool canAttack = true;
     public int chargeAmounts = Mathf.Max(3);
+    public GameObject inventory;
 
     public AudioClip fireballSound;
     public AudioClip iceSound;
@@ -27,6 +28,7 @@ public class ProjectileAttack : MonoBehaviour
     }
     private void Update()
     {
+        
         checkBookHeld();
         varFacingRight = 1;
 
@@ -257,14 +259,19 @@ public class ProjectileAttack : MonoBehaviour
     }
     void checkBookHeld()
     {
-        if (Input.GetKeyDown(KeyCode.T))
+
+        if (inventory.activeInHierarchy == true)
         {
-            player.bookHeldInt += 1;
-            if (player.bookHeldInt >= 4)
+            if (Input.GetKeyDown(KeyCode.T))
             {
-                player.bookHeldInt = 1;
+                player.bookHeldInt += 1;
+                if (player.bookHeldInt >= 4)
+                {
+                    player.bookHeldInt = 1;
+                }
             }
         }
+
         if (player.bookHeldInt == 1)
         {
             player.fireBookHeld = true;

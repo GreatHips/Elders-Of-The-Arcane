@@ -293,12 +293,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 31084659}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &31084669 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1143146275345706845, guid: 81f2009f22461774abc1304f6da94e6a,
-    type: 3}
-  m_PrefabInstance: {fileID: 31084659}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &31084670 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8596972465300355748, guid: 81f2009f22461774abc1304f6da94e6a,
@@ -16388,6 +16382,12 @@ PrefabInstance:
       objectReference: {fileID: 31084668}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5808ca7cfa9bad240b1c2c52003f4817, type: 3}
+--- !u!1 &551419298 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3848348829282217460, guid: 81f2009f22461774abc1304f6da94e6a,
+    type: 3}
+  m_PrefabInstance: {fileID: 31084659}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &567481885
 GameObject:
   m_ObjectHideFlags: 0
@@ -17276,7 +17276,7 @@ PrefabInstance:
         type: 3}
       propertyPath: inventory
       value: 
-      objectReference: {fileID: 31084669}
+      objectReference: {fileID: 551419298}
     - target: {fileID: 5738127269473703714, guid: 7aeb309ae3cfe8448b72de6e04300180,
         type: 3}
       propertyPath: Death

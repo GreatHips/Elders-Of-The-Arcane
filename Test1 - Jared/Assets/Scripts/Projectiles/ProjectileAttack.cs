@@ -259,37 +259,6 @@ public class ProjectileAttack : MonoBehaviour
     }
     void checkBookHeld()
     {
-
-        if (inventory.activeInHierarchy == true)
-        {
-            if (Input.GetKeyDown(KeyCode.T))
-            {
-                player.bookHeldInt += 1;
-                if (player.bookHeldInt >= 4)
-                {
-                    player.bookHeldInt = 1;
-                }
-            }
-        }
-
-        if (player.bookHeldInt == 1)
-        {
-            player.fireBookHeld = true;
-            player.iceBookHeld = false;
-            player.speedBookHeld = false;
-        }
-        if (player.bookHeldInt == 2)
-        {
-            player.fireBookHeld = false;
-            player.iceBookHeld = true;
-            player.speedBookHeld = false;
-        }
-        if (player.bookHeldInt == 3)
-        {
-            player.fireBookHeld = false;
-            player.iceBookHeld = false;
-            player.speedBookHeld = true;
-        }
         if (chargeAmounts == 0 && player.fireBookHeld)
         {
             player.fire1.SetActive(false);

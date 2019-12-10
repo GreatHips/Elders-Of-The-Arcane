@@ -8,6 +8,8 @@ public class PlayerInput : MonoBehaviour {
     public GameObject inventory;
     public GameObject hearts;
     private GameObject players;
+
+    private bool invOn = false;
     void Start () {
 		player = GetComponent<Player>();
 	}
@@ -57,14 +59,24 @@ public class PlayerInput : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            inventory.SetActive(true);
-            hearts.SetActive(false);
+            if (invOn)
+            {
+                invOn = false;
+                Time.timeScale = 1;
+            }
+            else if (!invOn)
+            {
+                invOn = true;
+                Time.timeScale = 0;
+            }
         }
-        if (Input.GetKeyUp(KeyCode.Tab))
+        if (invOn)
+        {
+            inventory.SetActive(true);
+        }
+        else if (!invOn)
         {
             inventory.SetActive(false);
-            hearts.SetActive(true);
-
         }
     }
 }

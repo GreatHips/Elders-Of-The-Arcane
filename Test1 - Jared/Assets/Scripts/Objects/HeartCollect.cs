@@ -10,20 +10,34 @@ public class HeartCollect : MonoBehaviour
     private void Start()
     {
         player = GameObject.Find("Player");
+        var heartBox = this.GetComponent<BoxCollider2D>();
     }
-    public void OnCollisionEnter2D(Collision2D collision)
+
+    public void Update()
     {
-        if (collision.gameObject == player)
+        var heartBox = this.GetComponent<BoxCollider2D>();
+        var playerHealthLessThanMax = player.GetComponent<HealthManager>().health < player.GetComponent<HealthManager>().healthMax;
+        if (playerHealthLessThanMax)
         {
-    
-            if (player.GetComponent<HealthManager>().health < player.GetComponent<HealthManager>().healthMax)
-            {
-                player.GetComponent<HealthManager>().Heal(75);
-                Destroy(gameObject);
-            }
-        } else
+            heartBox.enabled = true;
+        }
+        else
         {
-            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            heartBox.enabled = false;
         }
     }
-}
+        public void OnCollisionEnter2D(Collision2D collision)
+    {
+            if (collision.gameObject == player)
+            {
+
+                if (player.GetComponent<HealthManager>().health < player.GetComponent<HealthManager>().healthMax)
+                {
+                    player.GetComponent<HealthManager>().Heal(75);
+                    Destroy(gameObject);
+                }
+            }
+        }
+
+    }
+

@@ -237,7 +237,7 @@ public class Player : MonoBehaviour
         ice3.SetActive(false);
         healthBar.SetActive(false);
     }
-    public static void SavePlayer()
+    public void SavePlayer()
     {
         string path = "SaveFile/Save.txt";
 
@@ -248,7 +248,7 @@ public class Player : MonoBehaviour
         {
             PlayerHealth *= 10;
         }
-
+        
         string createText = sceneInt + PlayerHealth+ Environment.NewLine;
         File.WriteAllText(path, createText);
     }

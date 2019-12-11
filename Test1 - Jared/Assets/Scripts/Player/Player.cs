@@ -53,8 +53,6 @@ public class Player : MonoBehaviour
     public GameObject healthBar;
 
     public bool iceUnlocked;
-    public bool fireUnlocked;
-    public bool speedUnlocked;
     public bool earthUnlocked;
 
     public float moveX;

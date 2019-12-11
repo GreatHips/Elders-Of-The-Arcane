@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
     public bool fireBookHeld;
     public bool iceBookHeld;
     public bool speedBookHeld;
+    public bool earthBookHeld;
     public GameObject fire1;
     public GameObject fire2;
     public GameObject fire3;
@@ -42,10 +43,17 @@ public class Player : MonoBehaviour
     public GameObject speed1;
     public GameObject speed2;
     public GameObject speed3;
+    public GameObject earth1;
+    public GameObject earth2;
+    public GameObject earth3;
     public GameObject speedText;
     public GameObject iceText;
     public GameObject fireballText;
+    public GameObject earthText;
     public GameObject healthBar;
+
+    public bool iceUnlocked;
+    public bool earthUnlocked;
 
     public float moveX;
 

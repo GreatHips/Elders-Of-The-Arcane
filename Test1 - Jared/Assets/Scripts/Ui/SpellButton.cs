@@ -18,17 +18,36 @@ public class SpellButton : MonoBehaviour
         playerComp.iceBookHeld = true;
         playerComp.fireBookHeld = false;
         playerComp.speedBookHeld = false;
+        playerComp.earthBookHeld = false;
     }
     public void UseFire()
     {
         playerComp.iceBookHeld = false;
         playerComp.fireBookHeld = true;
         playerComp.speedBookHeld = false;
+        playerComp.earthBookHeld = false;
     }
     public void UseSpeed()
     {
         playerComp.iceBookHeld = false;
         playerComp.fireBookHeld = false;
         playerComp.speedBookHeld = true;
+        playerComp.earthBookHeld = false;
+    }
+
+    public void UseEarth()
+    {
+        playerComp.iceBookHeld = false;
+        playerComp.fireBookHeld = false;
+        playerComp.speedBookHeld = false;
+        playerComp.earthBookHeld = true;
+    }
+
+    public void UseNothing()
+    {
+        playerComp.iceBookHeld = false;
+        playerComp.fireBookHeld = false;
+        playerComp.speedBookHeld = false;
+        playerComp.earthBookHeld = false;
     }
 }

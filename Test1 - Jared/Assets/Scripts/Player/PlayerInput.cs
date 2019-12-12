@@ -42,12 +42,16 @@ public class PlayerInput : MonoBehaviour {
         Vector2 directionalInput = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
 		player.SetDirectionalInput (directionalInput);
 
-		if (Input.GetKeyDown (KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) {
-			player.OnJumpInputDown ();
+		if (Input.GetKeyDown (KeyCode.Space)) {
+			player.OnSpaceJumpInputDown ();
 		}
-		if (Input.GetKeyUp (KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) {
+		if (Input.GetKeyUp (KeyCode.Space)) {
 			player.OnJumpInputUp ();
 		}
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            player.OnWJumpInputDown ();
+        }
         if (Input.GetKeyUp(KeyCode.M))
         {
             Mail.SendMail();

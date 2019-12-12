@@ -9,15 +9,16 @@ using System.IO;
 
 public class Level2 : MonoBehaviour
 {
-    Player player;
-
+    private GameObject player;
+    private static Player playercomp;
     public GameObject tavernText;
     private bool ableTo = false;
 
     private void Update()
     {
         CheckCollision();
-    }
+        
+}
 
     private void CheckCollision()
     {
@@ -26,8 +27,9 @@ public class Level2 : MonoBehaviour
             tavernText.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
             {
+
                 SceneManager.LoadScene("Level2");
-                Player.SavePlayer();
+                playercomp.SavePlayer();
             }
         }
     }

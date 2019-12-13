@@ -47,35 +47,38 @@ public class EnemyAI : HealthBar
     }
     public void Distance()
     {
-        dist = Math.Abs(Vector3.Distance(target.position, transform.position));
-        if (dist <= stoppingDistance)
-        {
+        if (target)
+        { 
+            dist = Math.Abs(Vector3.Distance(target.position, transform.position));
+         if (dist <= stoppingDistance)
+         {
             inDist = true;
-        }
-        else if (dist > stoppingDistance)
-        {
-            inDist = false;
-        }
+         }
+            else if (dist > stoppingDistance)
+         {
+                inDist = false;
+         }
 
-        if (movement && inDist)
-        {
+            if (movement && inDist)
+            {
 
-            transform.position = Vector2.MoveTowards(transform.position, target.position, movementSpeed * Time.deltaTime);
-        }
-        else if (!inDist)
-        {
+               transform.position = Vector2.MoveTowards(transform.position, target.position, movementSpeed * Time.deltaTime);
+            }
+            else if (!inDist)
+            {
 
-        }
+            }
 
-        if ((target.position.x < transform.position.x) && facingRight == true && inDist)
-        {
-            transform.Rotate(Vector3.up * 180);
-            facingRight = false;
-        }
-        else if ((target.position.x > transform.position.x) && facingRight == false && inDist)
-        {
-            transform.Rotate(Vector3.up * 180);
-            facingRight = true;
+            if ((target.position.x < transform.position.x) && facingRight == true && inDist)
+            {
+                transform.Rotate(Vector3.up * 180);
+                facingRight = false;
+            }
+            else if ((target.position.x > transform.position.x) && facingRight == false && inDist)
+             {
+                transform.Rotate(Vector3.up * 180);
+                facingRight = true;
+             }
         }
     }
 

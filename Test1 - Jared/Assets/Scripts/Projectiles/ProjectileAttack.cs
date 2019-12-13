@@ -11,6 +11,7 @@ public class ProjectileAttack : MonoBehaviour
     GameObject b;
     public bool canAttack = true;
     public int chargeAmounts = Mathf.Max(3);
+    public GameObject inventory;
 
     public AudioClip fireballSound;
     public AudioClip iceSound;
@@ -27,6 +28,7 @@ public class ProjectileAttack : MonoBehaviour
     }
     private void Update()
     {
+        
         checkBookHeld();
         varFacingRight = 1;
 
@@ -37,7 +39,7 @@ public class ProjectileAttack : MonoBehaviour
         }
         if (canAttack && chargeAmounts >= 1)
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetKeyDown(KeyCode.K) || (Input.GetKeyDown(KeyCode.L)))
             {
 
                 chargeAmounts -= 1;
@@ -76,7 +78,7 @@ public class ProjectileAttack : MonoBehaviour
     {
         GameObject bfire = (GameObject)(Instantiate(fireball, transform.position + transform.up * .45f + transform.right * varFacingRight * -2f, Quaternion.identity));
         bfire.GetComponent<Rigidbody2D>().AddForce(transform.right * varFacingRight * -1000);
-
+        fireballSource.Play();
         StartCoroutine(RechargeFireball());
 
         if (varFacingRight == 1)
@@ -98,7 +100,6 @@ public class ProjectileAttack : MonoBehaviour
         bice.GetComponent<Rigidbody2D>().AddForce(transform.up * -1);
         bice2.GetComponent<Rigidbody2D>().AddForce(transform.up * -1);
         bice3.GetComponent<Rigidbody2D>().AddForce(transform.up * -1);
-
 
         StartCoroutine(RechargeIce());
 
@@ -258,32 +259,6 @@ public class ProjectileAttack : MonoBehaviour
     }
     void checkBookHeld()
     {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            player.bookHeldInt += 1;
-            if (player.bookHeldInt >= 4)
-            {
-                player.bookHeldInt = 1;
-            }
-        }
-        if (player.bookHeldInt == 1)
-        {
-            player.fireBookHeld = true;
-            player.iceBookHeld = false;
-            player.speedBookHeld = false;
-        }
-        if (player.bookHeldInt == 2)
-        {
-            player.fireBookHeld = false;
-            player.iceBookHeld = true;
-            player.speedBookHeld = false;
-        }
-        if (player.bookHeldInt == 3)
-        {
-            player.fireBookHeld = false;
-            player.iceBookHeld = false;
-            player.speedBookHeld = true;
-        }
         if (chargeAmounts == 0 && player.fireBookHeld)
         {
             player.fire1.SetActive(false);

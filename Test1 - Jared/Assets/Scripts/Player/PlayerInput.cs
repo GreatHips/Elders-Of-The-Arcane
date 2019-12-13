@@ -8,6 +8,8 @@ public class PlayerInput : MonoBehaviour {
     public GameObject inventory;
     public GameObject hearts;
     private GameObject players;
+
+    private bool invOn = false;
     void Start () {
 		player = GetComponent<Player>();
 	}
@@ -22,12 +24,14 @@ public class PlayerInput : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.G))
         {
+            //Testing Only Delete me
             players.GetComponent<HealthManager>().healthMax -= 10;
             players.GetComponent<HealthManager>().health -= 10;
         }
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
+            //Testing Only Delete me
             player.GetComponent<Player>().moveSpeed = 20;
         }
         else if (Input.GetKeyUp(KeyCode.LeftShift))
@@ -38,12 +42,16 @@ public class PlayerInput : MonoBehaviour {
         Vector2 directionalInput = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
 		player.SetDirectionalInput (directionalInput);
 
-		if (Input.GetKeyDown (KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) {
-			player.OnJumpInputDown ();
+		if (Input.GetKeyDown (KeyCode.Space)) {
+			player.OnSpaceJumpInputDown ();
 		}
-		if (Input.GetKeyUp (KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) {
+		if (Input.GetKeyUp (KeyCode.Space)) {
 			player.OnJumpInputUp ();
 		}
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            player.OnWJumpInputDown ();
+        }
         if (Input.GetKeyUp(KeyCode.M))
         {
             Mail.SendMail();
@@ -55,14 +63,24 @@ public class PlayerInput : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            inventory.SetActive(true);
-            hearts.SetActive(false);
+            if (invOn)
+            {
+                invOn = false;
+                Time.timeScale = 1;
+            }
+            else if (!invOn)
+            {
+                invOn = true;
+                Time.timeScale = 0;
+            }
         }
-        if (Input.GetKeyUp(KeyCode.Tab))
+        if (invOn)
+        {
+            inventory.SetActive(true);
+        }
+        else if (!invOn)
         {
             inventory.SetActive(false);
-            hearts.SetActive(true);
-
         }
     }
 }

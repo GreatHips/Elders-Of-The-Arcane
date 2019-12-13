@@ -16,6 +16,8 @@ TagManager:
   - Bat
   - Skellyboy
   - Sound
+  - Boulder
+  - BoulderStop
   layers:
   - Default
   - TransparentFX
@@ -30,7 +32,7 @@ TagManager:
   - Enemy
   - Bullets
   - Book
-  - SlothHead
+  - 
   - 
   - 
   - 

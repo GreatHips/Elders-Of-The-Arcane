@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Controller2D : RaycastController
 {
-
+    
     public float maxSlopeAngle = 80;
     public CollisionInfo collisions;
     [HideInInspector]
@@ -68,7 +68,7 @@ public class Controller2D : RaycastController
             rayOrigin += Vector2.up * (horizontalRaySpacing * i);
             RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, rayLength, collisionMask);
 
-            Debug.DrawRay(rayOrigin, Vector2.right * directionX, Color.red);
+            Debug.DrawRay(rayOrigin, Vector2.right * directionX, Color.blue);
 
             if (hit)
             {
@@ -91,7 +91,7 @@ public class Controller2D : RaycastController
                     if (slopeAngle != collisions.slopeAngleOld)
                     {
                         distanceToSlopeStart = hit.distance - skinWidth;
-                        moveAmount.x -= distanceToSlopeStart * directionX;
+                      //  moveAmount.x -= distanceToSlopeStart * directionX;
                     }
                     ClimbSlope(ref moveAmount, slopeAngle, hit.normal);
                     moveAmount.x += distanceToSlopeStart * directionX;
@@ -117,6 +117,10 @@ public class Controller2D : RaycastController
         }
     }
 
+    IEnumerator Wait(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+    }
     void VerticalCollisions(ref Vector2 moveAmount)
     {
         float directionY = Mathf.Sign(moveAmount.y);
@@ -195,9 +199,9 @@ public class Controller2D : RaycastController
 
         if (moveAmount.y <= climbmoveAmountY)
         {
-            moveAmount.y = climbmoveAmountY;
+           //moveAmount.y = climbmoveAmountY;
             moveAmount.x = Mathf.Cos(slopeAngle * Mathf.Deg2Rad) * moveDistance * Mathf.Sign(moveAmount.x);
-            collisions.below = true;
+            //collisions.below = true;
             collisions.climbingSlope = true;
             collisions.slopeAngle = slopeAngle;
             collisions.slopeNormal = slopeNormal;
@@ -297,5 +301,6 @@ public class Controller2D : RaycastController
             slopeAngle = 0;
         }
     }
+    
 
 }

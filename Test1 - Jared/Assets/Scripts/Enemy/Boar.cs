@@ -16,7 +16,7 @@ public class Boar : EnemyAI
     {
         Distance();
         
-
+        if (target) { 
         if (movement && inDist)
         {
             anime.SetBool("Attacking", true);
@@ -36,7 +36,7 @@ public class Boar : EnemyAI
             transform.Rotate(Vector3.up * 180);
             facingRight = true;
         }
-
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

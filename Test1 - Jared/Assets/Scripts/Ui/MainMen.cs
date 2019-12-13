@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class MainMen : MonoBehaviour
 {
-    
     public void NewGame ()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -20,5 +19,6 @@ public class MainMen : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
+        UnityEditor.EditorApplication.isPlaying = false;
     }
 }

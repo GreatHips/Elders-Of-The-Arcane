@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 5022879920866416961}
   - component: {fileID: 5808051099292758586}
   - component: {fileID: 2863369387865906106}
-  - component: {fileID: 4563103935807560491}
   - component: {fileID: 6100737982981383918}
   m_Layer: 10
   m_Name: SlothBoss
@@ -30,14 +29,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7200378736989450237}
-  m_LocalRotation: {x: 0.11320323, y: 0, z: 0, w: 0.9935719}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 93, y: -4.77, z: -1.4296875}
   m_LocalScale: {x: 0.31781194, y: 0.32659364, z: 1}
   m_Children:
   - {fileID: 9045164562500684889}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 13, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!212 &8221781883072912758
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -133,7 +132,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 3.6075535, y: -4.6297264}
+  m_Offset: {x: 3.514259, y: -4.6297264}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -144,7 +143,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 12.584475, y: 10.740547}
+  m_Size: {x: 12.6895485, y: 10.740547}
   m_EdgeRadius: 0
 --- !u!114 &2863369387865906106
 MonoBehaviour:
@@ -163,21 +162,6 @@ MonoBehaviour:
     m_Bits: 0
   horizontalRayCount: 4
   verticalRayCount: 4
---- !u!114 &4563103935807560491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7200378736989450237}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82b672f6e8d9a0842928be1459b0d046, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreObject: {fileID: 0}
-  newScore: 0
-  score: 0
 --- !u!114 &6100737982981383918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,23 +177,24 @@ MonoBehaviour:
   health: 100
   healthMax: 100
   healthBar: {x: 0, y: 0, z: 0}
-  overallHealthBar: {fileID: 0}
-  healthBars: {fileID: 0}
-  healthBarsBackground: {fileID: 0}
+  overallHealthBar: {fileID: 9046980868752987495}
+  healthBars: {fileID: 9047168499670444153}
+  healthBarsBackground: {fileID: 9047018533650344337}
   healthBarsBackgroundScale: {x: 0, y: 0, z: 0}
   movement: 1
-  movementSpeed: 2
+  movementSpeed: 0.5
   stoppingDistance: 13
   facingRight: 1
-  canJump: 1
+  canJump: 0
   myRigidBody: {fileID: 0}
   anime: {fileID: 0}
   target: {fileID: 0}
+  player: {fileID: 0}
+  velocity: {x: 0, y: 0, z: 0}
   isJumping: 0
   dist: 0
   inDist: 0
-  headPrefab: {fileID: 3951291642102855969, guid: 4fa36f1ebff22a54799ddb3906fdec3e,
-    type: 3}
+  intFacingRight: 0
 --- !u!1001 &9045595790603827023
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7c842c47afd2aec4c802a586a544d448, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 15.23, y: 15.6}
@@ -221,13 +221,15 @@ MonoBehaviour:
   healthBarsBackground: {fileID: 1818172928713862448}
   healthBarsBackgroundScale: {x: 0, y: 0, z: 0}
   movement: 1
-  movementSpeed: 2
+  movementSpeed: 1.25
   stoppingDistance: 13
   facingRight: 0
   canJump: 1
   myRigidBody: {fileID: 0}
   anime: {fileID: 0}
   target: {fileID: 0}
+  player: {fileID: 0}
+  velocity: {x: 0, y: 0, z: 0}
   isJumping: 0
   dist: 0
   inDist: 0

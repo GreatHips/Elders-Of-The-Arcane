@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
     public bool fireBookHeld;
     public bool iceBookHeld;
     public bool speedBookHeld;
+    public bool earthBookHeld;
     public GameObject fire1;
     public GameObject fire2;
     public GameObject fire3;
@@ -42,10 +43,17 @@ public class Player : MonoBehaviour
     public GameObject speed1;
     public GameObject speed2;
     public GameObject speed3;
+    public GameObject earth1;
+    public GameObject earth2;
+    public GameObject earth3;
     public GameObject speedText;
     public GameObject iceText;
     public GameObject fireballText;
+    public GameObject earthText;
     public GameObject healthBar;
+
+    public bool iceUnlocked;
+    public bool earthUnlocked;
 
     public float moveX;
 
@@ -71,9 +79,10 @@ public class Player : MonoBehaviour
     HealthManager healthManager;
     public static int PlayerHealth=250;
 
+    public ParticleSystem dust;
+
     void Start()
     {
-
          currentScene = SceneManager.GetActiveScene();
 
         sceneName = currentScene.name;
@@ -156,9 +165,8 @@ public class Player : MonoBehaviour
         directionalInput = input;
     }
 
-    public void OnJumpInputDown()
+    public void OnSpaceJumpInputDown()
     {
-
         if (controller.collisions.below)
         {
             if (controller.collisions.slidingDownMaxSlope)
@@ -173,6 +181,26 @@ public class Player : MonoBehaviour
             {
                 velocity.y = maxJumpVelocity;
             }
+            CreateDust();
+        }
+    }
+    public void OnWJumpInputDown()
+    {
+        if (controller.collisions.below)
+        {
+            if (controller.collisions.slidingDownMaxSlope)
+            {
+                if (directionalInput.x != -Mathf.Sign(controller.collisions.slopeNormal.x))
+                { // not jumping against max slope
+                    velocity.y = maxJumpVelocity * controller.collisions.slopeNormal.y;
+                    velocity.x = maxJumpVelocity * controller.collisions.slopeNormal.x;
+                }
+            }
+            else
+            {
+                velocity.y = maxJumpVelocity;
+            }
+            CreateDust();
         }
     }
 
@@ -198,14 +226,18 @@ public class Player : MonoBehaviour
             StartCoroutine(WaitEnemy(.75f));
         }
     }
+    
     public void OnJumpInputUp()
     {
+       
         if (velocity.y > minJumpVelocity)
         {
             velocity.y = minJumpVelocity;
-
+            CreateDust();
         }
+        
     }
+    
     IEnumerator WaitQuit(float seconds)
     {
         yield return new WaitForSeconds(seconds);
@@ -228,7 +260,7 @@ public class Player : MonoBehaviour
         ice3.SetActive(false);
         healthBar.SetActive(false);
     }
-    public static void SavePlayer()
+    public void SavePlayer()
     {
         string path = "SaveFile/Save.txt";
 
@@ -239,7 +271,7 @@ public class Player : MonoBehaviour
         {
             PlayerHealth *= 10;
         }
-
+        
         string createText = sceneInt + PlayerHealth+ Environment.NewLine;
         File.WriteAllText(path, createText);
     }
@@ -254,9 +286,9 @@ public class Player : MonoBehaviour
         StreamReader reader = new StreamReader(path);
         savefile = reader.ReadToEnd();
         char[] b = savefile.ToCharArray();
-        Debug.Log(b[0]);
         sceneInt = b[0]-48;
-        //healthManager.SetHealth(b[3] * 100 + b[2] * 10 + b[1]);
+        //Debug.Log(b[3] * 100 + b[2] * 10 + b[1]);
+       // healthManager.SetHealth(b[3] * 100 + b[2] * 10 + b[1]);
         reader.Close();
     }
     void PlayerMoves()
@@ -265,10 +297,12 @@ public class Player : MonoBehaviour
         player = GameObject.Find("Player");
         if (player.transform.position.x < formerPosition && !facingRight)
         {
+            CreateDust();
             FlipPlayer();
         }
         else if (player.transform.position.x > formerPosition && facingRight)
         {
+            CreateDust();
             FlipPlayer();
         }
         formerPosition = player.transform.position.x;
@@ -283,5 +317,11 @@ public class Player : MonoBehaviour
             transform.localScale = localScale;
         }
         //no
+        
+
+    }
+    void CreateDust()
+    {
+        dust.Play();
     }
 }

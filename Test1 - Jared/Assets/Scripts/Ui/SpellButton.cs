@@ -19,6 +19,11 @@ public class SpellButton : MonoBehaviour
         playerComp.fireBookHeld = false;
         playerComp.speedBookHeld = false;
         playerComp.earthBookHeld = false;
+
+        playerComp.CreateIceEffect();
+        playerComp.DisableFireEffect();
+        playerComp.DisableRunDust();
+        playerComp.DisableSpeedEffect();
     }
     public void UseFire()
     {
@@ -26,6 +31,11 @@ public class SpellButton : MonoBehaviour
         playerComp.fireBookHeld = true;
         playerComp.speedBookHeld = false;
         playerComp.earthBookHeld = false;
+
+        playerComp.DisableIceEffect();
+        playerComp.CreateFireEffect();
+        playerComp.DisableRunDust();
+        playerComp.DisableSpeedEffect();
     }
     public void UseSpeed()
     {
@@ -33,6 +43,11 @@ public class SpellButton : MonoBehaviour
         playerComp.fireBookHeld = false;
         playerComp.speedBookHeld = true;
         playerComp.earthBookHeld = false;
+
+        playerComp.DisableIceEffect();
+        playerComp.DisableFireEffect();
+        playerComp.DisableRunDust();
+        playerComp.CreateSpeedEffect();
     }
 
     public void UseEarth()
@@ -41,6 +56,11 @@ public class SpellButton : MonoBehaviour
         playerComp.fireBookHeld = false;
         playerComp.speedBookHeld = false;
         playerComp.earthBookHeld = true;
+
+        playerComp.DisableIceEffect();
+        playerComp.DisableFireEffect();
+        playerComp.DisableRunDust();
+        playerComp.DisableSpeedEffect();
     }
 
     public void UseNothing()
@@ -49,5 +69,10 @@ public class SpellButton : MonoBehaviour
         playerComp.fireBookHeld = false;
         playerComp.speedBookHeld = false;
         playerComp.earthBookHeld = false;
+
+        playerComp.DisableIceEffect();
+        playerComp.DisableFireEffect();
+        playerComp.DisableRunDust();
+        playerComp.DisableSpeedEffect();
     }
 }

@@ -164,7 +164,7 @@ public class ProjectileAttack : MonoBehaviour
     IEnumerator RechargeIce()
     {
 
-        while (iceChargeAmounts == 0 && !Charging && player.iceBookHeld)
+        while (iceChargeAmounts == 0 && !Charging)
         {
             Charging = true;
             yield return new WaitForSeconds(1f);
@@ -172,7 +172,7 @@ public class ProjectileAttack : MonoBehaviour
             Charging = false;
 
         }
-        while (iceChargeAmounts == 1 && !Charging && player.iceBookHeld)
+        while (iceChargeAmounts == 1 && !Charging)
         {
             Charging = true;
             yield return new WaitForSeconds(1f);
@@ -180,7 +180,7 @@ public class ProjectileAttack : MonoBehaviour
             Charging = false;
 
         }
-        while (iceChargeAmounts == 2 && !Charging && player.iceBookHeld)
+        while (iceChargeAmounts == 2 && !Charging)
         {
             Charging = true;
             yield return new WaitForSeconds(1f);
@@ -188,14 +188,14 @@ public class ProjectileAttack : MonoBehaviour
             Charging = false;
         }
 
-        if (iceChargeAmounts == 1 && !Charging && player.iceBookHeld)
+        if (iceChargeAmounts == 1 && !Charging)
         {
             Charging = true;
             yield return new WaitForSeconds(1f);
             iceChargeAmounts += 1;
             Charging = false;
         }
-        if (iceChargeAmounts == 2 && !Charging && player.iceBookHeld)
+        if (iceChargeAmounts == 2 && !Charging)
         {
             Charging = true;
             yield return new WaitForSeconds(1f);
@@ -203,7 +203,7 @@ public class ProjectileAttack : MonoBehaviour
             Charging = false;
         }
 
-        if (iceChargeAmounts > 4 && player.iceBookHeld)
+        if (iceChargeAmounts > 4)
         {
             iceChargeAmounts = 3;
         }
@@ -211,7 +211,7 @@ public class ProjectileAttack : MonoBehaviour
     }
     IEnumerator SpeedRecharge()
     {
-        while (speedChargeAmounts == 0 && !Charging && player.speedBookHeld)
+        while (speedChargeAmounts == 0 && !Charging)
         {
             Charging = true;
             yield return new WaitForSeconds(7f);
@@ -219,7 +219,7 @@ public class ProjectileAttack : MonoBehaviour
             Charging = false;
 
         }
-        while (speedChargeAmounts == 1 && !Charging && player.speedBookHeld)
+        while (speedChargeAmounts == 1 && !Charging)
         {
             Charging = true;
             yield return new WaitForSeconds(7f);
@@ -227,7 +227,7 @@ public class ProjectileAttack : MonoBehaviour
             Charging = false;
 
         }
-        while (speedChargeAmounts == 2 && !Charging && player.speedBookHeld)
+        while (speedChargeAmounts == 2 && !Charging)
         {
             Charging = true;
             yield return new WaitForSeconds(7f);
@@ -235,14 +235,14 @@ public class ProjectileAttack : MonoBehaviour
             Charging = false;
         }
 
-        if (speedChargeAmounts == 1 && !Charging && player.speedBookHeld)
+        if (speedChargeAmounts == 1 && !Charging)
         {
             Charging = true;
             yield return new WaitForSeconds(7f);
             speedChargeAmounts += 1;
             Charging = false;
         }
-        if (speedChargeAmounts == 2 && !Charging && player.speedBookHeld)
+        if (speedChargeAmounts == 2 && !Charging)
         {
             Charging = true;
             yield return new WaitForSeconds(7f);
@@ -250,7 +250,7 @@ public class ProjectileAttack : MonoBehaviour
             Charging = false;
         }
 
-        if (speedChargeAmounts > 4 && player.speedBookHeld)
+        if (speedChargeAmounts > 4)
         {
             speedChargeAmounts = 3;
         }

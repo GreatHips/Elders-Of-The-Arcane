@@ -79,6 +79,8 @@ public class Player : MonoBehaviour
     HealthManager healthManager;
     public static int PlayerHealth=250;
 
+    public ParticleSystem dust;
+
     void Start()
     {
          currentScene = SceneManager.GetActiveScene();
@@ -163,9 +165,8 @@ public class Player : MonoBehaviour
         directionalInput = input;
     }
 
-    public void OnJumpInputDown()
+    public void OnSpaceJumpInputDown()
     {
-
         if (controller.collisions.below)
         {
             if (controller.collisions.slidingDownMaxSlope)
@@ -180,6 +181,26 @@ public class Player : MonoBehaviour
             {
                 velocity.y = maxJumpVelocity;
             }
+            CreateDust();
+        }
+    }
+    public void OnWJumpInputDown()
+    {
+        if (controller.collisions.below)
+        {
+            if (controller.collisions.slidingDownMaxSlope)
+            {
+                if (directionalInput.x != -Mathf.Sign(controller.collisions.slopeNormal.x))
+                { // not jumping against max slope
+                    velocity.y = maxJumpVelocity * controller.collisions.slopeNormal.y;
+                    velocity.x = maxJumpVelocity * controller.collisions.slopeNormal.x;
+                }
+            }
+            else
+            {
+                velocity.y = maxJumpVelocity;
+            }
+            CreateDust();
         }
     }
 
@@ -205,14 +226,18 @@ public class Player : MonoBehaviour
             StartCoroutine(WaitEnemy(.75f));
         }
     }
+    
     public void OnJumpInputUp()
     {
+       
         if (velocity.y > minJumpVelocity)
         {
             velocity.y = minJumpVelocity;
-
+            CreateDust();
         }
+        
     }
+    
     IEnumerator WaitQuit(float seconds)
     {
         yield return new WaitForSeconds(seconds);
@@ -272,10 +297,12 @@ public class Player : MonoBehaviour
         player = GameObject.Find("Player");
         if (player.transform.position.x < formerPosition && !facingRight)
         {
+            CreateDust();
             FlipPlayer();
         }
         else if (player.transform.position.x > formerPosition && facingRight)
         {
+            CreateDust();
             FlipPlayer();
         }
         formerPosition = player.transform.position.x;
@@ -290,5 +317,11 @@ public class Player : MonoBehaviour
             transform.localScale = localScale;
         }
         //no
+        
+
+    }
+    void CreateDust()
+    {
+        dust.Play();
     }
 }

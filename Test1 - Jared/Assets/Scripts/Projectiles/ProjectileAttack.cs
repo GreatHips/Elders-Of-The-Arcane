@@ -276,6 +276,7 @@ public class ProjectileAttack : MonoBehaviour
             player.iceBook.SetActive(false);
             player.speedBook.SetActive(false);
             player.speedText.SetActive(false);
+            
             canAttack = false;
         }
         else if (chargeAmounts == 1 && player.fireBookHeld)

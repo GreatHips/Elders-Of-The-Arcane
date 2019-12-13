@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3468404813382003287}
   - component: {fileID: 3468404813382003286}
   - component: {fileID: 5389103272875678834}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Heart
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ Animator:
   m_GameObject: {fileID: 3468404813382003284}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5753b4474504b824aace86a17430f8e5, type: 2}
+  m_Controller: {fileID: 9100000, guid: fa5c7f09a03f17844b5ea2edc896ad14, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

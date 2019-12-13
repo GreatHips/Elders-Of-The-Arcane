@@ -33,6 +33,7 @@ public class PlayerInput : MonoBehaviour {
         {
             //Testing Only Delete me
             player.GetComponent<Player>().moveSpeed = 20;
+            player.CreateRunDust();
         }
         else if (Input.GetKeyUp(KeyCode.LeftShift))
         {

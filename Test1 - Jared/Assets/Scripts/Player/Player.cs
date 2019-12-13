@@ -79,7 +79,11 @@ public class Player : MonoBehaviour
     HealthManager healthManager;
     public static int PlayerHealth=250;
 
-    public ParticleSystem dust;
+    public ParticleSystem runDust;
+    public ParticleSystem speedDust;
+    public ParticleSystem speedEffect;
+    public ParticleSystem iceEffect;
+    public ParticleSystem fireEffect;
 
     void Start()
     {
@@ -181,7 +185,7 @@ public class Player : MonoBehaviour
             {
                 velocity.y = maxJumpVelocity;
             }
-            CreateDust();
+            CreateRunDust();
         }
     }
     public void OnWJumpInputDown()
@@ -200,7 +204,7 @@ public class Player : MonoBehaviour
             {
                 velocity.y = maxJumpVelocity;
             }
-            CreateDust();
+            CreateRunDust();
         }
     }
 
@@ -233,7 +237,7 @@ public class Player : MonoBehaviour
         if (velocity.y > minJumpVelocity)
         {
             velocity.y = minJumpVelocity;
-            CreateDust();
+            CreateRunDust();
         }
         
     }
@@ -297,12 +301,12 @@ public class Player : MonoBehaviour
         player = GameObject.Find("Player");
         if (player.transform.position.x < formerPosition && !facingRight)
         {
-            CreateDust();
+            CreateRunDust();
             FlipPlayer();
         }
         else if (player.transform.position.x > formerPosition && facingRight)
         {
-            CreateDust();
+            CreateRunDust();
             FlipPlayer();
         }
         formerPosition = player.transform.position.x;
@@ -316,12 +320,53 @@ public class Player : MonoBehaviour
             localScale.x *= -1;
             transform.localScale = localScale;
         }
-        //no
-        
 
-    }
-    void CreateDust()
+    } 
+    //Functions for particle creation for books and movement
+    public void CreateRunDust()
     {
-        dust.Play();
+        runDust.Play();
+    }
+
+    public void CreateSpeedDust()
+    {
+        speedDust.Play();
+    }
+
+    public void CreateSpeedEffect()
+    {
+        speedEffect.Play();
+    }
+
+    public void CreateIceEffect()
+    {
+        iceEffect.Play();
+    }
+
+    public void CreateFireEffect()
+    {
+        fireEffect.Play();
+    }
+
+    //Functions for particle deletion for books and movements
+    public void DisableRunDust()
+    {
+        runDust.Stop();
+    }
+    public void DisableSpeedDust()
+    {
+        speedDust.Stop();
+    }
+    public void DisableSpeedEffect()
+    {
+        speedEffect.Stop();
+    }
+    public void DisableIceEffect()
+    {
+        iceEffect.Stop();
+    }
+    public void DisableFireEffect()
+    {
+        fireEffect.Stop();
     }
 }

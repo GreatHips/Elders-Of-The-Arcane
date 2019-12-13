@@ -10,7 +10,10 @@ public class ProjectileAttack : MonoBehaviour
     public Player player;
     GameObject b;
     public bool canAttack = true;
-    public int chargeAmounts = Mathf.Max(3);
+    public int fireChargeAmounts = Mathf.Max(3);
+    public int iceChargeAmounts = Mathf.Max(3);
+    public int speedChargeAmounts = Mathf.Max(3);
+    public int earthChargeAmounts = Mathf.Max(3);
     public GameObject inventory;
 
     public AudioClip fireballSound;
@@ -26,10 +29,8 @@ public class ProjectileAttack : MonoBehaviour
     {
         Physics2D.IgnoreLayerCollision(8, 11);
     }
-    private void Update()
+    public void Update()
     {
-        
-        checkBookHeld();
         varFacingRight = 1;
 
         if (player.facingRight == false)
@@ -37,26 +38,29 @@ public class ProjectileAttack : MonoBehaviour
             varFacingRight = -1;
 
         }
-        if (canAttack && chargeAmounts >= 1)
+        checkBookHeld();
+        if (canAttack && fireChargeAmounts >= 1 && player.fireBookHeld)
         {
             if (Input.GetKeyDown(KeyCode.K) || (Input.GetKeyDown(KeyCode.L)))
             {
-
-                chargeAmounts -= 1;
-
-
-                if (player.fireBookHeld)
-                {
+                fireChargeAmounts -= 1;
                     ShootFireball();
-                }
-                if (player.iceBookHeld)
-                {
-                    ShootIce();
-                }
-                if (player.speedBookHeld)
-                {
-                    ShootSpeed();
-                }
+            }
+        }
+        if (canAttack && iceChargeAmounts >= 1 && player.iceBookHeld)
+        {
+            if (Input.GetKeyDown(KeyCode.K) || (Input.GetKeyDown(KeyCode.L)))
+            {
+                iceChargeAmounts -= 1;
+                ShootIce();
+            }
+        }
+        if (canAttack && speedChargeAmounts >= 1 && player.speedBookHeld)
+        {
+            if (Input.GetKeyDown(KeyCode.K) || (Input.GetKeyDown(KeyCode.L)))
+            {
+                speedChargeAmounts -= 1;
+                ShootSpeed();
             }
         }
     }
@@ -112,143 +116,143 @@ public class ProjectileAttack : MonoBehaviour
     IEnumerator RechargeFireball()
     {
 
-        while (chargeAmounts == 0 && !Charging && player.fireBookHeld)
+        while (fireChargeAmounts == 0 && !Charging)
         {
             Charging = true;
             yield return new WaitForSeconds(.75f);
-            chargeAmounts += 1;
+            fireChargeAmounts += 1;
             Charging = false;
 
         }
-        while (chargeAmounts == 1 && !Charging && player.fireBookHeld)
+        while (fireChargeAmounts == 1 && !Charging)
         {
             Charging = true;
             yield return new WaitForSeconds(.75f);
-            chargeAmounts += 1;
+            fireChargeAmounts += 1;
             Charging = false;
 
         }
-        while (chargeAmounts == 2 && !Charging && player.fireBookHeld)
+        while (fireChargeAmounts == 2 && !Charging)
         {
             Charging = true;
             yield return new WaitForSeconds(.75f);
-            chargeAmounts += 1;
+            fireChargeAmounts += 1;
             Charging = false;
         }
 
-        if (chargeAmounts == 1 && !Charging && player.fireBookHeld)
+        if (fireChargeAmounts == 1 && !Charging)
         {
             Charging = true;
             yield return new WaitForSeconds(.75f);
-            chargeAmounts += 1;
+            fireChargeAmounts += 1;
             Charging = false;
         }
-        if (chargeAmounts == 2 && !Charging && player.fireBookHeld)
+        if (fireChargeAmounts == 2 && !Charging)
         {
             Charging = true;
             yield return new WaitForSeconds(.75f);
-            chargeAmounts += 1;
+            fireChargeAmounts += 1;
             Charging = false;
         }
 
-        if (chargeAmounts > 4 && player.fireBookHeld)
+        if (fireChargeAmounts > 4)
         {
-            chargeAmounts = 3;
+            fireChargeAmounts = 3;
         }
 
     }
     IEnumerator RechargeIce()
     {
 
-        while (chargeAmounts == 0 && !Charging && player.iceBookHeld)
+        while (iceChargeAmounts == 0 && !Charging && player.iceBookHeld)
         {
             Charging = true;
             yield return new WaitForSeconds(1f);
-            chargeAmounts += 1;
+            iceChargeAmounts += 1;
             Charging = false;
 
         }
-        while (chargeAmounts == 1 && !Charging && player.iceBookHeld)
+        while (iceChargeAmounts == 1 && !Charging && player.iceBookHeld)
         {
             Charging = true;
             yield return new WaitForSeconds(1f);
-            chargeAmounts += 1;
+            iceChargeAmounts += 1;
             Charging = false;
 
         }
-        while (chargeAmounts == 2 && !Charging && player.iceBookHeld)
+        while (iceChargeAmounts == 2 && !Charging && player.iceBookHeld)
         {
             Charging = true;
             yield return new WaitForSeconds(1f);
-            chargeAmounts += 1;
+            iceChargeAmounts += 1;
             Charging = false;
         }
 
-        if (chargeAmounts == 1 && !Charging && player.iceBookHeld)
+        if (iceChargeAmounts == 1 && !Charging && player.iceBookHeld)
         {
             Charging = true;
             yield return new WaitForSeconds(1f);
-            chargeAmounts += 1;
+            iceChargeAmounts += 1;
             Charging = false;
         }
-        if (chargeAmounts == 2 && !Charging && player.iceBookHeld)
+        if (iceChargeAmounts == 2 && !Charging && player.iceBookHeld)
         {
             Charging = true;
             yield return new WaitForSeconds(1f);
-            chargeAmounts += 1;
+            iceChargeAmounts += 1;
             Charging = false;
         }
 
-        if (chargeAmounts > 4 && player.iceBookHeld)
+        if (iceChargeAmounts > 4 && player.iceBookHeld)
         {
-            chargeAmounts = 3;
+            iceChargeAmounts = 3;
         }
 
     }
     IEnumerator SpeedRecharge()
     {
-        while (chargeAmounts == 0 && !Charging && player.speedBookHeld)
+        while (speedChargeAmounts == 0 && !Charging && player.speedBookHeld)
         {
             Charging = true;
             yield return new WaitForSeconds(7f);
-            chargeAmounts += 1;
+            speedChargeAmounts += 1;
             Charging = false;
 
         }
-        while (chargeAmounts == 1 && !Charging && player.speedBookHeld)
+        while (speedChargeAmounts == 1 && !Charging && player.speedBookHeld)
         {
             Charging = true;
             yield return new WaitForSeconds(7f);
-            chargeAmounts += 1;
+            speedChargeAmounts += 1;
             Charging = false;
 
         }
-        while (chargeAmounts == 2 && !Charging && player.speedBookHeld)
+        while (speedChargeAmounts == 2 && !Charging && player.speedBookHeld)
         {
             Charging = true;
             yield return new WaitForSeconds(7f);
-            chargeAmounts += 1;
+            speedChargeAmounts += 1;
             Charging = false;
         }
 
-        if (chargeAmounts == 1 && !Charging && player.speedBookHeld)
+        if (speedChargeAmounts == 1 && !Charging && player.speedBookHeld)
         {
             Charging = true;
             yield return new WaitForSeconds(7f);
-            chargeAmounts += 1;
+            speedChargeAmounts += 1;
             Charging = false;
         }
-        if (chargeAmounts == 2 && !Charging && player.speedBookHeld)
+        if (speedChargeAmounts == 2 && !Charging && player.speedBookHeld)
         {
             Charging = true;
             yield return new WaitForSeconds(7f);
-            chargeAmounts += 1;
+            speedChargeAmounts += 1;
             Charging = false;
         }
 
-        if (chargeAmounts > 4 && player.speedBookHeld)
+        if (speedChargeAmounts > 4 && player.speedBookHeld)
         {
-            chargeAmounts = 3;
+            speedChargeAmounts = 3;
         }
 
     }
@@ -259,7 +263,7 @@ public class ProjectileAttack : MonoBehaviour
     }
     void checkBookHeld()
     {
-        if (chargeAmounts == 0 && player.fireBookHeld)
+        if (fireChargeAmounts == 0 && player.fireBookHeld)
         {
             player.fire1.SetActive(false);
             player.fire2.SetActive(false);
@@ -276,9 +280,14 @@ public class ProjectileAttack : MonoBehaviour
             player.iceBook.SetActive(false);
             player.speedBook.SetActive(false);
             player.speedText.SetActive(false);
+            player.earth1.SetActive(false);
+            player.earth2.SetActive(false);
+            player.earth3.SetActive(false);
+            player.earthText.SetActive(false);
+            player.earthBook.SetActive(false);
             canAttack = false;
         }
-        else if (chargeAmounts == 1 && player.fireBookHeld)
+        else if (fireChargeAmounts == 1 && player.fireBookHeld)
         {
             player.fire1.SetActive(true);
             player.fire2.SetActive(false);
@@ -295,9 +304,14 @@ public class ProjectileAttack : MonoBehaviour
             player.iceBook.SetActive(false);
             player.speedBook.SetActive(false);
             player.speedText.SetActive(false);
+            player.earth1.SetActive(false);
+            player.earth2.SetActive(false);
+            player.earth3.SetActive(false);
+            player.earthText.SetActive(false);
+            player.earthBook.SetActive(false);
             canAttack = true;
         }
-        else if (chargeAmounts == 2 && player.fireBookHeld)
+        else if (fireChargeAmounts == 2 && player.fireBookHeld)
         {
             player.fire1.SetActive(true);
             player.fire2.SetActive(true);
@@ -314,9 +328,14 @@ public class ProjectileAttack : MonoBehaviour
             player.iceBook.SetActive(false);
             player.speedBook.SetActive(false);
             player.speedText.SetActive(false);
+            player.earth1.SetActive(false);
+            player.earth2.SetActive(false);
+            player.earth3.SetActive(false);
+            player.earthText.SetActive(false);
+            player.earthBook.SetActive(false);
             canAttack = true;
         }
-        else if (chargeAmounts == 3 && player.fireBookHeld)
+        else if (fireChargeAmounts == 3 && player.fireBookHeld)
         {
             player.fire1.SetActive(true);
             player.fire2.SetActive(true);
@@ -335,11 +354,11 @@ public class ProjectileAttack : MonoBehaviour
             player.speedText.SetActive(false);
             canAttack = true;
         }
-        if (chargeAmounts >= 4)
+        if (fireChargeAmounts >= 4)
         {
-            chargeAmounts = 3;
+            fireChargeAmounts = 3;
         }
-        if (chargeAmounts == 0 && player.iceBookHeld)
+        if (iceChargeAmounts == 0 && player.iceBookHeld)
         {
             player.ice1.SetActive(false);
             player.ice2.SetActive(false);
@@ -356,9 +375,14 @@ public class ProjectileAttack : MonoBehaviour
             player.iceBook.SetActive(true);
             player.speedBook.SetActive(false);
             player.speedText.SetActive(false);
+            player.earth1.SetActive(false);
+            player.earth2.SetActive(false);
+            player.earth3.SetActive(false);
+            player.earthText.SetActive(false);
+            player.earthBook.SetActive(false);
             canAttack = false;
         }
-        else if (chargeAmounts == 1 && player.iceBookHeld)
+        else if (iceChargeAmounts == 1 && player.iceBookHeld)
         {
 
             player.ice1.SetActive(true);
@@ -376,9 +400,14 @@ public class ProjectileAttack : MonoBehaviour
             player.iceBook.SetActive(true);
             player.speedBook.SetActive(false);
             player.speedText.SetActive(false);
+            player.earth1.SetActive(false);
+            player.earth2.SetActive(false);
+            player.earth3.SetActive(false);
+            player.earthText.SetActive(false);
+            player.earthBook.SetActive(false);
             canAttack = true;
         }
-        else if (chargeAmounts == 2 && player.iceBookHeld)
+        else if (iceChargeAmounts == 2 && player.iceBookHeld)
         {
             player.ice1.SetActive(true);
             player.ice2.SetActive(true);
@@ -395,9 +424,14 @@ public class ProjectileAttack : MonoBehaviour
             player.iceBook.SetActive(true);
             player.speedBook.SetActive(false);
             player.speedText.SetActive(false);
+            player.earth1.SetActive(false);
+            player.earth2.SetActive(false);
+            player.earth3.SetActive(false);
+            player.earthText.SetActive(false);
+            player.earthBook.SetActive(false);
             canAttack = true;
         }
-        else if (chargeAmounts == 3 && player.iceBookHeld)
+        else if (iceChargeAmounts == 3 && player.iceBookHeld)
         {
             player.ice1.SetActive(true);
             player.ice2.SetActive(true);
@@ -414,13 +448,18 @@ public class ProjectileAttack : MonoBehaviour
             player.iceBook.SetActive(true);
             player.speedBook.SetActive(false);
             player.speedText.SetActive(false);
+            player.earth1.SetActive(false);
+            player.earth2.SetActive(false);
+            player.earth3.SetActive(false);
+            player.earthText.SetActive(false);
+            player.earthBook.SetActive(false);
             canAttack = true;
         }
-        if (chargeAmounts >= 4)
+        if (iceChargeAmounts >= 4)
         {
-            chargeAmounts = 3;
+            iceChargeAmounts = 3;
         }
-        if (chargeAmounts == 0 && player.speedBookHeld)
+        if (speedChargeAmounts == 0 && player.speedBookHeld)
         {
             player.ice1.SetActive(false);
             player.ice2.SetActive(false);
@@ -437,9 +476,14 @@ public class ProjectileAttack : MonoBehaviour
             player.iceBook.SetActive(false);
             player.speedBook.SetActive(true);
             player.speedText.SetActive(true);
+            player.earth1.SetActive(false);
+            player.earth2.SetActive(false);
+            player.earth3.SetActive(false);
+            player.earthText.SetActive(false);
+            player.earthBook.SetActive(false);
             canAttack = false;
         }
-        else if (chargeAmounts == 1 && player.speedBookHeld)
+        else if (speedChargeAmounts == 1 && player.speedBookHeld)
         {
 
             player.ice1.SetActive(false);
@@ -457,9 +501,14 @@ public class ProjectileAttack : MonoBehaviour
             player.iceBook.SetActive(false);
             player.speedBook.SetActive(true);
             player.speedText.SetActive(true);
+            player.earth1.SetActive(false);
+            player.earth2.SetActive(false);
+            player.earth3.SetActive(false);
+            player.earthText.SetActive(false);
+            player.earthBook.SetActive(false);
             canAttack = true;
         }
-        else if (chargeAmounts == 2 && player.speedBookHeld)
+        else if (speedChargeAmounts == 2 && player.speedBookHeld)
         {
             player.ice1.SetActive(false);
             player.ice2.SetActive(false);
@@ -476,9 +525,14 @@ public class ProjectileAttack : MonoBehaviour
             player.iceBook.SetActive(false);
             player.speedBook.SetActive(true);
             player.speedText.SetActive(true);
+            player.earth1.SetActive(false);
+            player.earth2.SetActive(false);
+            player.earth3.SetActive(false);
+            player.earthText.SetActive(false);
+            player.earthBook.SetActive(false);
             canAttack = true;
         }
-        else if (chargeAmounts == 3 && player.speedBookHeld)
+        else if (speedChargeAmounts == 3 && player.speedBookHeld)
         {
             player.ice1.SetActive(false);
             player.ice2.SetActive(false);
@@ -495,11 +549,20 @@ public class ProjectileAttack : MonoBehaviour
             player.iceBook.SetActive(false);
             player.speedBook.SetActive(true);
             player.speedText.SetActive(true);
+            player.earth1.SetActive(false);
+            player.earth2.SetActive(false);
+            player.earth3.SetActive(false);
+            player.earthText.SetActive(false);
+            player.earthBook.SetActive(false);
             canAttack = true;
         }
-        if (chargeAmounts >= 4)
+        if (speedChargeAmounts >= 4)
         {
-            chargeAmounts = 3;
+            speedChargeAmounts = 3;
+        }
+        if (earthChargeAmounts == 3 && player.earthBookHeld == true)
+        {
+
         }
     }
 }

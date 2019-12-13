@@ -24,6 +24,7 @@ public class Mail : MonoBehaviour
         //attachment = new System.Net.Mail.Attachment("c:/textfile.txt");
         //mail.Attachments.Add(attachment);
 
+
         SmtpServer.Port = 25;
         SmtpServer.Credentials = new System.Net.NetworkCredential("Ps20ndean@efcts.us", "Gracie11");
         SmtpServer.EnableSsl = true;

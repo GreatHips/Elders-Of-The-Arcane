@@ -28,14 +28,10 @@ public class HeartCollect : MonoBehaviour
     }
         public void OnCollisionEnter2D(Collision2D collision)
     {
-            if (collision.gameObject == player)
+            if (collision.gameObject.tag == "Player")
             {
-
-                if (player.GetComponent<HealthManager>().health < player.GetComponent<HealthManager>().healthMax)
-                {
                     player.GetComponent<HealthManager>().Heal(75);
                     Destroy(gameObject);
-                }
             }
         }
 

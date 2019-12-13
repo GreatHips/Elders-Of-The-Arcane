@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
     public GameObject iceBook;
     public GameObject fireBook;
     public GameObject speedBook;
+    public GameObject earthBook;
     public bool fireBookHeld;
     public bool iceBookHeld;
     public bool speedBookHeld;
